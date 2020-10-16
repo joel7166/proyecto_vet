@@ -1,0 +1,61 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_1propietario`(
+in id int
+)
+BEGIN
+select * from propietario 
+where pro_id = id;
+END
+*************************
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_editarpropietario`(
+in id int,
+in nombre varchar(45),
+in apellidos varchar(45),
+in  telefono varchar(9),
+in email varchar(45),
+in direccion varchar(45),
+in ciudad varchar(45)
+)
+BEGIN
+update propietario set pro_nombre=nombre,pro_apellidos=apellidos,pro_telefono=telefono,pro_email=email,pro_direccion=direccion,
+pro_ciudad=ciudad where pro_id=id;
+END
+
+*******************************
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_eliminarpropietario`( in id int)
+BEGIN
+delete from propietario where pro_id=id;
+END
+********************************
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_eliminarusuario`(in id int)
+BEGIN
+delete from ususario where usu_id=id;
+END
+*******************************
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_listpropietario`()
+BEGIN
+select * from propietario;
+END
+*****************************
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_listusuario`()
+BEGIN
+select * from usuario;
+END
+*****************************
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_nuevopropietario`(
+in dni char(8),
+in nombre varchar(50),
+in apellidos varchar(50),
+in telefono varchar(9),
+in email varchar(45),
+in direccion varchar(45),
+in ciudad varchar (45)
+)
+BEGIN
+insert into propietario(pro_dni,pro_nombre,pro_apellidos,pro_telefono,pro_email,pro_direccion,pro_ciudad) values
+(dni,nombre,apellidos,telefono,email,direccion,ciudad);
+END
+***************************
+
+

@@ -85,10 +85,10 @@
                           <i class="fa fa-home"></i>INICIO
 
                         </a>
-                      
+
                   </li>
                   <li><a href="{{route('usuario.index')}}"><i class="fa fa-edit"></i>USUARIO </a>
-                    
+
                   </li>
                   <li><a><i class="fa fa-edit"></i>PROPIETARIO <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -113,6 +113,7 @@
                   <li><a><i class="fa fa-bar-chart-o"></i> PRODUCTO <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Producto</a></li>
+                      <li><a href="#">Categoria</a></li>
 
                     </ul>
                   </li>
@@ -295,7 +296,7 @@
       </div>
     </div>
 
-    <!-- jQuery 
+    <!-- jQuery
     <script src="../../public/gente/vendors/jquery/dist/jquery.min.js"></script>-->
     <!-- Bootstrap -->
     <script src="../../public/gente/vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -311,7 +312,7 @@
     <script src="../../public/gente/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- iCheck -->
     <script src="../../public/gente/vendors/iCheck/icheck.min.js"></script>
-   <!-- Datatables 
+   <!-- Datatables
    <script src="../../public/gente/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="../../public/gente/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
     <script src="../../public/gente/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
