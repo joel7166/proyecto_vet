@@ -34,6 +34,8 @@ class usuariocontrol extends Controller
     public function eliminar($usu_id){
         $usuarios=DB::select('CALL sp_eliminarusuario(?)',[$usu_id]);
     }
+
+ 
 }
 
 

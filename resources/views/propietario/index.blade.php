@@ -11,15 +11,15 @@
             <li class="nav-item" role="presentation">
               <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Nuevo</a>
             </li>
-
           </ul>
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                
                 <h3>Propietarios</h3>
                 <table id="tabla-propietario" class="table table-hover">
                     <thead>
                         <td>DNI</td>
-                        <td>Nombre</td>
+                        <td>Nombre</td> 
                         <td>Apellidos</td>
                         <td>Telefono</td>
                         <td>Correo</td>
@@ -27,46 +27,76 @@
                         <td>ACCIONES</td>
                     </thead>
                 </table>
-
-                </div>
+            </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <h3> Nuevo Propietario</h3>
-              <form id="registro-propietario">
-                    @csrf
-                    <div class="col-md-6">
-
-                        <div class="form-group">
-                            <label for="txtdni">DNI</label>
-                            <input type="text" class="form-control" id="txtdni" name="txtdni" placeholder="DNI" require>
+                
+                <div class="col-md-12 col-sm-12 ">
+                    <div class="x_panel">
+                        <div class="x_content">
+                            
+                            <h3> Nuevo Propietario</h3>
+                            <div class="ln_solid"></div>
+                            <form id="registro-propietario"data-parsley-validate class="form-horizontal form-label-left">
+                                    @csrf
+                                <div class="item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdni">DNI<span class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6 ">
+                                        <input type="text" class="form-control" id="txtdni" name="txtdni" required>
+                                    </div>
+                                </div>
+                                <div class="item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtnombres">Nombres<span class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6 ">
+                                        <input type="text" class="form-control" id="txtnombre" name="txtnombre"  required>
+                                    </div>
+                                    
+                                </div>
+                                <div class="item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtapellidos">Apellidos<span class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6 ">
+                                        <input type="text" class="form-control" id="txtapellidos" name="txtapellidos"  required>
+                                   </div>
+                                    
+                                </div>
+                                <div class="item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtapellidos">Celular</label>
+                                    <div class="col-md-6 col-sm-6 ">
+                                        <input type="text" class="form-control" id="txtcelular" name="txtcelular" >
+                                    </div>
+                                    
+                                </div>
+                                <div class="item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="inputAddress2">correo<span class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6 ">
+                                        <input type="email" class="form-control" id="txtemail" name="txtemail" required>
+                                   </div>
+                                    
+                                </div>
+                                <div class="item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="inputAddress2">Direccion</label>
+                                    <div class="col-md-6 col-sm-6 ">
+                                        <input type="text" class="form-control" id="txtdireccion" name="txtdireccion" >
+                                     </div>
+                                    
+                                </div>
+                                <div class="item form-group">
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="inputAddress2">Ciudad</label>
+                                    <div class="col-md-6 col-sm-6 ">
+                                        <input type="text" class="form-control" id="txtciudad" name="txtciudad" >
+                                    </div>
+                                    
+                                </div>
+                                <div class="ln_solid"></div>
+                                <div class="item form-group" >
+                                    <div class="col-md-6 col-sm-6 offset-md-3">
+                                        <button type="submit" class="btn btn-success" >Registrar</button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group">
-                            <label for="txtnombres">Nombres</label>
-                            <input type="text" class="form-control" id="txtnombre" name="txtnombre" placeholder="Nombres" require>
-                        </div>
-                        <div class="form-group">
-                            <label for="txtapellidos">Apellidos</label>
-                            <input type="text" class="form-control" id="txtapellidos" name="txtapellidos" placeholder="Apellidos" require>
-                        </div>
-                        <div class="form-group">
-                            <label for="txtapellidos">Celular</label>
-                            <input type="text" class="form-control" id="txtcelular" name="txtcelular" placeholder="Celular">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputAddress2">correo</label>
-                            <input type="email" class="form-control" id="txtemail" name="txtemail" placeholder="Ingrese su correo" require>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputAddress2">Direccion</label>
-                            <input type="text" class="form-control" id="txtdireccion" name="txtdireccion" placeholder="direccion">
-                        </div>
-                        <div class="form-group">
-                            <label for="inputAddress2">Ciudad</label>
-                            <input type="text" class="form-control" id="txtciudad" name="txtciudad" placeholder="ciudad">
-                        </div>
-                        <button type="submit" class="btn btn-primary" >Registrar</button>
                     </div>
-
-               </form>
+                </div>
+               
             </div>
 
           </div>
@@ -184,30 +214,29 @@
             }
 
         });
-
     });
 </script>
 <!--listar-->
 <script>
-            $(document).ready(function(){
-                var tablaanimal=$('#tabla-propietario').DataTable({
-                    processing:true,
-                    serverSide:true,
-                    ajax:{
-                        url:"{{route('propietario.index')}}",
-                    },
-                    columns:[
-                        {data:'pro_dni'},
-                        {data:'pro_nombre'},
-                        {data:'pro_apellidos'},
-                        {data:'pro_telefono'},
-                        {data:'pro_email'},
-                        {data:'pro_direccion'},
+    $(document).ready(function(){
+        var tablaanimal=$('#tabla-propietario').DataTable({
+            processing:true,
+            serverSide:true,
+            ajax:{
+                url:"{{route('propietario.index')}}",
+            },
+            columns:[
+                {data:'pro_dni'},
+                {data:'pro_nombre'},
+                {data:'pro_apellidos'},
+                {data:'pro_telefono'},
+                {data:'pro_email'},
+                {data:'pro_direccion'},
 
-                        {data:'action',orderable:false}
-                    ]
-                });
-            });
+                {data:'action',orderable:false}
+            ]
+        });
+    });
 </script>
 <!--eliminar-->
 <script>

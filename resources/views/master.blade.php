@@ -71,9 +71,7 @@
               </div>
             </div>
             <!-- /menu profile quick info -->
-
             <br />
-
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
@@ -81,18 +79,12 @@
                 <ul class="nav side-menu">
 
                   <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('inicio.index')}}" class="nav-link">
                           <i class="fa fa-home"></i>INICIO
-
                         </a>
-
-                  </li>
-                  <li><a href="{{route('usuario.index')}}"><i class="fa fa-edit"></i>USUARIO </a>
-
-                  </li>
+                  </li>              
                   <li><a><i class="fa fa-edit"></i>PROPIETARIO <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-
                       <li><a href="{{route('propietario.index')}}">Propietario</a></li>
 
                     </ul>
@@ -141,9 +133,6 @@
 
                     </ul>
                   </li>
-
-
-
                 </ul>
               </div>
 
@@ -177,19 +166,19 @@
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
               </div>
               <nav class="nav navbar-nav">
-              <ul class=" navbar-right">
+              <ul class=" navbar-right"> 
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                    <img src="../../public/gente/production/images/img.jpg" alt="">Silvia Peña
+                    <img src="../../public/gente/production/images/img.jpg" alt="">Usuarios
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item"  href="javascript:;"> Profile</a>
-                      <a class="dropdown-item"  href="javascript:;">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Settings</span>
+                    <a class="dropdown-item"  href="javascript:;">Perfiles</a>
+                      <a class="dropdown-item"  href="{{route('usuario.index')}}">
+                        <span class="badge bg-red pull-right">new</span>
+                        <span>Configuraciones</span>
                       </a>
-                  <a class="dropdown-item"  href="javascript:;">Help</a>
-                    <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                    <a class="dropdown-item"  href="#">Ayuda</a>
+                    <a class="dropdown-item"  href="{{route('login.login')}}"><i class="fa fa-sign-out pull-right"></i>Salir</a>
                   </div>
                 </li>
 

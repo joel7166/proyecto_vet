@@ -12,9 +12,5 @@ class logincontrol extends Controller
  public function login(){
      return view('login.login');
  }
-public function editar(){
-
-    return view('usuario.editar');
-}
 
 }

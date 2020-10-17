@@ -57,7 +57,7 @@
                   </div>
                   <div class="form-group">
                       <label for="txtcontraseña">Contraseña</label>
-                      <input type="text" class="form-control" id="txtcontraseña" name="txtcontraseña" placeholder="contraseña">
+                      <input type="password" class="form-control" id="txtcontraseña" name="txtcontraseña" placeholder="contraseña">
                   </div>
                   <div class="form-group">
                       <label for="txtnombres">Nombres</label>
@@ -132,32 +132,33 @@
         </script>
 
           <!-- Eliminar-->
-        <script>
-            var usu_id;
-            $(document).on('click','.delete',function(){
-                usu_id=$(this).attr('id');
+<script>
+  var usu_id;
+  $(document).on('click','.delete',function(){
+      usu_id=$(this).attr('id');
 
-                $('#confimodal').modal('show');
+      $('#confimodal').modal('show');
 
-            });
-            $('#btnEliminar').click(function(){
-                $.ajax({
-                    url:"usuario/eliminar/"+usu_id,
-                    beforeSend:function(){
-                        $('#btnEliminar').text('Eliminando....');
-                    },
-                    success:function(data){
-                        setTimeout(function(){
-                            $('#confimodal').modal('hide');
-                            toastr.warning('El registro fue eliminado correctamente.','Eliminar Registro',{timeout:30});
-                            $('#tabla-usuario').DataTable().ajax.reload();
+  });
+  $('#btnEliminar').click(function(){
+      $.ajax({
+          url:"usuario/eliminar/"+usu_id,
+          beforeSend:function(){
+              $('#btnEliminar').text('Eliminando....');
+          },
+          success:function(data){
+              setTimeout(function(){
+                  $('#confimodal').modal('hide');
+                  toastr.warning('El registro fue eliminado correctamente.','Eliminar Registro',{timeout:30});
+                  $('#tabla-usuario').DataTable().ajax.reload();
 
-                        },2000);
-                        $('#btnEliminar').text('Eliminar');
-                    }
+              },2000);
+              $('#btnEliminar').text('Eliminar');
+          }
 
-                });
+      });
 
-            });
-        </script>
+  });
+</script>
+
 @endsection

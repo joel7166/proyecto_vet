@@ -23,13 +23,12 @@ use App\Http\Controllers\categoriacontrol;
 |
 */
 //login
-Route::get('login/login',[logincontrol::class,'login'])->name('login.login');
+
 
 Route::get('/', function () {
     return view('login.login'); #carga por defecto la primera pagina es el welcome en la carpeta view
 });
-
-
+Route::get('login/login',[logincontrol::class,'login'])->name('login.login');
 //rutas para el controlador usuario
 
 Route::get('usuario/index',[usuariocontrol::class,'index'])->name('usuario.index');
@@ -42,7 +41,7 @@ Route::get('propietario/eliminar/{id}',[propietariocontrol::class,'eliminar'])->
 Route::get('propietario/editar/{id}',[propietariocontrol::class,'editar'])->name('propietario.editar');
 Route::post('propietario/actualizar',[propietariocontrol::class,'actualizar'])->name('propietario.actualizar');
 //Route::get('usuario/editar','App\Http\Controllers\usuarioController@editar');
-Route::get('inicio/inicio',[iniciocontrol::class,'inicio']);
+Route::get('inicio/inicio',[iniciocontrol::class,'inicio'])->name('inicio.index');
 
 Route::get('cliente/animal',[clientecontrol::class,'animal']);
 Route::get('cliente/propietario',[clientecontrol::class,'propietario']);
@@ -50,9 +49,6 @@ Route::get('cliente/propietario',[clientecontrol::class,'propietario']);
 Route::get('cliente/nuevo',[clientecontrol::class,'nuevo'])->name('cliente.nuevo');
 
 Route::post('cliente',[clientecontrol::class,'registrar'])->name('cliente.registrar');
-
-
-
 Route::get('facturacion/caja',[facturacioncontrol::class,'caja']);
 Route::get('facturacion/venta',[facturacioncontrol::class,'venta']);
 
