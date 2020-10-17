@@ -97,7 +97,7 @@
 
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-desktop"></i> MASCOTA <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-paw"></i> MASCOTA <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Mascota</a></li>
 
@@ -112,30 +112,30 @@
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i> PRODUCTO <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Producto</a></li>
-                      <li><a href="#">Categoria</a></li>
+                      <li><a href="{{url('producto/producto')}}">Producto</a></li>
+                      <li><a href="{{url('producto/categoria')}}">Categoria</a></li>
 
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-clone"></i>VETERINARIO <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-stethoscope"></i>VETERINARIO <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Veterinario</a></li>
 
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-clone"></i>VENTA <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-cart-arrow-down"></i>VENTA <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Venta</a></li>
 
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-clone"></i>SERVICIO <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa  fa-medkit"></i>SERVICIO <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Servicio</a></li>
 
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-clone"></i>REPORTE <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-bar-chart-o"></i>REPORTE <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Reporte</a></li>
 

@@ -34,7 +34,7 @@
               <form id="registro-propietario">
                     @csrf
                     <div class="col-md-6">
-                        
+
                         <div class="form-group">
                             <label for="txtdni">DNI</label>
                             <input type="text" class="form-control" id="txtdni" name="txtdni" placeholder="DNI" require>
@@ -65,7 +65,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary" >Registrar</button>
                     </div>
-                
+
                </form>
             </div>
 
@@ -102,7 +102,7 @@
           </div>
           <form id="propietario_editar_form">
                 <div class="modal-body">
-                  @csrf   
+                  @csrf
                   <input type="hidden" id="txtId2" name="txtId2">
                     <div class="form-group">
                         <label for="txtdni">DNI</label>
@@ -203,7 +203,7 @@
                         {data:'pro_telefono'},
                         {data:'pro_email'},
                         {data:'pro_direccion'},
-                       
+
                         {data:'action',orderable:false}
                     ]
                 });
@@ -254,7 +254,7 @@
             $('#txtdireccion2').val(propietario[0].pro_direccion);
             $('#txtciudad2').val(propietario[0].pro_ciudad);
             $("input[name=_token]").val();
-            
+
 
             $('#propietario_edit_modal').modal('toggle');
 

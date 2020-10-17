@@ -10,7 +10,7 @@ use App\Http\Controllers\clientecontrol;
 use App\Http\Controllers\facturacioncontrol;
 use App\Http\Controllers\propietariocontrol;
 use App\Http\Controllers\logincontrol;
-
+use App\Http\Controllers\categoriacontrol;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,7 +56,7 @@ Route::post('cliente',[clientecontrol::class,'registrar'])->name('cliente.regist
 Route::get('facturacion/caja',[facturacioncontrol::class,'caja']);
 Route::get('facturacion/venta',[facturacioncontrol::class,'venta']);
 
-Route::get('producto/producto',[productocontrol::class,'producto']);
+
 
 Route::get('citas/citas',[citacontrol::class,'citas']);
 Route::get('informe/informe',[informecontrol::class,'informe']);
@@ -66,4 +66,24 @@ Route::delete('cliente/{animal}',[clientecontrol::class,'eliminar'])->name('clie
 Route::get('cliente/editar/{animal}',[clientecontrol::class,'editar'])->name('cliente.editar');
 Route::put('cliente/actualizar/{animal}',[clientecontrol::class,'actualizar'])->name('cliente.actualizar');
 
+//----------------------------- rutas para categoria------------------
+Route::get('producto/categoria',[categoriacontrol::class,'categoria'])->name('producto.categoria');
+//ruta para actualizar
+Route::post('producto/categoria',[categoriacontrol::class,'registrar'])->name('producto.registrar');
+//ruta para eliminar
+Route::get('producto/eliminar/{id}',[categoriacontrol::class,'eliminar'])->name('producto.eliminar');
+//ruta para editar
+Route::get('producto/editar/{id}',[categoriacontrol::class,'editar'])->name('producto.editar');
+//ruta de actualizar  datos
+Route::post('producto/actualizar',[categoriacontrol::class,'actualizar'])->name('producto.actualizar');
 
+//----------------------------rutas para producto---------------------------------------
+Route::get('producto/producto',[productocontrol::class,'producto'])->name('producto.producto');
+//ruta para actualizar
+Route::post('producto/producto',[productocontrol::class,'registrar'])->name('producto.registrar');
+//ruta para eliminar
+Route::get('producto/eliminar/{id}',[productocontrol::class,'eliminar'])->name('producto.eliminar');
+//ruta para editar
+Route::get('producto/editar/{id}',[productocontrol::class,'editar'])->name('producto.editar');
+//ruta de actualizar  datos
+Route::post('producto/actualizar',[productocontrol::class,'actualizar'])->name('producto.actualizar');
