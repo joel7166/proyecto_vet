@@ -3,7 +3,7 @@
 @section('content')
 <!----todo codigo html------>
 <div class="box-footer">
-    <button  onclick="window.location='{{url('cliente/nuevo')}}'" type="button" class="btn btn-primary" name="registrar">ver formulario</button>
+    <button  onclick="window.location='{{url('cliente/nuevo')}}'" type="button" class="btn btn-primary" name="registrar">ver</button>
 
 </div>
 

@@ -82,7 +82,7 @@
 	<div class="col-md-12 col-sm-12 ">
 		<div class="x_panel">
                 <div class="x_title">
-                    <h2>Mascotas</h2>      
+                    <h2>lista de Mascotas</h2>      
                     <ul class="nav navbar-right panel_toolbox">
                         <li>
                             <button class="btn btn-primary" data-toggle="modal" data-target="#modalnuevo"><i class="fa fa-plus-circle"></i>&nbsp;Nuevo</button>
