@@ -10,11 +10,11 @@ use Illuminate\Notifications\Notifiable;
 
 
 
-class producto extends Model
+class categoria extends Model
 {
-    protected $table="producto";
+    protected $table="perfil";
     protected $fillable=[
-        'prod_id','prod_codigo','catp_nombre','prod_nombre','prod_stock','prod_descripcion'
+     'per_id','per_nombre','per_descripcion'
     ];
     public $timestamps=false;
 

@@ -19,7 +19,7 @@ class productocontrol extends Controller
 
         return DataTables()::of($productos)
                ->addColumn('action',function($productos){
-                   $acciones='<a href="javascript::void(0)"   class="btn btn-info btn-sm">Editar</a>';
+                   $acciones='<a href="javascript::void(0)" onclick=" editaranimal('.$productos->prod_id.')"  class="btn btn-info btn-sm">Editar</a>';
                    $acciones.='&nbsp;<button type="button" name="delete" id="'.$productos->prod_id.'"   class=" delete btn btn-danger btn-sm">Eliminar</button>';
 
                    return $acciones;
@@ -32,9 +32,30 @@ class productocontrol extends Controller
 
      return view('producto.producto');
  }
+ public function registrar(Request $request){
+
+    //llamar al procedimiento almacenado
+    $producto=DB::select('call registar_producto(?,?,?,?,?)',
+    [$request->catp_id,$request->prod_codigo,$request->prod_nombre,$request->prod_stock,$request->prod_descripcion]);
+
+    return back();
+
+  }
 
   public function eliminar($id){
     $producto=DB::select('call eliminar_producto(?)',[$id]);
+}
+public function editar($id){
+
+    $producto = DB::select('call editar_producto(?)',[$id]);
+    return response()->json($producto);
+  }
+  public function actualizar(Request $request){
+    $producto=DB::select('call actualizar_producto(?,?,?,?,?,?)',
+    [$request->prod_id, $request->catp_id,$request->prod_codigo,$request->prod_nombre,
+    $request->prod_stock,$request->prod_descripcion]);
+    return back();
+
 }
 
 }

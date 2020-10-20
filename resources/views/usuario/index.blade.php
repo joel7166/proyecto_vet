@@ -30,7 +30,7 @@
                 </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <h3> Nuevo Usuario</h3>
-              <form id="registro-animal">
+              <form id="registro-usuario">
                 @csrf
                 <div class="col-md-6">
                   <div class="form-group">
@@ -45,19 +45,16 @@
                       <label for="txtdni">DNI</label>
                       <input type="text" class="form-control" id="txtdni" name="txtdni" placeholder="DNI" require>
                   </div>
-                  
+
 
                   <div class="form-group">
                       <label for="inputAddress2">correo</label>
                       <input type="email" class="form-control" id="txtemail" name="txtemail" placeholder="Ingrese su correo" require>
                   </div>
-                  <div class="form-group">
-                      <label for="inputAddress2">Color</label>
-                      <input type="text" class="form-control" id="txtcolor" name="txtcolor" placeholder=" Ingrese Color">
-                  </div>
+
                   <div class="form-group">
                       <label for="txtcontraseña">Contraseña</label>
-                      <input type="password" class="form-control" id="txtcontraseña" name="txtcontraseña" placeholder="contraseña">
+                      <input type="text" class="form-control" id="txtcontraseña" name="txtcontraseña" placeholder="contraseña">
                   </div>
                   <div class="form-group">
                       <label for="txtnombres">Nombres</label>
@@ -75,16 +72,16 @@
                     <label for="">Estado</label>
                     <div class="custom-control custom-radio">
                       <input type="radio" id="rbgeneromacho" name="rbgenero" value="macho">
-                      <label >Activo</label>
+                      <label >Macho</label>
                     </div>
                     <div class="custom-control custom-radio">
                       <input type="radio" id="rbgenerohembra" name="rbgenero" value="hembra" >
-                      <label >Inactivo</label>
+                      <label >Hembra</label>
                     </div>
                   </div>
                   <button type="submit" class="btn btn-primary" >Registrar</button>
                 </div>
-                
+
               </form>
             </div>
 
@@ -103,7 +100,7 @@
             ¿Desea eliminar el registro seleccionado?
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
             <button type="button" id="btnEliminar" name="btnEliminar" class="btn btn-primary">Eliminar</button>
           </div>
         </div>
@@ -124,7 +121,7 @@
                         {data:'usu_apellidos'},
                         {data:'usu_celular'},
                         {data:'usu_estado'},
-                       
+
                         {data:'action',orderable:false}
                     ]
                 });
@@ -159,6 +156,49 @@
       });
 
   });
+</script>
+<!-------------------registar nueva categoria------------------------->
+<script>
+    $('#registro-usuario').submit(function(e){
+        e.preventDefault();
+        var perfil=$('#seleperfil').val();
+        var dni=$('#txtdni').val();
+        var correo=$('#txtnombres').val();
+        var contraseña=$('#txtcontraseña').val();
+        var nombre=$('#txtnombres').val();
+        var apellido=$('#txtapellidos').val();
+        var celular=$('#txtcelular').val();
+        var estado=$("input[name='rbgenero']:checked").val();
+
+        var _token=$("input[name=_token]").val();
+
+        $.ajax({
+            url:"{{route('usuario.registrar')}}",
+            type:"POST",
+            data:{
+                per_id:perfil,
+                usu_dni:dni,
+                usu_email:correo,
+                usu_contrasenia:contraseña,
+                usu_nombres:nombre,
+                usu_apellidos:apellido,
+                usu_celular:celular,
+                usu_estado:estado,
+
+              _token:_token
+            },
+            success:function(response){
+                if(response){
+                    $('#registro-usuario')[0].reset();
+                    toastr.success('El registro se ingreso correctamente.','nuevo registro',{timeout:3000});
+                    $('#tabla-usuario').DataTable().ajax.reload();
+
+                }
+            }
+
+        });
+
+    });
 </script>
 
 @endsection
