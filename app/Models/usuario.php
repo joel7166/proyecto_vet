@@ -12,7 +12,7 @@ class animal extends Model
 {
    protected $table="usuario";
 
-   protected $fillable=['usu_dni',
+   protected $fillable=['usu_id','per_id','usu_dni',
    'usu_email','usu_contraseña','usu_nombres',
    'usu_apellidos','usu_celular','usu_estado'];
 

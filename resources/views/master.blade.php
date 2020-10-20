@@ -28,13 +28,7 @@
     <link href="../../public/gente/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="../../public/gente/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-    <!--datatabbles
-    <link href="../../public/gente/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="../../public/gente/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-    <link href="../../public/gente/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-    <link href="../../public/gente/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-    <link href="../../public/gente/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
-    -->
+
     <!-- bootstrap-progressbar -->
     <link href="../../public/gente/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap -->
@@ -82,7 +76,7 @@
                         <a href="{{route('inicio.inicio')}}" class="nav-link">
                           <i class="fa fa-home"></i>INICIO
                         </a>
-                  </li>              
+                  </li>
                   <li><a><i class="fa fa-edit"></i>PROPIETARIO <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{route('propietario.index')}}">Propietario</a></li>
@@ -162,13 +156,13 @@
                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
               </div>
               <nav class="nav navbar-nav">
-              <ul class=" navbar-right"> 
+              <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
                   <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                     <img src="../../public/gente/production/images/img.jpg" alt="">Usuarios
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item"  href="javascript:;">Perfiles</a>
+                    <a class="dropdown-item"  href="{{route('perfil.perfil')}}">Perfiles</a>
                       <a class="dropdown-item"  href="{{route('usuario.index')}}">
                         <span class="badge bg-red pull-right">new</span>
                         <span>Configuraciones</span>
@@ -297,23 +291,6 @@
     <script src="../../public/gente/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- iCheck -->
     <script src="../../public/gente/vendors/iCheck/icheck.min.js"></script>
-   <!-- Datatables
-   <script src="../../public/gente/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="../../public/gente/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-    <script src="../../public/gente/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="../../public/gente/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-    <script src="../../public/gente/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-    <script src="../../public/gente/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="../../public/gente/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="../../public/gente/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-    <script src="../../public/gente/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="../../public/gente/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="../../public/gente/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-    <script src="../../public/gente/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-    <script src="../../public/gente/vendors/jszip/dist/jszip.min.js"></script>
-    <script src="../../public/gente/vendors/pdfmake/build/pdfmake.min.js"></script>
-    <script src="../../public/gente/vendors/pdfmake/build/vfs_fonts.js"></script>
--->
 
     <!-- Skycons -->
     <script src="../../public/gente/vendors/skycons/skycons.js"></script>

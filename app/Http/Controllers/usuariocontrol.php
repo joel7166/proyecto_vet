@@ -15,11 +15,11 @@ class usuariocontrol extends Controller
     public function index( Request $request){
         if($request -> ajax()){
             $usuarios=DB::select('CALL sp_listusuario()');
-            return DataTables::of($usuarios)
+            return DataTables()::of($usuarios)
                    ->addColumn('action',function($usuarios){
                        $acciones='<a href="#" class="btn btn-info btn-sm">Editar</a>';
                        $acciones.='&nbsp;<button type="button" name="delete" id="'.$usuarios->usu_id.'" class=" delete btn btn-danger btn-sm">Eliminar</button>';
-    
+
                        return $acciones;
                    })
                    ->rawColumns(['action'])
@@ -35,7 +35,19 @@ class usuariocontrol extends Controller
         $usuarios=DB::select('CALL sp_eliminarusuario(?)',[$usu_id]);
     }
 
- 
+    public function registrar(Request $request){
+
+        //llamar al procedimiento almacenado
+        $usuarios=DB::select('call registar_usuario(?,?,?,?,?,?,?,?,?)',
+        [$request->usu_id,$request->per_id,$request->usu_dni,
+        $request->usu_email,$request->usu_contrasenia,$request->usu_nombres,
+        $request->usu_apellidos,$request->usu_celular,$request->usu_estado]);
+
+        return back();
+
+      }
+
+
 }
 
 

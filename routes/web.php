@@ -12,6 +12,7 @@ use App\Http\Controllers\propietariocontrol;
 use App\Http\Controllers\logincontrol;
 use App\Http\Controllers\categoriacontrol;
 use App\Http\Controllers\mascotacontrol;
+use App\Http\Controllers\perfilcontrol;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,8 +34,17 @@ Route::get('login/login',[logincontrol::class,'login'])->name('login.login');
 Route::get('inicio/inicio',[iniciocontrol::class,'inicio'])->name('inicio.inicio');
 //rutas para el usuario
 
+//rutas para el controlador usuario
+//-------------------rutas para el usuario-------------------------------------------------
 Route::get('usuario/index',[usuariocontrol::class,'index'])->name('usuario.index');
 Route::get('usuario/eliminar/{id}',[usuariocontrol::class,'eliminar'])->name('usuario.eliminar');
+//ruta para registar
+Route::post('usuario/index',[usuariocontrol::class,'registrar'])->name('usuario.registrar');
+//ruta para editar
+Route::get('usuario/editar/{id}',[usuariocontrol::class,'editar'])->name('usuario.editar');
+//ruta de actualizar  datos
+Route::post('usuario/actualizar',[usuariocontrol::class,'actualizar'])->name('usuario.actualizar');
+
 
 //rutas para propieatario
 Route::get('propietario/index',[propietariocontrol::class,'index'])->name('propietario.index');
@@ -95,3 +105,14 @@ Route::get('mascota/eliminar/{id}',[mascotacontrol::class,'eliminar'])->name('pr
 Route::post('mascota',[mascotacontrol::class,'registrar'])->name('mascota.registrar');
 Route::get('mascota/editar/{id}',[mascotacontrol::class,'editar'])->name('mascota.editar');
 Route::post('mascota/actualizar',[mascotacontrol::class,'actualizar'])->name('mascota.actualizar');
+//----------------------------rutas para perfil---------------------------------------
+Route::get('perfil/perfil',[perfilcontrol::class,'perfil'])->name('perfil.perfil');
+//ruta para actualizar
+Route::post('perfil/perfil',[perfilcontrol::class,'registrar'])->name('perfil.registrar');
+//ruta para eliminar
+Route::get('perfil/eliminar/{id}',[perfilcontrol::class,'eliminar'])->name('perfil.eliminar');
+//ruta para editar
+Route::get('perfil/editar/{id}',[perfilcontrol::class,'editar'])->name('perfil.editar');
+//ruta de actualizar  datos
+Route::post('perfil/actualizar',[perfilcontrol::class,'actualizar'])->name('perfil.actualizar');
+
