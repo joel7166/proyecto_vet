@@ -53,9 +53,9 @@
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
+          <div class="left_col scroll-view col-info">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>VETERINARIA_!</span></a>
+              <a href="index.html" class="site_title"><i class="fa fa-paw"></i><span>Paraiso Animal!</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -79,19 +79,18 @@
                 <ul class="nav side-menu">
 
                   <li class="nav-item">
-                        <a href="{{route('inicio.index')}}" class="nav-link">
+                        <a href="{{route('inicio.inicio')}}" class="nav-link">
                           <i class="fa fa-home"></i>INICIO
                         </a>
                   </li>              
                   <li><a><i class="fa fa-edit"></i>PROPIETARIO <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{route('propietario.index')}}">Propietario</a></li>
-
                     </ul>
                   </li>
                   <li><a><i class="fa fa-paw"></i> MASCOTA <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Mascota</a></li>
+                      <li><a href="{{route('mascota.index')}}">Mascota</a></li>
 
 
                     </ul>
@@ -130,13 +129,10 @@
                   <li><a><i class="fa fa-bar-chart-o"></i>REPORTE <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Reporte</a></li>
-
                     </ul>
                   </li>
                 </ul>
               </div>
-
-
             </div>
             <!-- /sidebar menu -->
 

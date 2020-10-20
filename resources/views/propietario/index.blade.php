@@ -100,7 +100,7 @@
             </div>
 
           </div>
-
+<!--modal eliminar-->
   <div class="modal fade" id="confimodal"  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -200,7 +200,7 @@
             success:function(response){
                 if(response){
                     $('#registro-propietario')[0].reset();
-                    $('#propietario_edit_modal').modal('hide');
+                    //$('#propietario_edit_modal').modal('hide');
                     Swal.fire({
                     position: 'top-end',
                     icon: 'success',
@@ -208,7 +208,7 @@
                     showConfirmButton: false,
                     timer: 3000
                     });
-                   // toastr.succes('El registro se ingreso correctamente.','nuevo registro',{timeout:3000});
+                   //toastr.succes('El registro se ingreso correctamente.','nuevo registro',{timeout:3000});
                     $('#tabla-propietario').DataTable().ajax.reload();
                 }
             }

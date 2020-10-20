@@ -11,6 +11,7 @@ use App\Http\Controllers\facturacioncontrol;
 use App\Http\Controllers\propietariocontrol;
 use App\Http\Controllers\logincontrol;
 use App\Http\Controllers\categoriacontrol;
+use App\Http\Controllers\mascotacontrol;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +30,8 @@ Route::get('/', function () {
     return view('login.login'); #carga por defecto la primera pagina es el welcome en la carpeta view
 });
 Route::get('login/login',[logincontrol::class,'login'])->name('login.login');
-//rutas para el controlador usuario
+Route::get('inicio/inicio',[iniciocontrol::class,'inicio'])->name('inicio.inicio');
+//rutas para el usuario
 
 Route::get('usuario/index',[usuariocontrol::class,'index'])->name('usuario.index');
 Route::get('usuario/eliminar/{id}',[usuariocontrol::class,'eliminar'])->name('usuario.eliminar');
@@ -41,7 +43,7 @@ Route::get('propietario/eliminar/{id}',[propietariocontrol::class,'eliminar'])->
 Route::get('propietario/editar/{id}',[propietariocontrol::class,'editar'])->name('propietario.editar');
 Route::post('propietario/actualizar',[propietariocontrol::class,'actualizar'])->name('propietario.actualizar');
 //Route::get('usuario/editar','App\Http\Controllers\usuarioController@editar');
-Route::get('inicio/inicio',[iniciocontrol::class,'inicio'])->name('inicio.index');
+
 
 Route::get('cliente/animal',[clientecontrol::class,'animal']);
 Route::get('cliente/propietario',[clientecontrol::class,'propietario']);
@@ -83,3 +85,13 @@ Route::get('producto/eliminar/{id}',[productocontrol::class,'eliminar'])->name('
 Route::get('producto/editar/{id}',[productocontrol::class,'editar'])->name('producto.editar');
 //ruta de actualizar  datos
 Route::post('producto/actualizar',[productocontrol::class,'actualizar'])->name('producto.actualizar');
+
+/***************RUTAS DE MASCOTA***************/
+
+Route::get('mascota/index',[mascotacontrol::class,'index'])->name('mascota.index');
+Route::get('mascota/lista/',[mascotacontrol::class,'lista'])->name('mascota.lista');
+Route::get('mascota/buscar/{dni}',[mascotacontrol::class,'buscar'])->name('propietario.buscar');
+Route::get('mascota/eliminar/{id}',[mascotacontrol::class,'eliminar'])->name('producto.eliminar');
+Route::post('mascota',[mascotacontrol::class,'registrar'])->name('mascota.registrar');
+Route::get('mascota/editar/{id}',[mascotacontrol::class,'editar'])->name('mascota.editar');
+Route::post('mascota/actualizar',[mascotacontrol::class,'actualizar'])->name('mascota.actualizar');

@@ -31,7 +31,7 @@ class propietariocontrol extends Controller
         [$request->pro_dni,$request->pro_nombre,$request->pro_apellidos,$request->pro_telefono,$request->pro_email,$request->pro_direccion,$request->pro_ciudad]);
 
         return back();
-      }
+    }
     public function eliminar($id){
         $propietarios=DB::select('CALL sp_eliminarpropietario(?)',[$id]);
     }
@@ -43,7 +43,6 @@ class propietariocontrol extends Controller
         $propietario=DB::select('call sp_editarpropietario(?,?,?,?,?,?,?)',
         [$request->id,$request->nombre,$request->apellidos,$request->telefono,$request->correo,$request->direccion,$request->ciudad]);
         return back();
-
     }
 
 }

@@ -52,7 +52,7 @@
                 <input type="password" class="form-control" placeholder="Password" required="" />
               </div>
               <div>
-                <a class="btn btn-primary submit" href="{{route('inicio.index')}}">Aceptar</a>
+                <a class="btn btn-primary submit" href="{{route('inicio.inicio')}}">Aceptar</a>
                 <a class="reset_pass" href="#">Olvidaste tu contraseña?</a>
               </div>
 
@@ -89,7 +89,7 @@
                 <input type="password" class="form-control" placeholder="Password" required="" />
               </div>
               <div>
-                <a class="btn btn-primary submit" href="index.html">Registrar</a>
+                <a class="btn btn-primary submit" href="{{route('inicio.inicio')}}">Registrar</a>
               </div>
 
               <div class="clearfix"></div>

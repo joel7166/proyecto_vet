@@ -2,7 +2,7 @@
 
 @section('content')
 <!----todo codigo html------>
-<p>hola soy inicio bienvenido jijij</p>
+<p>hola soy inicio bienvenido </p>
 <p> Gracias...... :)</p>
 
 
