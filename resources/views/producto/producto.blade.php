@@ -85,9 +85,9 @@
             <div class="form-group">
                 <label for="seleperfil">CodigoCategoria</label>
                 <select class="form-control" id="selecodcategoria2" name="selecodcategoria2">
-                  <option value="1">antibiotico</option>
-                  <option value="2">anastesicos</option>
-                  <option value="4">ampicilina</option>
+                  <option value="2">antibiotico</option>
+                  <option value="5">anastesicos</option>
+                  <option value="6">ampicilina</option>
 
                 </select>
             </div>
@@ -290,8 +290,6 @@
                 }
             }
         })
-
-
     });
 </script>
 @endsection
