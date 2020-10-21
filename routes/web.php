@@ -14,6 +14,7 @@ use App\Http\Controllers\categoriacontrol;
 use App\Http\Controllers\mascotacontrol;
 use App\Http\Controllers\perfilcontrol;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,24 +78,24 @@ Route::put('cliente/actualizar/{animal}',[clientecontrol::class,'actualizar'])->
 //----------------------------- rutas para categoria------------------
 Route::get('producto/categoria',[categoriacontrol::class,'categoria'])->name('producto.categoria');
 //ruta para actualizar
-Route::post('producto/categoria',[categoriacontrol::class,'registrar'])->name('producto.registrar');
+Route::post('producto/categoria',[categoriacontrol::class,'registrar'])->name('categoria.registrar');
 //ruta para eliminar
-Route::get('producto/eliminar/{id}',[categoriacontrol::class,'eliminar'])->name('producto.eliminar');
+Route::get('producto/categoria/eliminar/{id}',[categoriacontrol::class,'eliminar'])->name('categoria.eliminar');
 //ruta para editar
-Route::get('producto/editar/{id}',[categoriacontrol::class,'editar'])->name('producto.editar');
+Route::get('producto/categoria/editar/{id}',[categoriacontrol::class,'editar'])->name('categoria.editar');
 //ruta de actualizar  datos
-Route::post('producto/actualizar',[categoriacontrol::class,'actualizar'])->name('producto.actualizar');
+Route::post('producto/categoria/actualizar',[categoriacontrol::class,'actualizar'])->name('categoria.actualizar');
 
 //----------------------------rutas para producto---------------------------------------
 Route::get('producto/producto',[productocontrol::class,'producto'])->name('producto.producto');
-//ruta para actualizar
-Route::post('producto/producto',[productocontrol::class,'registrar'])->name('producto.registrar');
+//ruta para nuevo
+Route::post('producto',[productocontrol::class,'registrar'])->name('producto.registrar');
 //ruta para eliminar
-Route::get('producto/eliminar/{id}',[productocontrol::class,'eliminar'])->name('producto.eliminar');
+Route::get('producto/producto/eliminar/{id}',[productocontrol::class,'eliminar'])->name('producto.eliminar');
 //ruta para editar
-Route::get('producto/editar/{id}',[productocontrol::class,'editar'])->name('producto.editar');
+Route::get('producto/producto/editar/{id}',[productocontrol::class,'editar'])->name('producto.editar');
 //ruta de actualizar  datos
-Route::post('producto/actualizar',[productocontrol::class,'actualizar'])->name('producto.actualizar');
+Route::post('producto/producto/actualizar',[productocontrol::class,'actualizar'])->name('producto.actualizar');
 
 /***************RUTAS DE MASCOTA***************/
 
@@ -115,4 +116,3 @@ Route::get('perfil/eliminar/{id}',[perfilcontrol::class,'eliminar'])->name('perf
 Route::get('perfil/editar/{id}',[perfilcontrol::class,'editar'])->name('perfil.editar');
 //ruta de actualizar  datos
 Route::post('perfil/actualizar',[perfilcontrol::class,'actualizar'])->name('perfil.actualizar');
-

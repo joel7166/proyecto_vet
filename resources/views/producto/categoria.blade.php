@@ -22,7 +22,6 @@
                     <td>ACCIONES</td>
                 </thead>
             </table>
-
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
@@ -138,7 +137,7 @@
         var _token=$("input[name=_token]").val();
 
         $.ajax({
-            url:"{{route('producto.registrar')}}",
+            url:"{{route('categoria.registrar')}}",
             type:"POST",
             data:{
                 catp_nombre:nombre,
@@ -171,7 +170,7 @@
     });
     $('#btnEliminar').click(function(){
         $.ajax({
-            url:"../producto/eliminar/"+c_id,
+            url:"../producto/categoria/eliminar/"+c_id,
             beforeSend:function(){
                 $('#btnEliminar').text('Eliminando');
             },
@@ -193,7 +192,7 @@
 <!---------------------editar categoria----------------------------->
 <script>
     function editaranimal(id){
-        $.get('../producto/editar/'+id,function(categoria){
+        $.get('../producto/categoria/editar/'+id,function(categoria){
             //asignar los datos recuperados
             $('#txtId2').val(categoria[0].catp_id);
             $('#txtnombre2').val(categoria[0].catp_nombre);
@@ -217,7 +216,7 @@
 
         var _token2=$("input[name=_token]").val();
         $.ajax({
-            url:"{{route('producto.actualizar')}}",
+            url:"{{route('categoria.actualizar')}}",
             type:"post",
             data:{
                 catp_id:id2,
