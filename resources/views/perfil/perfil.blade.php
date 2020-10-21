@@ -105,6 +105,9 @@
 </div>
 
 </div> <!-- fin conteiner-->
+
+@endsection
+@section('scrip')
 <!--------------------listar perfil--------------------------->
 <script>
     $(document).ready(function(){

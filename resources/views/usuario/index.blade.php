@@ -36,9 +36,8 @@
                   <div class="form-group">
                       <label for="seleperfil">Perfil</label>
                       <select class="form-control" id="seleperfil" name="seleperfil">
-                        <option value="Administrador">Administrador</option>
-                        <option value="Secretario">Secretario</option>
-                        <option value="Cajero">Cajero</option>
+                        <option value="1">Asistente</option>
+                        <option value="2">Cajero</option>
                       </select>
                   </div>
                   <div class="form-group">
@@ -54,7 +53,7 @@
 
                   <div class="form-group">
                       <label for="txtcontraseña">Contraseña</label>
-                      <input type="text" class="form-control" id="txtcontraseña" name="txtcontraseña" placeholder="contraseña">
+                      <input type="password" class="form-control" id="txtcontraseña" name="txtcontraseña" placeholder="contraseña">
                   </div>
                   <div class="form-group">
                       <label for="txtnombres">Nombres</label>
@@ -72,11 +71,11 @@
                     <label for="">Estado</label>
                     <div class="custom-control custom-radio">
                       <input type="radio" id="rbgeneromacho" name="rbgenero" value="macho">
-                      <label >Macho</label>
+                      <label >Masculino</label>
                     </div>
                     <div class="custom-control custom-radio">
                       <input type="radio" id="rbgenerohembra" name="rbgenero" value="hembra" >
-                      <label >Hembra</label>
+                      <label >Femennino</label>
                     </div>
                   </div>
                   <button type="submit" class="btn btn-primary" >Registrar</button>
@@ -86,6 +85,82 @@
             </div>
 
           </div>
+          <!------------------editar model-------------------------->
+          <div class="modal fade" id="usuario_edit_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">Editar Categoria</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <form id="usuario_editar">
+                <div class="modal-body">
+                       @csrf
+
+                       <div class="col-md-6">
+
+                        <input type="hidden" id="txtId2" name="txtId2">
+                        <div class="form-group">
+                            <label for="seleperfil">Perfil</label>
+                            <select class="form-control" id="seleperfil2" name="seleperfil">
+
+                              <option value="1">Asistente</option>
+                              <option value="2">Cajero</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtdni">DNI</label>
+                            <input type="text" class="form-control" id="txtdni2" name="txtdni" placeholder="DNI" require>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="inputAddress2">correo</label>
+                            <input type="email" class="form-control" id="txtemail2" name="txtemail" placeholder="Ingrese su correo" require>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="txtcontraseña">Contraseña</label>
+                            <input type="password" class="form-control" id="txtcontraseña2" name="txtcontraseña" placeholder="contraseña">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtnombres">Nombres</label>
+                            <input type="text" class="form-control" id="txtnombres2" name="txtnombres" placeholder="Nombres">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtapellidos">Apellidos</label>
+                            <input type="text" class="form-control" id="txtapellidos2" name="txtapellidos" placeholder="Apellidos">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtapellidos">Celular</label>
+                            <input type="text" class="form-control" id="txtcelular2" name="txtcelular" placeholder="Celular">
+                        </div>
+                        <div class="form-group">
+                          <label for="">Estado</label>
+                          <div class="custom-control custom-radio">
+                            <input type="radio" id="rbgeneromacho" name="rbgenero2" value="1">
+                            <label >Masculino</label>
+                          </div>
+                          <div class="custom-control custom-radio">
+                            <input type="radio" id="rbgenerohembra" name="rbgenero2" value="0" >
+                            <label >Femennino</label>
+                          </div>
+                        </div>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                  <button type="submit" class="btn btn-primary">Actualizar</button>
+                </div>
+            </form>
+              </div>
+            </div>
+            </div>
+
+          <!---------------------eliminar----------------------------------->
 
   <div class="modal fade" id="confimodal"  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -164,12 +239,11 @@
         var perfil=$('#seleperfil').val();
         var dni=$('#txtdni').val();
         var correo=$('#txtnombres').val();
-        var contraseña=$('#txtcontraseña').val();
+        var contrasenia=$('#txtcontraseña').val();
         var nombre=$('#txtnombres').val();
         var apellido=$('#txtapellidos').val();
         var celular=$('#txtcelular').val();
         var estado=$("input[name='rbgenero']:checked").val();
-
         var _token=$("input[name=_token]").val();
 
         $.ajax({
@@ -179,12 +253,11 @@
                 per_id:perfil,
                 usu_dni:dni,
                 usu_email:correo,
-                usu_contrasenia:contraseña,
+                usu_contrasenia:contrasenia,
                 usu_nombres:nombre,
                 usu_apellidos:apellido,
                 usu_celular:celular,
                 usu_estado:estado,
-
               _token:_token
             },
             success:function(response){
@@ -199,6 +272,34 @@
         });
 
     });
+</script>
+<!-------------editar------------------->
+<script>
+    function editaranimal(id){
+        $.get('../usuario.editar/'+id,function(usuario){
+            //asignar los datos recuperados
+            $('#txtId2').val(usuario[0].usu_id);
+            $('#seleperfil2').val(usuario[0].per_id);
+            $('#txtdni2').val(usuario[0].usu_dni);
+            $('#txtemail2').val(usuario[0].usu_email);
+            $('#txtcontraseña2').val(usuario[0].usu_contrasenia);
+            $('#txtnombres2').val(usuario[0].usu_nombres);
+            $('#txtapellidos2').val(usuario[0].usu_apellidos);
+            $('#txtcelular2').val(usuario[0].usu_celular);
+            if(usuario[0].usu_estado=="1"){
+                     $('input[name=rbgenero2][value="macho"]').prop('checked',true);
+                 }
+                 if(usuario[0].usu_estado=="0"){
+                     $('input[name=rbgenero2][value="hembra"]').prop('checked',true);
+                 }
+            $("input[name=_token]").val();
+
+            $('#usuario_edit_modal').modal('toggle');
+
+        });
+
+    }
+
 </script>
 
 @endsection

@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\database\Eloquent\Model;
 
-class animal extends Model
+class usuario extends Model
 {
    protected $table="usuario";
 
