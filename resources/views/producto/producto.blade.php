@@ -24,7 +24,6 @@
                     <td>ACCIONES</td>
                 </thead>
             </table>
-
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div class="col-md-12 col-sm-12 ">

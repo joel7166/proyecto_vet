@@ -14,6 +14,7 @@ use App\Http\Controllers\categoriacontrol;
 use App\Http\Controllers\mascotacontrol;
 use App\Http\Controllers\perfilcontrol;
 use App\Http\Controllers\ventacontrol;
+use App\Http\Controllers\venta1control;
 use App\Http\Controllers\detalleventacontrol;
 /*
 |--------------------------------------------------------------------------
@@ -39,11 +40,11 @@ Route::get('inicio/inicio',[iniciocontrol::class,'inicio'])->name('inicio.inicio
 Route::get('usuario/index',[usuariocontrol::class,'index'])->name('usuario.index');
 Route::get('usuario/eliminar/{id}',[usuariocontrol::class,'eliminar'])->name('usuario.eliminar');
 //ruta para registar
-Route::post('usuario/index',[usuariocontrol::class,'registrar'])->name('usuario.registrar');
+Route::post('usuario',[usuariocontrol::class,'registrar'])->name('usuario.registrar');
 //ruta para editar
 Route::get('usuario/editar/{id}',[usuariocontrol::class,'editar'])->name('usuario.editar');
 //ruta de actualizar  datos
-Route::post('usuario/actualizar',[usuariocontrol::class,'actualizar'])->name('usuario.actualizar');
+Route::post('usuario/index',[usuariocontrol::class,'actualizar'])->name('usuario.actualizar');
 
 
 //rutas para propietario
@@ -126,3 +127,10 @@ Route::post('ventas/venta',[ventacontrol::class,'registrar'])->name('ventas.regi
 Route::get('ventas/detalleventa',[detalleventacontrol::class,'detalleventa'])->name('ventas.detalleventa');
 //ruta para actualizar
 Route::post('ventas/detalleventa',[detalleventacontrol::class,'registrar'])->name('ventas.registrar');
+
+//------------------nuevas ventas-------------
+Route::get('venta/index',[venta1control::class,'index'])->name('venta.index');
+Route::post('venta/index',[venta1control::class,'registrar'])->name('venta.registrar');
+Route::post('venta',[venta1control::class,'registrarnuevo'])->name('venta.nuevoproducto');
+//----
+Route::get('venta/buscar',[venta1control::class,'ultimaventa'])->name('venta.ultimo');

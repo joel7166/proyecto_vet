@@ -12,7 +12,7 @@ use Illuminate\Http\Request;//para recuperar datos de la vista
 use DataTables;
 
 
-//use DataTables;
+
 class usuariocontrol extends Controller
 {
     public function index( Request $request){
@@ -29,7 +29,7 @@ class usuariocontrol extends Controller
                    ->make(true);
         }
             return view('usuario.index');
-      }
+    }
     public function eliminar($usu_id){
         $usuarios=DB::select('CALL sp_eliminarusuario(?)',[$usu_id]);
     }
@@ -52,11 +52,15 @@ class usuariocontrol extends Controller
 
 
 
+
       public function editar($id){
+
+    public function editar($id){
+
 
         $usuarios = DB::select('call editar_usuario(?)',[$id]);
         return response()->json($usuarios);
-      }
+    }
 
 
 }

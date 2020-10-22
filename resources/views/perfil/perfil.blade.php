@@ -55,12 +55,19 @@
             </div>
         </div>
 
+
             </form>
 
         </div>
     </div>
 </div>
 </div>
+
+
+                <button type="submit" class="btn btn-primary" >Registrar</button>
+            </form>
+
+        </div>
 
       </div>
       <!------modal para editar-------->

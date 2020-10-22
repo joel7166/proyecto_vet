@@ -201,14 +201,14 @@
                 if(response){
                     $('#registro-propietario')[0].reset();
                     //$('#propietario_edit_modal').modal('hide');
-                    Swal.fire({
+                    /*Swal.fire({
                     position: 'top-end',
                     icon: 'success',
                     title: 'Registro Insertado Correctamente',
                     showConfirmButton: false,
                     timer: 3000
-                    });
-                   //toastr.succes('El registro se ingreso correctamente.','nuevo registro',{timeout:3000});
+                    });*/
+                    toastr.succes('El registro se ingreso correctamente.','nuevo registro',{timeout:3000});
                     $('#tabla-propietario').DataTable().ajax.reload();
                 }
             }
@@ -319,14 +319,14 @@
             success:function(response){
                 if(response){
                     $('#propietario_edit_modal').modal('hide');
-                    Swal.fire({
+                   /* Swal.fire({
                     position: 'top-end',
                     icon: 'success',
                     title: 'Registro Actualizado Correctamente',
                     showConfirmButton: false,
                     timer: 3000
-                    });
-                    //toastr.info('El registro fue actualizado correctamente.','Actualizar Registro',{timeout:3000});
+                    });*/
+                    toastr.info('El registro fue actualizado correctamente.','Actualizar Registro',{timeout:3000});
                     $('#tabla-propietario').DataTable().ajax.reload();
 
                 }
