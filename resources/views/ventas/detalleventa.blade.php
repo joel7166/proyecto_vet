@@ -24,10 +24,6 @@
                          <td>PrecioVenta</td>
                          <td>Descuento</td>
                          <td>acciones</td>
-
-
-
-
                      </thead>
                  </table>
              </div>

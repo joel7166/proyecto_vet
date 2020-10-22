@@ -37,7 +37,6 @@
                  <div class="col-md-12 col-sm-12 ">
                      <div class="x_panel">
                          <div class="x_content">
-
                              <h3> Nueva Venta</h3>
                              <div class="ln_solid"></div>
                              <form id="registro-venta"data-parsley-validate class="form-horizontal form-label-left">
@@ -138,7 +137,7 @@
         });
     });
 </script>
-<!-------------------registar nueva categoria------------------------->
+<!-------------------registar nueva venta------------------------->
 <script>
     $('#registro-venta').submit(function(e){
         e.preventDefault();

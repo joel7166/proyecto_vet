@@ -50,5 +50,4 @@ class mascotacontrol extends Controller
         $propietario = DB::select('call sp_buscarpropietario(?)',[$dni]);
         return response()->json($propietario);
     }
-
 }

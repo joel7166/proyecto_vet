@@ -11,7 +11,7 @@ use Illuminate\Http\Request;//para recuperar datos de la vista
 
 use DataTables;
 
-use Yajra\DataTables\DataTables;
+//use Yajra\DataTables\DataTables;
 //use DataTables;
 class usuariocontrol extends Controller
 {
@@ -29,7 +29,7 @@ class usuariocontrol extends Controller
                    ->make(true);
         }
             return view('usuario.index');
-      }
+    }
     public function eliminar($usu_id){
         $usuarios=DB::select('CALL sp_eliminarusuario(?)',[$usu_id]);
     }
@@ -49,14 +49,11 @@ class usuariocontrol extends Controller
         $request->usu_apellidos,$request->usu_celular,$request->usu_estado]);
         return back();
     }
-}
-
-      }
-      public function editar($id){
+    public function editar($id){
 
         $usuarios = DB::select('call editar_usuario(?)',[$id]);
         return response()->json($usuarios);
-      }
+    }
 
 
 }
