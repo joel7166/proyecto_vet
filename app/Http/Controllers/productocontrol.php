@@ -18,18 +18,16 @@ class productocontrol extends Controller
         $productos=DB::select('call listar_producto()');
 
         return DataTables()::of($productos)
-               ->addColumn('action',function($productos){
-                   $acciones='<a href="javascript::void(0)" onclick=" editaranimal('.$productos->prod_id.')"  class="btn btn-info btn-sm">Editar</a>';
-                   $acciones.='&nbsp;<button type="button" name="delete" id="'.$productos->prod_id.'"   class=" delete btn btn-danger btn-sm">Eliminar</button>';
+                ->addColumn('action',function($productos){
+                    $acciones='<a href="javascript::void(0)" onclick=" editaranimal('.$productos->prod_id.')"  class="btn btn-info btn-sm">Editar</a>';
+                    $acciones.='&nbsp;<button type="button" name="delete" id="'.$productos->prod_id.'"   class=" delete btn btn-danger btn-sm">Eliminar</button>';
 
-                   return $acciones;
+                    return $acciones;
 
-               })
-               ->rawColumns(['action'])
-               ->make(true);
-
+                })
+                ->rawColumns(['action'])
+                ->make(true);
     }
-
      return view('producto.producto');
  }
  public function registrar(Request $request){

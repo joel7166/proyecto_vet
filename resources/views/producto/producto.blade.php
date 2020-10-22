@@ -34,9 +34,9 @@
                 <div class="form-group">
                     <label for="seleperfil">CodigoCategoria</label>
                     <select class="form-control" id="selecodcategoria" name="selecodcategoria">
-                      <option value="1">antibiotico</option>
-                      <option value="2">anastesicos</option>
-                      <option value="4">ampicilina</option>
+                      <option value="2">antibiotico</option>
+                      <option value="5">anastesicos</option>
+                      <option value="6">ampicilina</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -234,7 +234,7 @@
 
     });
 </script>
-<!---------------------editar categoria----------------------------->
+<!---------------------editar producto----------------------------->
 <script>
     function editaranimal(id){
         $.get('../producto/editar/'+id,function(producto){
@@ -254,7 +254,7 @@
     }
 
 </script>
-<!--------------------Actualizar categoria------------------------>
+<!--------------------Actualizar producto------------------------>
 <script>
     $('#producto_editar').submit(function(e){
         e.preventDefault();
@@ -270,14 +270,12 @@
             url:"{{route('producto.actualizar')}}",
             type:"post",
             data:{
-
                 prod_id:id2,
                 catp_id:categoria2,
                 prod_codigo:codigo2,
                 prod_nombre:nombre2,
                 prod_stock:stock2,
                 prod_descripcion:descripcion2,
-
                 _token: _token2
             },
             success:function(response){
@@ -285,7 +283,6 @@
                     $('#producto_edit_modal').modal('hide');
                     toastr.info('El registro fue actualizado correctamente.','Actualizar Registro',{timeout:3000});
                     $('#tabla-producto').DataTable().ajax.reload();
-
                 }
             }
         })

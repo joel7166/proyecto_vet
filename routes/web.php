@@ -13,7 +13,7 @@ use App\Http\Controllers\logincontrol;
 use App\Http\Controllers\categoriacontrol;
 use App\Http\Controllers\mascotacontrol;
 use App\Http\Controllers\perfilcontrol;
-
+use App\Http\Controllers\ventacontrol;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +26,6 @@ use App\Http\Controllers\perfilcontrol;
 |
 */
 //login
-
 
 Route::get('/', function () {
     return view('login.login'); #carga por defecto la primera pagina es el welcome en la carpeta view
@@ -47,7 +46,7 @@ Route::get('usuario/editar/{id}',[usuariocontrol::class,'editar'])->name('usuari
 Route::post('usuario/actualizar',[usuariocontrol::class,'actualizar'])->name('usuario.actualizar');
 
 
-//rutas para propieatario
+//rutas para propietario
 Route::get('propietario/index',[propietariocontrol::class,'index'])->name('propietario.index');
 Route::post('propietario',[propietariocontrol::class,'registrar'])->name('propietario.registrar');
 Route::get('propietario/eliminar/{id}',[propietariocontrol::class,'eliminar'])->name('propietario.eliminar');
@@ -91,11 +90,11 @@ Route::get('producto/producto',[productocontrol::class,'producto'])->name('produ
 //ruta para nuevo
 Route::post('producto',[productocontrol::class,'registrar'])->name('producto.registrar');
 //ruta para eliminar
-Route::get('producto/producto/eliminar/{id}',[productocontrol::class,'eliminar'])->name('producto.eliminar');
+Route::get('producto/eliminar/{id}',[productocontrol::class,'eliminar'])->name('producto.eliminar');
 //ruta para editar
-Route::get('producto/producto/editar/{id}',[productocontrol::class,'editar'])->name('producto.editar');
+Route::get('producto/editar/{id}',[productocontrol::class,'editar'])->name('producto.editar');
 //ruta de actualizar  datos
-Route::post('producto/producto/actualizar',[productocontrol::class,'actualizar'])->name('producto.actualizar');
+Route::post('producto/actualizar',[productocontrol::class,'actualizar'])->name('producto.actualizar');
 
 /***************RUTAS DE MASCOTA***************/
 
@@ -116,3 +115,6 @@ Route::get('perfil/eliminar/{id}',[perfilcontrol::class,'eliminar'])->name('perf
 Route::get('perfil/editar/{id}',[perfilcontrol::class,'editar'])->name('perfil.editar');
 //ruta de actualizar  datos
 Route::post('perfil/actualizar',[perfilcontrol::class,'actualizar'])->name('perfil.actualizar');
+
+//-----------------rutas para ventas------------------------------------------------
+Route::get('venta/index',[ventacontrol::class,'index'])->name('venta.index');

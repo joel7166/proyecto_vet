@@ -109,7 +109,7 @@
                   </li>
                   <li><a><i class="fa fa-cart-arrow-down"></i>VENTA <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Venta</a></li>
+                      <li><a href="{{route('venta.index')}}">Venta</a></li>
 
                     </ul>
                   </li>
