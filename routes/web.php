@@ -13,8 +13,8 @@ use App\Http\Controllers\logincontrol;
 use App\Http\Controllers\categoriacontrol;
 use App\Http\Controllers\mascotacontrol;
 use App\Http\Controllers\perfilcontrol;
-
-
+use App\Http\Controllers\ventacontrol;
+use App\Http\Controllers\detalleventacontrol;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -116,3 +116,14 @@ Route::get('perfil/eliminar/{id}',[perfilcontrol::class,'eliminar'])->name('perf
 Route::get('perfil/editar/{id}',[perfilcontrol::class,'editar'])->name('perfil.editar');
 //ruta de actualizar  datos
 Route::post('perfil/actualizar',[perfilcontrol::class,'actualizar'])->name('perfil.actualizar');
+
+
+//----------------------------rutas para ventas---------------------------------------
+Route::get('ventas/venta',[ventacontrol::class,'venta'])->name('ventas.venta');
+//ruta para actualizar
+Route::post('ventas/venta',[ventacontrol::class,'registrar'])->name('ventas.registrar');
+
+//----------------------------rutas para Detalle Venta---------------------------------------
+Route::get('ventas/detalleventa',[detalleventacontrol::class,'detalleventa'])->name('ventas.detalleventa');
+//ruta para actualizar
+Route::post('ventas/detalleventa',[detalleventacontrol::class,'registrar'])->name('ventas.registrar');

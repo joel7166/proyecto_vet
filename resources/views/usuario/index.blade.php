@@ -32,7 +32,7 @@
                 <h3> Nuevo Usuario</h3>
               <form id="registro-usuario">
                 @csrf
-                <div class="col-md-6">
+
                   <div class="form-group">
                       <label for="seleperfil">Perfil</label>
                       <select class="form-control" id="seleperfil" name="seleperfil">
@@ -78,8 +78,9 @@
                       <label >Femennino</label>
                     </div>
                   </div>
-                  <button type="submit" class="btn btn-primary" >Registrar</button>
-                </div>
+
+
+                <button type="submit" class="btn btn-primary" >Registrar</button>
 
               </form>
             </div>
@@ -238,7 +239,7 @@
         e.preventDefault();
         var perfil=$('#seleperfil').val();
         var dni=$('#txtdni').val();
-        var correo=$('#txtnombres').val();
+        var correo=$('#txtemail').val();
         var contrasenia=$('#txtcontraseña').val();
         var nombre=$('#txtnombres').val();
         var apellido=$('#txtapellidos').val();
