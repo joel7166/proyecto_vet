@@ -111,7 +111,6 @@
                     <ul class="nav child_menu">
                       <li><a href="{{url('ventas/venta')}}">Venta</a></li>
                       <li><a href="{{url('ventas/detalleventa')}}">Detalle Venta</a></li>
-
                     </ul>
                   </li>
                   <li><a><i class="fa  fa-medkit"></i>SERVICIO <span class="fa fa-chevron-down"></span></a>

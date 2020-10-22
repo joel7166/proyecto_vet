@@ -1,6 +1,7 @@
 @extends('master')
 
 @section('content')
+
 <!----todo codigo html------>
 <div class="container">
    <br>
@@ -98,7 +99,6 @@
                 </div>
 
             </div>
-
           </div>
 <!--modal eliminar-->
   <div class="modal fade" id="confimodal"  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
