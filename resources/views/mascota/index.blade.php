@@ -6,15 +6,15 @@
 	<div class="col-md-12 col-sm-12 ">
 		<div class="x_panel">
                 <div class="x_title">
-                    <h2>Propietario <small></small></h2>      
+                    <h2>Propietario <small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li>
                             <input type="text" class="form-control" name="txtdni" id="txtdni">
-                            
+
                         </li>
 
-                       <li><button class="btn btn-success" name="buscar" id="buscar" href="javascript::void(0)" onclick="buscarpropietario()" ><i class="buscar fa fa-search"></i>&nbsp;Buscar</button>                           
-                            
+                       <li><button class="btn btn-success" name="buscar" id="buscar" href="javascript::void(0)" onclick="buscarpropietario()" ><i class="buscar fa fa-search"></i>&nbsp;Buscar</button>
+
                         </li>
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -29,61 +29,61 @@
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdni">DNI</label>
                             <div class="col-md-8 col-sm-8 ">
                                 <input type="text" class="form-control" id="txtdni2" name="txtdni2" disabled>
-                            </div> 
-                            
+                            </div>
+
                         </div>
                         <div class="col-md-4 col-sm-12  form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdni">Nombre</label>
                             <div class="col-md-8 col-sm-8">
                                 <input type="text" class="form-control" id="txtnombre2" name="txtnombre2" disabled>
-                            </div> 
-                            
+                            </div>
+
                         </div>
                         <div class="col-md-4 col-sm-12  form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdni">Apellidos</label>
                             <div class="col-md-8 col-sm-8 ">
                                 <input type="text" class="form-control" id="txtapellidos2" name="txtapellidos2" disabled>
-                            </div> 
+                            </div>
                         </div>
                         <div class="col-md-4 col-sm-12  form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdni">Telefono</label>
                             <div class="col-md-8 col-sm-8 ">
                                 <input type="text" class="form-control" id="txtcelular2" name="txtcelular2" disabled>
-                            </div> 
-                            
+                            </div>
+
                         </div>
                         <div class="col-md-4 col-sm-12  form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdni"  >Email</label>
                             <div class="col-md-8 col-sm-8 ">
                                 <input type="text" class="form-control" id="txtcorreo2" name="txtcorreo2" disabled>
-                            </div> 
+                            </div>
                         </div>
                         <div class="col-md-4 col-sm-12  form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdni">Direccion</label>
                             <div class="col-md-8 col-sm-8 ">
                                 <input type="text" class="form-control" id="txtdireccion2" name="txtdireccion2" disabled>
-                            </div> 
-                            
+                            </div>
+
                         </div>
                         <div class="col-md-4 col-sm-12  form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdni">Ciudad</label>
                             <div class="col-md-8 col-sm-8 ">
                                 <input type="text" class="form-control" id="txtciudad2" name="txtciudad2" disabled>
-                            </div> 
-                            
+                            </div>
+
                         </div>
                     </div>
-                
+
                </div>
         </div>
     </div>
-    
+
 </div>
 <div class="row">
 	<div class="col-md-12 col-sm-12 ">
 		<div class="x_panel">
                 <div class="x_title">
-                    <h2>lista de Mascotas</h2>      
+                    <h2>lista de Mascotas</h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <li>
                             <button class="btn btn-primary" data-toggle="modal" data-target="#modalnuevo"><i class="fa fa-plus-circle"></i>&nbsp;Nuevo</button>
@@ -97,8 +97,8 @@
                     <br />
                     <table id="tabla-animal" class="table table-hover">
                         <thead>
-                            
-                            <td>Nombre</td> 
+
+                            <td>Nombre</td>
                             <td>Especie</td>
                             <td>Raza</td>
                             <td>Color</td>
@@ -111,7 +111,7 @@
                </div>
         </div>
     </div>
-    
+
 </div>
 
 <!--modal eliminar-->
@@ -148,7 +148,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-            
+
                         <div class="form-group">
                             <label for="txtpropietario">Dni Propietario</label>
                             <input type="text" class="form-control" id="txtpropietario" placeholder="" name="txtpropietario">
@@ -169,7 +169,7 @@
                                 <option>ave</option>
                                 <option>reptil</option>
                                 <option>roedor</option>
-                
+
                             </select>
                         </div>
 
@@ -177,22 +177,22 @@
                             <label for="txtraza">Raza</label>
                             <input type="text" class="form-control" id="txtraza" placeholder="" name="txtraza">
                         </div>
-                    
 
-                    
+
+
                         <div class="form-group">
                             <label for="txtcolor">Color</label>
                             <input type="text" class="form-control" id="txtcolor" placeholder="" name="txtcolor">
                         </div>
 
-                    
+
                         <div class="form-group">
                             <label for="">GENERO</label>
                             <div class="custom-control custom-radio">
                                 <input class="custom-control-input" type="radio" id="customRadio1" name="rbgenero" value="Macho">
                                 <label for="customRadio1" class="custom-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Macho</font></font></label>
                             </div>
-                        
+
                             <div class="custom-control custom-radio">
                                 <input class="custom-control-input" type="radio" id="customRadio2" name="rbgenero" value="Hembra">
                                 <label for="customRadio2" class="custom-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hembra</font></font></label>
@@ -201,7 +201,7 @@
                         <div class="form-group">
                             <label for="exampleInputNombre">Fecha Nacimiento</label>
                             <input type="date" name="txtfecha" id="txtfecha" class="date-picker form-control">
-                           <!-- <input id="birthday" class="date-picker form-control" id="txtfecha" name="txtfecha" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" 
+                           <!-- <input id="birthday" class="date-picker form-control" id="txtfecha" name="txtfecha" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'"
                             onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
                             <script>
                                 function timeFunctionLong(input) {
@@ -211,7 +211,7 @@
                                 }
                             </script>-->
                         </div>
-                        
+
                     </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -220,7 +220,7 @@
             </div>
 
         </form>
-        
+
       </div>
 </div>
 
@@ -260,7 +260,7 @@
                                 <option>ave</option>
                                 <option>reptil</option>
                                 <option>roedor</option>
-                
+
                             </select>
                         </div>
 
@@ -268,15 +268,15 @@
                             <label for="txtraza">Raza</label>
                             <input type="text" class="form-control" id="txtraza2" placeholder="" name="txtraza2">
                         </div>
-                    
 
-                    
+
+
                         <div class="form-group">
                             <label for="txtcolor">Color</label>
                             <input type="text" class="form-control" id="txtcolor2" placeholder="" name="txtcolor2">
                         </div>
 
-                    
+
                         <div class="form-group">
                             <label for="">Genero</label>
                             <div class="custom-control custom-radio">
@@ -292,7 +292,7 @@
                         <div class="form-group">
                             <label for="exampleInputNombre">Fecha Nacimiento</label>
                             <input type="datetime" name="txtfecha3" id="txtfecha3" class="date-picker form-control">
-                           <!-- <input id="birthday" class="date-picker form-control" id="txtfecha" name="txtfecha" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'" 
+                           <!-- <input id="birthday" class="date-picker form-control" id="txtfecha" name="txtfecha" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'"
                             onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
                             <script>
                                 function timeFunctionLong(input) {
@@ -302,7 +302,7 @@
                                 }
                             </script>-->
                         </div>
-                        
+
                     </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
@@ -311,7 +311,7 @@
             </div>
 
         </form>
-        
+
       </div>
 </div>
 
@@ -320,7 +320,7 @@
             var tablaanimal=$('#tabla-animal').DataTable({
                 processing:true,
                 serverSide:true,
-                
+
                 ajax:{
                     url:'../mascota/lista/'+id,
                 },
@@ -340,7 +340,7 @@
         var tablaanimal=$('#tabla-animal').DataTable({
                 processing:true,
                 serverSide:true,
-                
+
                 ajax:{
                     url:"{{route('mascota.index')}}",
                 },
@@ -361,7 +361,7 @@
     function buscarpropietario(){
          var dni;
         dni=$('#txtdni').val();
-        
+
         $.get('../mascota/buscar/'+dni,function(propietario){
         //asignar los datos recuperados
         $('#txtId2').val(propietario[0].pro_id);
@@ -477,7 +477,7 @@
 $('#editar-mascota').submit(function(e){
         e.preventDefault();
         var id3=$('#txtId2').val();
-        
+
         var anombre3=$('#txtnombre3').val();
         var especie2=$('#txtespecie2').val();
         var raza2=$('#txtraza2').val();

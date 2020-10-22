@@ -31,6 +31,7 @@
             <h3>Nuev Producto</h3>
             <form id="registro-producto">
                 @csrf
+                
                 <div class="form-group">
                     <label for="seleperfil">CodigoCategoria</label>
                     <select class="form-control" id="selecodcategoria" name="selecodcategoria">

@@ -31,7 +31,7 @@
                 <h3> Nuevo Usuario</h3>
               <form id="editar-usuario">
                 @csrf
-                <div class="col-md-6">
+
                   <div class="form-group">
                       <label for="seleperfil">Perfil</label>
                       <select class="form-control" id="seleperfil" name="seleperfil">
@@ -51,7 +51,7 @@
 
                   <div class="form-group">
                       <label for="txtcontraseña">Contraseña</label>
-                      <input type="text" class="form-control" id="txtcontraseña" name="txtcontraseña" placeholder="contraseña">
+                      <input type="password" class="form-control" id="txtcontraseña" name="txtcontraseña" placeholder="contraseña">
                   </div>
                   <div class="form-group">
                       <label for="txtnombres">Nombres</label>
@@ -167,9 +167,6 @@
         </div>
       </div>
 </div>
-
-
-
 <script>
   $(document).ready(function(){
       var tablaanimal=$('#tabla-usuario').DataTable({
@@ -226,8 +223,8 @@
         e.preventDefault();
         var perfil=$('#seleperfil').val();
         var dni=$('#txtdni').val();
-        var correo=$('#txtnombres').val();
-        var contraseña=$('#txtcontraseña').val();
+        var correo=$('#txtemail').val();
+        var contrasenia=$('#txtcontraseña').val();
         var nombre=$('#txtnombres').val();
         var apellido=$('#txtapellidos').val();
         var celular=$('#txtcelular').val();
@@ -240,12 +237,11 @@
                 per_id:perfil,
                 usu_dni:dni,
                 usu_email:correo,
-                usu_contrasenia:contraseña,
+                usu_contrasenia:contrasenia,
                 usu_nombres:nombre,
                 usu_apellidos:apellido,
                 usu_celular:celular,
                 usu_estado:estado,
-
               _token:_token
             },
             success:function(response){
@@ -260,6 +256,34 @@
         });
 
     });
+</script>
+<!-------------editar------------------->
+<script>
+    function editaranimal(id){
+        $.get('../usuario.editar/'+id,function(usuario){
+            //asignar los datos recuperados
+            $('#txtId2').val(usuario[0].usu_id);
+            $('#seleperfil2').val(usuario[0].per_id);
+            $('#txtdni2').val(usuario[0].usu_dni);
+            $('#txtemail2').val(usuario[0].usu_email);
+            $('#txtcontraseña2').val(usuario[0].usu_contrasenia);
+            $('#txtnombres2').val(usuario[0].usu_nombres);
+            $('#txtapellidos2').val(usuario[0].usu_apellidos);
+            $('#txtcelular2').val(usuario[0].usu_celular);
+            if(usuario[0].usu_estado=="1"){
+                     $('input[name=rbgenero2][value="macho"]').prop('checked',true);
+                 }
+                 if(usuario[0].usu_estado=="0"){
+                     $('input[name=rbgenero2][value="hembra"]').prop('checked',true);
+                 }
+            $("input[name=_token]").val();
+
+            $('#usuario_edit_modal').modal('toggle');
+
+        });
+
+    }
+
 </script>
 
 <script>

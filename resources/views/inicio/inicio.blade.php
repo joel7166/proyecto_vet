@@ -22,9 +22,9 @@
     <div class="col-md-12 col-sm-12 ">
 
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button  type="button" class="btn btn-info circle "><img src="https://img.icons8.com/fluent/96/000000/cat-footprint.png"/></button>
+        <a  type="button" href="{{route('mascota.index')}}" class="btn btn-info circle "><img src="https://img.icons8.com/fluent/96/000000/cat-footprint.png"/></a>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <button type="button" class="btn btn-info"><img src="https://img.icons8.com/plasticine/100/000000/clear-shopping-cart.png"/></button>
+        <a type="button"  class="btn btn-info" href="{{route('ventas.venta')}}"><img src="https://img.icons8.com/plasticine/100/000000/clear-shopping-cart.png"/></a>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button type="button" class="btn btn-success"><img src="https://img.icons8.com/plasticine/96/000000/phone-not-being-used.png"/></button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

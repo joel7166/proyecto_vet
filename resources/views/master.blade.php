@@ -12,12 +12,12 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
 
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
-
     <!-- Bootstrap -->
     <link href="../../public/gente/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!--<link href="../../public/gente/cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">-->
@@ -109,8 +109,8 @@
                   </li>
                   <li><a><i class="fa fa-cart-arrow-down"></i>VENTA <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="{{route('venta.index')}}">Venta</a></li>
-
+                      <li><a href="{{url('ventas/venta')}}">Venta</a></li>
+                      <li><a href="{{url('ventas/detalleventa')}}">Detalle Venta</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa  fa-medkit"></i>SERVICIO <span class="fa fa-chevron-down"></span></a>
@@ -163,8 +163,8 @@
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="{{route('perfil.perfil')}}">Perfiles</a>
                       <a class="dropdown-item"  href="{{route('usuario.index')}}">
-                        <span class="badge bg-red pull-right">new</span>
-                        <span>Configuraciones</span>
+                        <span class="badge bg-red pull-right"></span>
+                        <span>Ver Usuario</span>
                       </a>
                     <a class="dropdown-item"  href="#">Ayuda</a>
                     <a class="dropdown-item"  href="{{route('login.login')}}"><i class="fa fa-sign-out pull-right"></i>Salir</a>
@@ -311,9 +311,10 @@
     <script src="../../public/gente/vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
     <!-- bootstrap-daterangepicker -->
     <script src="../../public/gente/vendors/moment/min/moment.min.js"></script>
-    <script src="../../public/gente/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
 
+    <script src="../../public/gente/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="../../public/gente/build/js/custom.min.js"></script>
+    @yield('scrip')
   </body>
 </html>

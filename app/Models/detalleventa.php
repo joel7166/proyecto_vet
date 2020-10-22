@@ -8,13 +8,12 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\database\Eloquent\Model;
 
-class usuario extends Model
+class detalleventa extends Model
 {
-   protected $table="usuario";
+   protected $table="detalle_venta";
 
-   protected $fillable=['usu_id','per_id','usu_dni',
-   'usu_email','usu_contraseña','usu_nombres',
-   'usu_apellidos','usu_celular','usu_estado'];
+   protected $fillable=['ven_id','prod_id',
+   'detv_cantidad','detv_precio_venta','detv_descuento'];
 
    public $timestamps=false;
 }

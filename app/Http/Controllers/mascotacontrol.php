@@ -24,13 +24,14 @@ class mascotacontrol extends Controller
                    ->rawColumns(['action'])
                    ->make(true);
         }
-        
+
             return view('mascota.index');
     }
-   
+
     public function registrar(Request $request){
         $mascotas=DB::select('CALL sp_nuevo_animal(?,?,?,?,?,?,?)',
-        [$request->ani_dni,$request->ani_nombre,$request->ani_especie,$request->ani_raza,$request->ani_color,$request->ani_fecha,$request->ani_genero]);
+        [$request->ani_dni,$request->ani_nombre,$request->ani_especie,
+        $request->ani_raza,$request->ani_color,$request->ani_fecha,$request->ani_genero]);
         return back();
     }
     public function eliminar($id){

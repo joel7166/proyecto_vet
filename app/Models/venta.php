@@ -8,13 +8,13 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\database\Eloquent\Model;
 
-class usuario extends Model
+class venta extends Model
 {
-   protected $table="usuario";
+   protected $table="venta";
 
-   protected $fillable=['usu_id','per_id','usu_dni',
-   'usu_email','usu_contraseña','usu_nombres',
-   'usu_apellidos','usu_celular','usu_estado'];
+   protected $fillable=['usu_id','pro_id',
+   'ven_numero_comprobante','ven_tipo_comprobante','ven_fecha_hora',
+   'ven_impuesto','ven_total_venta'];
 
    public $timestamps=false;
 }

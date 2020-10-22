@@ -11,12 +11,14 @@ use Illuminate\Http\Request;//para recuperar datos de la vista
 
 use DataTables;
 
+use Yajra\DataTables\DataTables;
+//use DataTables;
 class usuariocontrol extends Controller
 {
     public function index( Request $request){
         if($request -> ajax()){
             $usuarios=DB::select('CALL sp_listusuario()');
-            return DataTables()::of($usuarios)
+            return DataTables::of($usuarios)
                    ->addColumn('action',function($usuarios){
                        $acciones='<a href="javascript::void(0)" onclick=" editarusuario('.$usuarios->usu_id.')" class="btn btn-info btn-sm">Editar</a>';
                        $acciones.='&nbsp;<button type="button" name="delete" id="'.$usuarios->usu_id.'" class=" delete btn btn-danger btn-sm">Eliminar</button>';
@@ -28,10 +30,6 @@ class usuariocontrol extends Controller
         }
             return view('usuario.index');
       }
-    public function editar($usu_id){
-        $usuarios=DB::select('CALL editar_usuario(?)',[$usu_id]);
-        return response()->json($usuarios);
-    }
     public function eliminar($usu_id){
         $usuarios=DB::select('CALL sp_eliminarusuario(?)',[$usu_id]);
     }
@@ -52,3 +50,15 @@ class usuariocontrol extends Controller
         return back();
     }
 }
+
+      }
+      public function editar($id){
+
+        $usuarios = DB::select('call editar_usuario(?)',[$id]);
+        return response()->json($usuarios);
+      }
+
+
+}
+
+
