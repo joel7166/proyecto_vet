@@ -29,9 +29,8 @@
                 </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <h3> Nuevo Usuario</h3>
-              <form id="editar-usuario">
+              <form id="nuevo-usuario">
                 @csrf
-
                   <div class="form-group">
                       <label for="seleperfil">Perfil</label>
                       <select class="form-control" id="seleperfil" name="seleperfil">
@@ -51,7 +50,7 @@
 
                   <div class="form-group">
                       <label for="txtcontraseña">Contraseña</label>
-                      <input type="password" class="form-control" id="txtcontraseña" name="txtcontraseña" placeholder="contraseña">
+                      <input type="text" class="form-control" id="txtcontraseña" name="txtcontraseña" placeholder="contraseña">
                   </div>
                   <div class="form-group">
                       <label for="txtnombres">Nombres</label>
@@ -62,7 +61,7 @@
                       <input type="text" class="form-control" id="txtapellidos" name="txtapellidos" placeholder="Apellidos">
                   </div>
                   <div class="form-group">
-                      <label for="txtapellidos">Celular</label>
+                      <label for="txtcelular">Celular</label>
                       <input type="text" class="form-control" id="txtcelular" name="txtcelular" placeholder="Celular">
                   </div>
                   <div class="form-group">
@@ -133,7 +132,7 @@
 
               <div class="form-group">
                   <label for="txtcontraseña">Contraseña</label>
-                  <input type="password" class="form-control" id="txtcontraseña2" name="txtcontraseña2" placeholder="contraseña">
+                  <input type="text" class="form-control" id="txtcontraseña2" name="txtcontraseña2" placeholder="contraseña">
               </div>
               <div class="form-group">
                   <label for="txtnombres">Nombres</label>
@@ -219,7 +218,7 @@
 </script>
 <!-------------------registar nuevo usuario------------------------->
 <script>
-    $('#registro-usuario').submit(function(e){
+    $('#nuevo-usuario').submit(function(e){
         e.preventDefault();
         var perfil=$('#seleperfil').val();
         var dni=$('#txtdni').val();
@@ -246,7 +245,7 @@
             },
             success:function(response){
                 if(response){
-                    $('#registro-usuario')[0].reset();
+                    $('#nuevo-usuario')[0].reset();
                     toastr.success('El registro se ingreso correctamente.','nuevo registro',{timeout:3000});
                     $('#tabla-usuario').DataTable().ajax.reload();
 
@@ -257,7 +256,7 @@
 
     });
 </script>
-<!-------------editar------------------->
+<!-------------editar------------------
 <script>
     function editaranimal(id){
         $.get('../usuario.editar/'+id,function(usuario){
@@ -284,7 +283,7 @@
 
     }
 
-</script>
+</script>-->
 
 <script>
     function editarusuario(id){
@@ -344,14 +343,14 @@
             success:function(response){
                 if(response){
                     $('#propietario_edit_modal').modal('hide');
-                    Swal.fire({
+                    /*Swal.fire({ 
                     position: 'top-end',
                     icon: 'success',
                     title: 'Registro Actualizado Correctamente',
                     showConfirmButton: false,
                     timer: 3000
-                    });
-                    //toastr.info('El registro fue actualizado correctamente.','Actualizar Registro',{timeout:3000});
+                    });*/
+                    toastr.info('El registro fue actualizado correctamente.','Actualizar Registro',{timeout:3000});
                     $('#tabla-propietario').DataTable().ajax.reload();
 
                 }

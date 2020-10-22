@@ -39,11 +39,10 @@
                     <input type="text" class="form-control" id="txtdescripcion" name="txtdescripcion" placeholder="Ingrese Descripcion">
                 </div>
 
-                <button type="submit" class="btn btn-primary" >Registar</button>
+                <button type="submit" class="btn btn-primary" >Registrar</button>
             </form>
 
         </div>
-
       </div>
       <!------modal para editar-------->
 

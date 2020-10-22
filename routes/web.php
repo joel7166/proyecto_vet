@@ -40,11 +40,11 @@ Route::get('inicio/inicio',[iniciocontrol::class,'inicio'])->name('inicio.inicio
 Route::get('usuario/index',[usuariocontrol::class,'index'])->name('usuario.index');
 Route::get('usuario/eliminar/{id}',[usuariocontrol::class,'eliminar'])->name('usuario.eliminar');
 //ruta para registar
-Route::post('usuario/index',[usuariocontrol::class,'registrar'])->name('usuario.registrar');
+Route::post('usuario',[usuariocontrol::class,'registrar'])->name('usuario.registrar');
 //ruta para editar
 Route::get('usuario/editar/{id}',[usuariocontrol::class,'editar'])->name('usuario.editar');
 //ruta de actualizar  datos
-Route::post('usuario/actualizar',[usuariocontrol::class,'actualizar'])->name('usuario.actualizar');
+Route::post('usuario/index',[usuariocontrol::class,'actualizar'])->name('usuario.actualizar');
 
 
 //rutas para propietario
