@@ -27,43 +27,70 @@
 
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                    <div class="x_content">
 
             <h3>Nuev Producto</h3>
+            <div class="ln_solid"></div>
             <form id="registro-producto">
                 @csrf
-                
-                <div class="form-group">
-                    <label for="seleperfil">CodigoCategoria</label>
+
+                <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtcodcategoria">CodigoCategoria<span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 ">
                     <select class="form-control" id="selecodcategoria" name="selecodcategoria">
                       <option value="1">antibiotico</option>
                       <option value="2">anastesicos</option>
                       <option value="4">ampicilina</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="inputAddress2">Codigo</label>
+                </div>
+                <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtcodigo">Codigo<span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 ">
+
                     <input type="text" class="form-control" id="txtcodigo" name="txtcodigo" placeholder=" Ingrese Codigo">
                   </div>
+                </div>
 
-                <div class="form-group">
-                    <label for="inputAddress2">Nombre</label>
+                <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtcodigo">Nombre<span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 ">
+
                     <input type="text" class="form-control" id="txtnombre" name="txtnombre" placeholder="Ingrese Nombre">
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="inputAddress2">Stock</label>
+                <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtcodigo">Stock<span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 ">
+
                     <input type="numeric" class="form-control" id="txtstock" name="txtstock" placeholder="Ingrese Stock">
                 </div>
+            </div>
 
-                <div class="form-group">
-                    <label for="inputAddress2">Descripcion</label>
+                <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtcodigo">Descripcion<span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 ">
+
                     <input type="text" class="form-control" id="txtdescripcion" name="txtdescripcion" placeholder="Ingrese Descripcion">
                 </div>
+            </div>
 
-                <button type="submit" class="btn btn-primary" >Registar</button>
+
+                <div class="ln_solid"></div>
+                <div class="item form-group" >
+                  <div class="col-md-6 col-sm-6 offset-md-3">
+                <button type="submit" class="btn btn-success" >Registar</button>
+            </div>
+        </div>
             </form>
 
         </div>
+      </div>
+    </div>
+  </div>
 
       </div>
       <!------modal para editar-------->

@@ -25,24 +25,42 @@
 
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                    <div class="x_content">
 
             <h3>Nuevo Perfil</h3>
+            <div class="ln_solid"></div>
             <form id="registro-perfil">
                 @csrf
-                <div class="form-group">
-                    <label for="inputAddress2">Nombre</label>
+                <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtnombre">Nombre<span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 ">
+
                     <input type="text" class="form-control" id="txtnombre" name="txtnombre" placeholder=" Ingrese Nombre">
                   </div>
-
-                <div class="form-group">
-                    <label for="inputAddress2">Descripcion</label>
-                    <input type="text" class="form-control" id="txtdescripcion" name="txtdescripcion" placeholder="Ingrese Descripcion">
                 </div>
 
-                <button type="submit" class="btn btn-primary" >Registar</button>
+                <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdescripcion">Descripcion<span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 ">
+
+                    <input type="text" class="form-control" id="txtdescripcion" name="txtdescripcion" placeholder="Ingrese Descripcion">
+                </div>
+            </div>
+            <div class="ln_solid"></div>
+              <div class="item form-group" >
+                <div class="col-md-6 col-sm-6 offset-md-3">
+                <button type="submit" class="btn btn-success" >Registar</button>
+            </div>
+        </div>
+
             </form>
 
         </div>
+    </div>
+</div>
+</div>
 
       </div>
       <!------modal para editar-------->

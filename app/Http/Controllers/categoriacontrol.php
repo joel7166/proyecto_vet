@@ -7,7 +7,7 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
-use Illuminate\Support\Facades\DB;//para trabajar con bd direccion
+use Illuminate\Support\Facades\DB;//para trabajar con bd desde procedimientos almacenados
 use Illuminate\Http\Request;//para recuperar datos de la vista
 use DataTables;
 

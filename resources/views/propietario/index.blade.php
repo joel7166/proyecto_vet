@@ -14,12 +14,12 @@
           </ul>
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                
+
                 <h3>Propietarios</h3>
                 <table id="tabla-propietario" class="table table-hover">
                     <thead>
                         <td>DNI</td>
-                        <td>Nombre</td> 
+                        <td>Nombre</td>
                         <td>Apellidos</td>
                         <td>Telefono</td>
                         <td>Correo</td>
@@ -29,11 +29,11 @@
                 </table>
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                
+
                 <div class="col-md-12 col-sm-12 ">
                     <div class="x_panel">
                         <div class="x_content">
-                            
+
                             <h3> Nuevo Propietario</h3>
                             <div class="ln_solid"></div>
                             <form id="registro-propietario"data-parsley-validate class="form-horizontal form-label-left">
@@ -49,42 +49,42 @@
                                     <div class="col-md-6 col-sm-6 ">
                                         <input type="text" class="form-control" id="txtnombre" name="txtnombre"  required>
                                     </div>
-                                    
+
                                 </div>
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtapellidos">Apellidos<span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 ">
                                         <input type="text" class="form-control" id="txtapellidos" name="txtapellidos"  required>
                                    </div>
-                                    
+
                                 </div>
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtapellidos">Celular</label>
                                     <div class="col-md-6 col-sm-6 ">
                                         <input type="text" class="form-control" id="txtcelular" name="txtcelular" >
                                     </div>
-                                    
+
                                 </div>
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="inputAddress2">correo<span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 ">
                                         <input type="email" class="form-control" id="txtemail" name="txtemail" required>
                                    </div>
-                                    
+
                                 </div>
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="inputAddress2">Direccion</label>
                                     <div class="col-md-6 col-sm-6 ">
                                         <input type="text" class="form-control" id="txtdireccion" name="txtdireccion" >
                                      </div>
-                                    
+
                                 </div>
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="inputAddress2">Ciudad</label>
                                     <div class="col-md-6 col-sm-6 ">
                                         <input type="text" class="form-control" id="txtciudad" name="txtciudad" >
                                     </div>
-                                    
+
                                 </div>
                                 <div class="ln_solid"></div>
                                 <div class="item form-group" >
@@ -96,7 +96,7 @@
                         </div>
                     </div>
                 </div>
-               
+
             </div>
 
           </div>
