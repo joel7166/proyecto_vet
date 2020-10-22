@@ -40,9 +40,10 @@
                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtcodcategoria">CodigoCategoria<span class="required">*</span></label>
                     <div class="col-md-6 col-sm-6 ">
                     <select class="form-control" id="selecodcategoria" name="selecodcategoria">
-                      <option value="2">antibiotico</option>
-                      <option value="5">anastesicos</option>
-                      <option value="6">ampicilina</option>
+                      <option value="1">antibiotico</option>
+                      <option value="2">anastesicos</option>
+                      <option value="3">alimentos </option>
+                      <option value="4">ampicilina</option>
                     </select>
                 </div>
                 </div>
@@ -112,9 +113,10 @@
             <div class="form-group">
                 <label for="seleperfil">CodigoCategoria</label>
                 <select class="form-control" id="selecodcategoria2" name="selecodcategoria2">
-                  <option value="2">antibiotico</option>
-                  <option value="5">anastesicos</option>
-                  <option value="6">ampicilina</option>
+                  <option value="1">antibiotico</option>
+                  <option value="2">anastesicos</option>
+                  <option value="3">alimentos </option>
+                  <option value="4">ampicilina</option>
 
                 </select>
             </div>

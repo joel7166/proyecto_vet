@@ -3,7 +3,7 @@
 @section('content')
 <!----todo codigo html------>
 <div class="container">
-   <br>
+
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
               <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Usuarios</a>
@@ -28,45 +28,73 @@
 
                 </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="col-md-12 col-sm-12 ">
+                    <div class="x_panel">
+                        <div class="x_content">
+
                 <h3> Nuevo Usuario</h3>
+                <div class="ln_solid"></div>
               <form id="editar-usuario">
                 @csrf
 
-                  <div class="form-group">
-                      <label for="seleperfil">Perfil</label>
+                  <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="seleperfil">Perfil<span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 ">
                       <select class="form-control" id="seleperfil" name="seleperfil">
-                        <option value="1">Administrador</option>
-                        <option value="2">Secretario</option>
+                        <option value="1">cajero</option>
+                        <option value="2">asistente</option>
                         <option value="5">Cajero</option>
                       </select>
                   </div>
-                  <div class="form-group">
-                      <label for="txtdni">DNI</label>
+                </div>
+
+                  <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdni">DNI<span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 ">
                       <input type="text" class="form-control" id="txtdni" name="txtdni" placeholder="DNI" require>
                   </div>
-                  <div class="form-group">
-                      <label for="inputAddress2">correo</label>
+                </div>
+
+                  <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="inputAddress2">correo<span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 ">
                       <input type="email" class="form-control" id="txtemail" name="txtemail" placeholder="Ingrese su correo" require>
                   </div>
+                </div>
 
-                  <div class="form-group">
-                      <label for="txtcontraseña">Contraseña</label>
+                  <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtcontraseña">Contraseña<span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 ">
                       <input type="password" class="form-control" id="txtcontraseña" name="txtcontraseña" placeholder="contraseña">
                   </div>
-                  <div class="form-group">
-                      <label for="txtnombres">Nombres</label>
+                </div>
+
+
+                  <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtnombres">Nombres<span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 ">
                       <input type="text" class="form-control" id="txtnombres" name="txtnombres" placeholder="Nombres">
                   </div>
-                  <div class="form-group">
-                      <label for="txtapellidos">Apellidos</label>
+                </div>
+
+                  <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtapellidos">Apellidos<span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 ">
                       <input type="text" class="form-control" id="txtapellidos" name="txtapellidos" placeholder="Apellidos">
                   </div>
-                  <div class="form-group">
-                      <label for="txtapellidos">Celular</label>
+                </div>
+
+                  <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtapellidos">Celular<span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 ">
                       <input type="text" class="form-control" id="txtcelular" name="txtcelular" placeholder="Celular">
                   </div>
-                  <div class="form-group">
-                    <label for="">Estado</label>
+                </div>
+
+                  <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtapellidos">Estado<span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 ">
+
                     <div class="custom-control custom-radio">
                       <input type="radio" id="rbestadoa" name="rbestado" value="0">
                       <label >Activo</label>
@@ -75,12 +103,26 @@
                       <input type="radio" id="rbestadon" name="rbestado" value="1" >
                       <label >No Activo</label>
                     </div>
-                  </div>
-                  <button type="submit" class="btn btn-primary" >Registrar</button>
                 </div>
+            </div>
+            <div class="ln_solid"></div>
+              <div class="item form-group" >
+                <div class="col-md-6 col-sm-6 offset-md-3">
+
+                  <button type="submit" class="btn btn-success"  >Registrar</button>
+                </div>
+            </div>
               </form>
             </div>
           </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+          <!---------eliminar---------->
   <div class="modal fade" id="confimodal"  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -100,6 +142,8 @@
         </div>
       </div>
   </div>
+
+
 <!------------------editar model-------------------------->
 <div class="modal fade" id="usuario_edit_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -112,13 +156,13 @@
           </div>
           <form id="editar-usuario">
           @csrf
-            <div class="modal-body"> 
+            <div class="modal-body">
               <input type="hidden" id="txtId2" name="txtId2">
               <div class="form-group">
                   <label for="seleperfil">Perfil</label>
                   <select class="form-control" id="seleperfil2" name="seleperfil2">
-                    <option value="1">Administrador</option>
-                    <option value="2">Secretario</option>
+                    <option value="1">cajero</option>
+                    <option value="2">asistente</option>
                     <option value="5">Cajero</option>
                   </select>
               </div>
@@ -371,7 +415,7 @@
           if($cant != 0) {
           echo '<option value="0">[SELECCIONE]</option>';
           while ($fila = mysql_fetch_array($query)) {
-  
+
             echo '<option value="'.$fila['id'].'">'.$fila['provincia'].'</option>';
         };
   });
