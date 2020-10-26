@@ -15,11 +15,11 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
 
-    
-    <!-- Bootstrap 
+
+    <!-- Bootstrap
     <link href="../../public/gente/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
     <!--<link href="../../public/gente/cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">-->
-    <!-- Font Awesome 
+    <!-- Font Awesome
     <link href="../../public/gente/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">-->
     <!-- NProgress -->
     <link href="../../public/gente/vendors/nprogress/nprogress.css" rel="stylesheet">
@@ -29,10 +29,10 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
-    
+
     <!-- bootstrap-progressbar -->
     <link href="../../public/gente/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap 
+    <!-- JQVMap
     <link href="../../public/gente/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>-->
     <!-- bootstrap-daterangepicker -->
     <link href="../../public/gente/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -90,13 +90,13 @@
 
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-table"></i> CITAS <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-table"></i> ATENCION MEDICA<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Citas</a></li>
+                      <li><a href="{{route('atencionmedica.index')}}">Enfermedad</a></li>
 
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-bar-chart-o"></i> PRODUCTO <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-dolly"></i> PRODUCTO <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{url('producto/producto')}}">Producto</a></li>
                       <li><a href="{{url('producto/categoria')}}">Categoria</a></li>
@@ -116,7 +116,7 @@
                   </li>
                   <li><a><i class="fa  fa-medkit"></i>SERVICIO <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Servicio</a></li>
+                      <li><a href="{{route('servicios.index')}}">Servicio</a></li>
 
                     </ul>
                   </li>
@@ -162,7 +162,7 @@
                     <img src="../../public/gente/production/images/img.jpg" alt="">Usuarios
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item"  href="{{route('perfil.perfil')}}">Perfiles</a>
+                    <a class="dropdown-item"  href="{{route('perfil.index')}}">Perfiles</a>
                       <a class="dropdown-item"  href="{{route('usuario.index')}}">
                         <span class="badge bg-red pull-right"></span>
                         <span>Ver Usuario</span>
@@ -283,7 +283,7 @@
     <script src="../../public/gente/vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="../../public/gente/vendors/nprogress/nprogress.js"></script>
-    <!-- Chart.js 
+    <!-- Chart.js
     <script src="../../public/gente/vendors/Chart.js/dist/Chart.min.js"></script>-->
     <!-- gauge.js -->
     <script src="../../public/gente/vendors/gauge.js/dist/gauge.min.js"></script>
@@ -294,13 +294,13 @@
 
     <!-- Skycons -->
     <script src="../../public/gente/vendors/skycons/skycons.js"></script>
-    <!-- Flot 
+    <!-- Flot
     <script src="../../public/gente/vendors/Flot/jquery.flot.js"></script>
     <script src="../../public/gente/vendors/Flot/jquery.flot.pie.js"></script>
     <script src="../../public/gente/vendors/Flot/jquery.flot.time.js"></script>
     <script src="../../public/gente/vendors/Flot/jquery.flot.stack.js"></script>
     <script src="../../public/gente/vendors/Flot/jquery.flot.resize.js"></script>-->
-    <!-- Flot plugins 
+    <!-- Flot plugins
     <script src="../../public/gente/vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
     <script src="../../public/gente/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
     <script src="../../public/gente/vendors/flot.curvedlines/curvedLines.js"></script>-->
@@ -316,6 +316,6 @@
     <script src="../../public/gente/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="../../public/gente/build/js/custom.min.js"></script>
-    
+
   </body>
 </html>

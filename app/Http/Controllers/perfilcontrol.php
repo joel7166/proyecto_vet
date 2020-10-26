@@ -13,7 +13,7 @@ use DataTables;
 
 class perfilcontrol extends Controller
 {
- public function perfil( Request $request){
+ public function index( Request $request){
     if($request ->ajax()){
         $perfiles=DB::select('call listar_perfil()');
 
@@ -30,7 +30,7 @@ class perfilcontrol extends Controller
 
     }
 
-     return view('perfil.perfil');
+     return view('perfil.index');
  }
  public function registrar(Request $request){
 

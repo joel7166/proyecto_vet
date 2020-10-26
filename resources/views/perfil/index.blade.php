@@ -60,12 +60,9 @@
 
         </div>
     </div>
-</div>
-</div>
+  </div>
+ </div>
 
-
-                <button type="submit" class="btn btn-primary" >Registrar</button>
-            </form>
 
         </div>
 
@@ -131,8 +128,8 @@
 
 </div> <!-- fin conteiner-->
 
-@endsection
-@section('scrip')
+
+
 <!--------------------listar perfil--------------------------->
 <script>
     $(document).ready(function(){
@@ -140,7 +137,7 @@
             processing:true,
             serverSide:true,
             ajax:{
-                url:"{{route('perfil.perfil')}}",
+                url:"{{route('perfil.index')}}",
             },
             columns:[
                 {data:'per_id'},

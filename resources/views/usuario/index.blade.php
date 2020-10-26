@@ -35,16 +35,12 @@
                 <h3> Nuevo Usuario</h3>
 
                 <div class="ln_solid"></div>
-              <form id="editar-usuario">
+              <form id="nuevo-usuario">
                 @csrf
-
                   <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="seleperfil">Perfil<span class="required">*</span></label>
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdni">Perfil<span class="required">*</span></label>
                     <div class="col-md-6 col-sm-6 ">
-                                    <form id="nuevo-usuario">
-                @csrf
-                  <div class="form-group">
-                      <label for="seleperfil">Perfil</label>
+
                       <select class="form-control" id="seleperfil" name="seleperfil">
                         <option value="1">cajero</option>
                         <option value="2">asistente</option>
@@ -52,6 +48,7 @@
                       </select>
                   </div>
                 </div>
+
 
                   <div class="item form-group">
                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdni">DNI<span class="required">*</span></label>
@@ -72,11 +69,7 @@
                     <div class="col-md-6 col-sm-6 ">
                       <input type="password" class="form-control" id="txtcontraseña" name="txtcontraseña" placeholder="contraseña">
 
-                  <div class="form-group">
-                      <label for="txtcontraseña">Contraseña</label>
-                      <input type="text" class="form-control" id="txtcontraseña" name="txtcontraseña" placeholder="contraseña">
-
-                  </div>
+                   </div>
                 </div>
 
 
@@ -98,12 +91,8 @@
                   <div class="item form-group">
                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtapellidos">Celular<span class="required">*</span></label>
                     <div class="col-md-6 col-sm-6 ">
-
-                  <div class="form-group">
-                      <label for="txtcelular">Celular</label>
-
-                      <input type="text" class="form-control" id="txtcelular" name="txtcelular" placeholder="Celular">
-                  </div>
+                        <input type="text" class="form-control" id="txtcelular" name="txtcelular" placeholder="Celular">
+                    </div>
                 </div>
 
                   <div class="item form-group">
@@ -134,7 +123,7 @@
     </div>
 </div>
 
-
+</div>
 
 
           <!---------eliminar---------->

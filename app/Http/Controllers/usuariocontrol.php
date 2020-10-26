@@ -53,14 +53,7 @@ class usuariocontrol extends Controller
 
 
 
-      public function editar($id){
 
-    public function editar($id){
-
-
-        $usuarios = DB::select('call editar_usuario(?)',[$id]);
-        return response()->json($usuarios);
-    }
 
 
 }

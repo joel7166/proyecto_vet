@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\usuariocontrol;
 use App\Http\Controllers\iniciocontrol;
 use App\Http\Controllers\productocontrol;
-use App\Http\Controllers\citacontrol;
+use App\Http\Controllers\atencionmedicacontrol;
 use App\Http\Controllers\informecontrol;
 use App\Http\Controllers\clientecontrol;
 use App\Http\Controllers\facturacioncontrol;
@@ -16,6 +16,7 @@ use App\Http\Controllers\perfilcontrol;
 use App\Http\Controllers\ventacontrol;
 use App\Http\Controllers\venta1control;
 use App\Http\Controllers\detalleventacontrol;
+use App\Http\Controllers\serviciocontrol;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -67,7 +68,7 @@ Route::get('facturacion/venta',[facturacioncontrol::class,'venta']);
 
 
 
-Route::get('citas/citas',[citacontrol::class,'citas']);
+
 Route::get('informe/informe',[informecontrol::class,'informe']);
 
 Route::delete('cliente/{animal}',[clientecontrol::class,'eliminar'])->name('cliente.eliminar');
@@ -107,9 +108,9 @@ Route::post('mascota',[mascotacontrol::class,'registrar'])->name('mascota.regist
 Route::get('mascota/editar/{id}',[mascotacontrol::class,'editar'])->name('mascota.editar');
 Route::post('mascota/actualizar',[mascotacontrol::class,'actualizar'])->name('mascota.actualizar');
 //----------------------------rutas para perfil---------------------------------------
-Route::get('perfil/perfil',[perfilcontrol::class,'perfil'])->name('perfil.perfil');
+Route::get('perfil/index',[perfilcontrol::class,'index'])->name('perfil.index');
 //ruta para actualizar
-Route::post('perfil/perfil',[perfilcontrol::class,'registrar'])->name('perfil.registrar');
+Route::post('perfil/index',[perfilcontrol::class,'registrar'])->name('perfil.registrar');
 //ruta para eliminar
 Route::get('perfil/eliminar/{id}',[perfilcontrol::class,'eliminar'])->name('perfil.eliminar');
 //ruta para editar
@@ -134,3 +135,25 @@ Route::post('venta/index',[venta1control::class,'registrar'])->name('venta.regis
 Route::post('venta',[venta1control::class,'registrarnuevo'])->name('venta.nuevoproducto');
 //----
 Route::get('venta/buscar',[venta1control::class,'ultimaventa'])->name('venta.ultimo');
+
+//----------------------------rutas para servicio---------------------------------------
+Route::get('servicios/index',[serviciocontrol::class,'index'])->name('servicios.index');
+//ruta para actualizar
+Route::post('servicios/index',[serviciocontrol::class,'registrar'])->name('servicios.registrar');
+//ruta para eliminar
+Route::get('servicios/eliminar/{id}',[serviciocontrol::class,'eliminar'])->name('servicios.eliminar');
+//ruta para editar
+Route::get('servicios/editar/{id}',[serviciocontrol::class,'editar'])->name('servicios.editar');
+//ruta de actualizar  datos
+Route::post('servicios/actualizar',[serviciocontrol::class,'actualizar'])->name('servicios.actualizar');
+
+//----------------------------rutas para atencion medica---------------------------------------
+Route::get('atencionmedica/index',[atencionmedicacontrol::class,'index'])->name('atencionmedica.index');
+//ruta para actualizar
+Route::post('atencionmedica/index',[atencionmedicacontrol::class,'registrar'])->name('atencionmedica.registrar');
+//ruta para eliminar
+Route::get('atencionmedica/eliminar/{id}',[atencionmedicacontrol::class,'eliminar'])->name('atencionmedica.eliminar');
+//ruta para editar
+Route::get('atencionmedica/editar/{id}',[atencionmedicacontrol::class,'editar'])->name('atencionmedica.editar');
+//ruta de actualizar  datos
+Route::post('atencionmedica/actualizar',[atencionmedicacontrol::class,'actualizar'])->name('atencionmedica.actualizar');
