@@ -7,7 +7,7 @@
    <br>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
-              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Propietarios</a>
+              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Medicos</a>
             </li>
             <li class="nav-item" role="presentation">
               <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Nuevo</a>
@@ -16,15 +16,16 @@
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-                <h3>Propietarios</h3>
-                <table id="tabla-propietario" class="table table-hover">
+                <h3>Medicos</h3>
+                <table id="tabla-medico" class="table table-hover">
                     <thead>
                         <td>DNI</td>
                         <td>Nombre</td>
                         <td>Apellidos</td>
                         <td>Telefono</td>
                         <td>Correo</td>
-                        <td>Direccion</td>
+                        <td>Genero</td>
+                        <td>Edad</td>
                         <td>ACCIONES</td>
                     </thead>
                 </table>
@@ -35,9 +36,9 @@
                     <div class="x_panel">
                         <div class="x_content">
 
-                            <h3> Nuevo Propietario</h3>
+                            <h3> Nuevo Medico</h3>
                             <div class="ln_solid"></div>
-                            <form id="registro-propietario"data-parsley-validate class="form-horizontal form-label-left">
+                            <form id="registro-medico" data-parsley-validate class="form-horizontal form-label-left">
                                     @csrf
                                 <div class="item form-group">
                                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdni">DNI<span class="required">*</span></label>
@@ -46,7 +47,7 @@
                                     </div>
                                 </div>
                                 <div class="item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtnombres">Nombres<span class="required">*</span></label>
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtnombre">Nombres<span class="required">*</span></label>
                                     <div class="col-md-6 col-sm-6 ">
                                         <input type="text" class="form-control" id="txtnombre" name="txtnombre"  required>
                                     </div>
@@ -60,7 +61,7 @@
 
                                 </div>
                                 <div class="item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtapellidos">Celular</label>
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtapellidos">Telefono</label>
                                     <div class="col-md-6 col-sm-6 ">
                                         <input type="text" class="form-control" id="txtcelular" name="txtcelular" >
                                     </div>
@@ -73,17 +74,26 @@
                                    </div>
 
                                 </div>
-                                <div class="item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="inputAddress2">Direccion</label>
-                                    <div class="col-md-6 col-sm-6 ">
-                                        <input type="text" class="form-control" id="txtdireccion" name="txtdireccion" >
-                                     </div>
+                                
+                                <div class="item form-group ">
+                                    <label for="" class=" col-form-label col-md-3 col-sm-3 label-align">Genero</label>
+                                   <div class="col-md-6 col-sm-6 ">
+                                    <div class="custom-control custom-radio ">
+                                            <input class="custom-control-input" type="radio" id="customRadio1" name="rbgenero" value="Masculino">
+                                            <label for="customRadio1" class="custom-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Masculino</font></font></label>
+                                        </div>
 
+                                        <div class="custom-control custom-radio">
+                                            <input class="custom-control-input" type="radio" id="customRadio2" name="rbgenero" value="Femenino">
+                                            <label for="customRadio2" class="custom-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Femenino</font></font></label>
+                                        </div>
+                                   </div>
+                                    
                                 </div>
                                 <div class="item form-group">
-                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="inputAddress2">Ciudad</label>
+                                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="inputAddress2">Fecha Nacimiento</label>
                                     <div class="col-md-6 col-sm-6 ">
-                                        <input type="text" class="form-control" id="txtciudad" name="txtciudad" >
+                                        <input type="Date" class="form-control" id="txtfecha" name="txtfecha">
                                     </div>
 
                                 </div>
@@ -121,7 +131,7 @@
       </div>
   </div>
   <!--modal editar-->
-  <div class="modal fade" id="propietario_edit_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal fade" id="medico_edit_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -130,7 +140,7 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form id="propietario_editar_form">
+          <form id="medico_editar_form">
                 <div class="modal-body">
                   @csrf
                   <input type="hidden" id="txtId2" name="txtId2">
@@ -147,7 +157,7 @@
                         <input type="text" class="form-control" id="txtapellidos2" name="txtapellidos2" >
                     </div>
                     <div class="form-group">
-                        <label for="txtapellidos">Celular</label>
+                        <label for="txtapellidos">Telefono</label>
                         <input type="text" class="form-control" id="txtcelular2" name="txtcelular2">
                     </div>
                     <div class="form-group">
@@ -155,12 +165,21 @@
                         <input type="email" class="form-control" id="txtcorreo2" name="txtcorreo2" >
                     </div>
                     <div class="form-group">
-                        <label for="inputAddress2">Direccion</label>
-                        <input type="text" class="form-control" id="txtdireccion2" name="txtdireccion2">
+                        <label for="">GENERO</label>
+                        <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" id="customRadioss1" name="rbgenero2" value="Masculino">
+                            <label for="customRadio1" class="custom-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Masculino</font></font></label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input class="custom-control-input" type="radio" id="customRadioss2" name="rbgenero2" value="Femenino">
+                            <label for="customRadio2" class="custom-control-label"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Femenino</font></font></label>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="inputAddress2">Ciudad</label>
-                        <input type="text" class="form-control" id="txtciudad2" name="txtciudad2">
+                    <div class="item form-group">
+                        <label  for="txtfecha">Fecha Nacimiento</label>
+                        <div>
+                            <input type="Date" class="form-control" id="txtfecha2" name="txtfecha2" >
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -174,35 +193,35 @@
 </div>
 <!--registro-->
 <script>
-    $('#registro-propietario').submit(function(e){
+    $('#registro-medico').submit(function(e){
         e.preventDefault();
         var dni=$('#txtdni').val();
         var nombre=$('#txtnombre').val();
         var apellidos=$('#txtapellidos').val();
         var telefono=$('#txtcelular').val();
         var email=$('#txtemail').val();
-        var direccion=$('#txtdireccion').val();
-        var ciudad=$('#txtciudad').val();
+        var genero=$("input[name='rbgenero']:checked").val();
+        var fecha=$('#txtfecha').val();
         var _token=$("input[name=_token]").val();
         $.ajax({
-            url:"{{route('propietario.registrar')}}",
+            url:"{{route('medico.registrar')}}",
             type:"POST",
             data:{
-                pro_dni:dni,
-                pro_nombre:nombre,
-                pro_apellidos:apellidos,
-                pro_telefono:telefono,
-                pro_email:email,
-                pro_direccion:direccion,
-                pro_ciudad:ciudad,
+                med_dni:dni,
+                med_nombre:nombre,
+                med_apellidos:apellidos,
+                med_telefono:telefono,
+                med_email:email,
+                med_genero:genero,
+                med_fecha:fecha,
                 _token:_token
             },
             success:function(response){
                 if(response){
-                    $('#registro-propietario')[0].reset();
-                    
+                    $('#registro-medico')[0].reset();
+                    //toastr.info('El registro fue actualizado correctamente.','Actualizar Registro',{timeout:3000});
                     toastr.success('El registro se ingreso correctamente.','nuevo registro',{timeout:3000});
-                    $('#tabla-propietario').DataTable().ajax.reload();
+                    $('#tabla-medico').DataTable().ajax.reload();
                 }
             }
 
@@ -212,19 +231,20 @@
 <!--listar-->
 <script>
     $(document).ready(function(){
-        var tablaanimal=$('#tabla-propietario').DataTable({
+        var tablaanimal=$('#tabla-medico').DataTable({
             processing:true,
             serverSide:true,
             ajax:{
-                url:"{{route('propietario.index')}}",
+                url:"{{route('medico.index')}}",
             },
             columns:[
-                {data:'pro_dni'},
-                {data:'pro_nombre'},
-                {data:'pro_apellidos'},
-                {data:'pro_telefono'},
-                {data:'pro_email'},
-                {data:'pro_direccion'},
+                {data:'med_dni'},
+                {data:'med_nombre'},
+                {data:'med_apellidos'},
+                {data:'med_telefono'},
+                {data:'med_email'},
+                {data:'med_genero'},
+                {data:'edad'},
 
                 {data:'action',orderable:false}
             ]
@@ -233,9 +253,9 @@
 </script>
 <!--eliminar-->
 <script>
-            var pro_id;
+            var med_id;
             $(document).on('click','.delete',function(){
-                pro_id=$(this).attr('id');
+                med_id=$(this).attr('id');
 
                 $('#confimodal').modal('show');
 
@@ -243,7 +263,7 @@
             });
             $('#btnEliminar').click(function(){
                 $.ajax({
-                    url:"../propietario/eliminar/"+pro_id,
+                    url:"../medico/eliminar/"+med_id,
                     beforeSend:function(){
                         $('#btnEliminar').text('Eliminando....');
                     },
@@ -251,7 +271,7 @@
                         setTimeout(function(){
                             $('#confimodal').modal('hide');
                             toastr.warning('El registro fue eliminado correctamente.','Eliminar Registro',{timeout:30});
-                            $('#tabla-propietario').DataTable().ajax.reload();
+                            $('#tabla-medico').DataTable().ajax.reload();
 
                         },2000);
                         $('#btnEliminar').text('Eliminar');
@@ -263,22 +283,25 @@
 </script>
 <!--editar-->
 <script>
-    function editarpropietario(id){
-        $.get('../propietario/editar/'+id,function(propietario){
+    function editarmedico(id){
+        $.get('../medico/editar/'+id,function(medico){
             //asignar los datos recuperados
-
-            $('#txtId2').val(propietario[0].pro_id);
-            $('#txtdni2').val(propietario[0].pro_dni);
-            $('#txtnombre2').val(propietario[0].pro_nombre);
-            $('#txtapellidos2').val(propietario[0].pro_apellidos);
-            $('#txtcelular2').val(propietario[0].pro_telefono);
-            $('#txtcorreo2').val(propietario[0].pro_email);
-            $('#txtdireccion2').val(propietario[0].pro_direccion);
-            $('#txtciudad2').val(propietario[0].pro_ciudad);
+            $('#txtId2').val(medico[0].med_id);
+            $('#txtdni2').val(medico[0].med_dni);
+            $('#txtnombre2').val(medico[0].med_nombre);
+            $('#txtapellidos2').val(medico[0].med_apellidos);
+            $('#txtcelular2').val(medico[0].med_telefono);
+            $('#txtcorreo2').val(medico[0].med_email);
+            if(medico[0].med_genero == "Masculino"){
+                      $('input[name=rbgenero2][value="Masculino"]').prop('checked',true);
+                  }
+            if(medico[0].ani_genero=="Femenino"){
+                $('input[name=rbgenero2][value="Femenino"]').prop('checked',true);
+            }
+            $('#txtfecha2').val(medico[0].med_fecha_nacimiento);
             $("input[name=_token]").val();
 
-
-            $('#propietario_edit_modal').modal('toggle');
+            $('#medico_edit_modal').modal('toggle');
 
         });
 
@@ -286,18 +309,18 @@
 </script>
 <!--actualizar-->
 <script>
-    $('#propietario_editar_form').submit(function(e){
+    $('#medico_editar_form').submit(function(e){
         e.preventDefault();
         var id2=$('#txtId2').val();
         var nombre2=$('#txtnombre2').val();
         var apellidos2=$('#txtapellidos2').val();
         var celular2=$('#txtcelular2').val();
         var correo2=$('#txtcorreo2').val();
-        var direccion2=$('#txtdireccion2').val();
-        var ciudad2=$('#txtciudad2').val();
+        var genero2=$("input[name='rbgenero2']:checked").val();
+        var fecha2=$('#txtfecha2').val();
         var _token2=$("input[name=_token]").val();
         $.ajax({
-            url:"{{route('propietario.actualizar')}}",
+            url:"{{route('medico.actualizar')}}",
             type:"POST",
             data:{
                 id:id2,
@@ -305,22 +328,15 @@
                 apellidos:apellidos2,
                 telefono:celular2,
                 correo:correo2,
-                direccion:direccion2,
-                ciudad:ciudad2,
+                genero:genero2,
+                fecha:fecha2,
                 _token:_token2
             },
             success:function(response){
                 if(response){
-                    $('#propietario_edit_modal').modal('hide');
-                   /* Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Registro Actualizado Correctamente',
-                    showConfirmButton: false,
-                    timer: 3000
-                    });*/
+                    $('#medico_edit_modal').modal('hide');
                     toastr.info('El registro fue actualizado correctamente.','Actualizar Registro',{timeout:3000});
-                    $('#tabla-propietario').DataTable().ajax.reload();
+                    $('#tabla-medico').DataTable().ajax.reload();
 
                 }
             }

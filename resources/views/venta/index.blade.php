@@ -81,29 +81,17 @@
                 <thead>
                     <td>Id Producto</td>
                     <td>Nombre Producto</td>
-                    <td>Precio Unitario</td>
                     <td>Cantidad</td>
-                    <td>Impuesto</td>
-                    <td>Subtotal</td>
+                    <td>Precio Unitario</td>
+                    <td>Descuento</td>
                     <td>Acciones</td>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>parecetamol</td>
-                        <td>12</td>
-                        <td>3</td>
-                        <td>16</td>
-                        <td>250</td>
-                    </tr>
-                    
-                </tbody>
             </table>
             <br>
             <div class="ln_solid"></div>
             
             <div class="row">
-                <div class='col-sm-4'>
+                <div class='col-sm-2'>
 
                     <div class="form-group">
                     <label for="">Total </label>
@@ -111,6 +99,9 @@
                    
                     </div>
                 </div> 
+                <div class="col-sm-2">
+                
+                </div>
                 <div class='col-sm-4'>
 
                 </div>
@@ -143,19 +134,23 @@
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtCodigoUsuario">Responsable<span class="required">*</span></label>
                             <div class="col-md-7 col-sm-7 ">
-                                <select class="form-control" id="selecodusuario" name="selecodusuario">
-                                <option value="2">Liz</option>
-                                <option value="5">Juberth</option>
+                                <select class="mi-selector form-control" id="selecodusuario" name="selecodusuario">
+                                    <option value="0">--seleccione Usuario--</option>
+                                    @foreach ($usuario as $usuario)
+                                        <option value="{{$usuario['usu_id']}}">{{$usuario['usu_nombres']}}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
                         <div class="item form-group">
                             <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtCodigoPropietario">Cliente<span class="required">*</span></label>
                             <div class="col-md-7 col-sm-7 ">
-                            <select class="form-control" id="selecodpropietario" name="selecodpropietario">
-                                <option value="2">Max</option>
-                                <option value="5">Maria</option>
-                                </select>
+                            <select class="mi-selector form-control" id="selecodpropietario" name="selecodpropietario">
+                                <option value="0">--seleccione Cliente--</option>
+                                @foreach ($propietarios as $propietario)
+                                    <option value="{{$propietario['pro_id']}}">{{$propietario['pro_nombre']}}</option>
+                                @endforeach
+                            </select>
                             </div>
 
                         </div>
@@ -213,12 +208,14 @@
                     <input type="hidden" id="txtid_vent" name="txtid_vent">
                     
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtCodigoPropietario">CodProducto<span class="required">*</span></label>
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtCodigoPropietario">Producto<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 ">
-                        <select class="form-control" id="selecodproducto" name="selecodproducto">
-                            <option value="4">paracetamol</option>
-                            <option value="3">algo</option>
-                            </select>
+                        <select class="mi-selector form-control" id="selecodproducto" name="selecodproducto">
+                        <option value="0">--seleccione Producto--</option>
+                            @foreach ($productos as $producto)
+                                <option value="{{$producto['prod_id']}}">{{$producto['prod_nombre']}}</option>
+                            @endforeach
+                        </select>
                         </div>
                     </div>
                     <div class="item form-group">
@@ -245,7 +242,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" id="btnnuevo" name="btnnuevo" class="btn btn-primary">Agregar Producto</button>
+                    <button type="submit" id="btnnuevo1" name="btnnuevo" class="btn btn-primary">Agregar Producto</button>
                 </div>
             </div>
         </form>
@@ -280,22 +277,36 @@
             },
             success:function(response){
                 if(response){
-                   // $('#nueva-venta')[0].reset();
+                    $('#nueva-venta')[0].reset();
                    $('#modalnuevo').modal('hide');
-                    /* Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'venta generado Correctamente',
-                    showConfirmButton: false,
-                    timer: 3000
-                    });*/
-                    nuevaventa();
-                   toastr.succes('El registro se ingreso correctamente.','nuevo registro',{timeout:3000});
+                    
+                    
+                   toastr.success('La venta se genero correctamente.','nueva venta',{timeout:3000});
                     //$('#tabla-venta').DataTable().ajax.reload();
                 }
             }
         });
     });
+</script>
+<script>
+    function listaproductos(){
+      ven_id=$('#txtid_vent').val();
+        var tablaventa=$('#tabla-propietario').DataTable({
+                processing:true,
+                serverSide:true,
+                ajax:{
+                    url:"../venta/lista/"+ven_id,
+                },
+                columns:[
+                    {data:'ven_id'},
+                    {data:'prod_nombre'},
+                    {data:'detv_cantidad'},
+                    {data:'detv_precio_venta'},
+                    {data:'detv_descuento'},
+                    {data:'action',orderable:false}
+                ]
+            });
+    }
 </script>
 
 <!--agregar producto-->
@@ -321,26 +332,23 @@
             },
             success:function(response){
                 if(response){
-                    //$('#registro-detalle_venta')[0].reset();
+                    $('#agregar-producto')[0].reset();
                     $('#modalnuevoproducto').modal('hide');
-                    /*Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Producto Agregado Correctamente',
-                    showConfirmButton: false,
-                    timer: 3000
-                    });*/
                     
-                  toastr.succes('El registro se ingreso correctamente.','nuevo registro',{timeout:3000});
+                  toastr.success('El registro se ingreso correctamente.','nuevo registro',{timeout:3000});
                     //$('#tabla-detalle_venta').DataTable().ajax.reload();
+                    
+
                 }
             }
-
+            
         });
+        listaproductos();
     });
 </script>
+<!--mostrar venta producto-->
 <script>
-function nuevaventa(){
+    function nuevaventa(){
         $.get('../venta/buscar',function(venta){
         //asignar los datos recuperados
         $('#txtid_vent').val(venta[0].ven_id);
@@ -353,5 +361,13 @@ function nuevaventa(){
         $("input[name=_token]").val();      
         });
     }
+
+    jQuery(document).ready(function($){
+    $(document).ready(function() {
+        $('.mi-selector').select2();
+        });
+    });
 </script>
+
+
 @endsection

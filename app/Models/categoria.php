@@ -14,7 +14,7 @@ class categoria extends Model
 {
     protected $table="categoria_prod";
     protected $fillable=[
-     'catp_nombre','catp_descripcion'
+     'catp_id','catp_nombre','catp_descripcion'
     ];
     public $timestamps=false;
 

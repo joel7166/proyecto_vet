@@ -16,6 +16,7 @@ use App\Http\Controllers\perfilcontrol;
 use App\Http\Controllers\ventacontrol;
 use App\Http\Controllers\venta1control;
 use App\Http\Controllers\detalleventacontrol;
+use App\Http\Controllers\medicocontrol;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,11 +41,11 @@ Route::get('inicio/inicio',[iniciocontrol::class,'inicio'])->name('inicio.inicio
 Route::get('usuario/index',[usuariocontrol::class,'index'])->name('usuario.index');
 Route::get('usuario/eliminar/{id}',[usuariocontrol::class,'eliminar'])->name('usuario.eliminar');
 //ruta para registar
-Route::post('usuario',[usuariocontrol::class,'registrar'])->name('usuario.registrar');
+Route::post('usuario/index',[usuariocontrol::class,'registrar'])->name('usuario.registrar');
 //ruta para editar
 Route::get('usuario/editar/{id}',[usuariocontrol::class,'editar'])->name('usuario.editar');
 //ruta de actualizar  datos
-Route::post('usuario/index',[usuariocontrol::class,'actualizar'])->name('usuario.actualizar');
+Route::post('usuario',[usuariocontrol::class,'actualizar'])->name('usuario.actualizar');
 
 
 //rutas para propietario
@@ -132,5 +133,14 @@ Route::post('ventas/detalleventa',[detalleventacontrol::class,'registrar'])->nam
 Route::get('venta/index',[venta1control::class,'index'])->name('venta.index');
 Route::post('venta/index',[venta1control::class,'registrar'])->name('venta.registrar');
 Route::post('venta',[venta1control::class,'registrarnuevo'])->name('venta.nuevoproducto');
+Route::get('venta/lista/{id}',[venta1control::class,'listaproducto'])->name('venta.lista');
+
 //----
 Route::get('venta/buscar',[venta1control::class,'ultimaventa'])->name('venta.ultimo');
+//----RUTAS PARA MEDICO---
+Route::get('medico/index',[medicocontrol::class,'index'])->name('medico.index');
+Route::post('medico/registrar',[medicocontrol::class,'registrar'])->name('medico.registrar');
+Route::get('medico/eliminar/{id}',[medicocontrol::class,'eliminar'])->name('medico.eliminar');
+Route::get('medico/editar/{id}',[medicocontrol::class,'editar'])->name('medico.editar');
+Route::post('medico/actualizar',[medicocontrol::class,'actualizar'])->name('medico.actualizar');
+

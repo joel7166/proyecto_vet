@@ -15,6 +15,8 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
+
     
     <!-- Bootstrap 
     <link href="../../public/gente/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
@@ -30,6 +32,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
     
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <!-- bootstrap-progressbar -->
     <link href="../../public/gente/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- JQVMap 
@@ -105,7 +108,7 @@
                   </li>
                   <li><a><i class="fa fa-stethoscope"></i>VETERINARIO <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Veterinario</a></li>
+                      <li><a href="{{route('medico.index')}}">Veterinario</a></li>
 
                     </ul>
                   </li>
@@ -117,7 +120,6 @@
                   <li><a><i class="fa  fa-medkit"></i>SERVICIO <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Servicio</a></li>
-
                     </ul>
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i>REPORTE <span class="fa fa-chevron-down"></span></a>
