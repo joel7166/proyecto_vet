@@ -30,19 +30,19 @@
                 <div class="x_panel">
                     <div class="x_content">
 
-            <h3>Nuev Producto</h3>
+            <h3>Nuevo Producto</h3>
             <div class="ln_solid"></div>
             <form id="registro-producto">
                 @csrf
 
                 <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtcodcategoria">CodigoCategoria<span class="required">*</span></label>
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtcodcategoria">Categoria<span class="required">*</span></label>
                     <div class="col-md-6 col-sm-6 ">
-                    <select class="form-control" id="selecodcategoria" name="selecodcategoria">
-                      <option value="1">antibiotico</option>
-                      <option value="2">anastesicos</option>
-                      <option value="3">alimentos </option>
-                      <option value="4">ampicilina</option>
+                    <select class="mi-selector form-control" id="selecodcategoria" name="selecodcategoria">
+                    <option value="0">--seleccione categoria--</option>
+                    @foreach ($categoria1 as $categoria1)
+                    <option value="{{$categoria1['catp_id']}}">{{$categoria1['catp_nombre']}}</option>
+                    @endforeach
                     </select>
                 </div>
                 </div>
@@ -82,7 +82,7 @@
                 <div class="ln_solid"></div>
                 <div class="item form-group" >
                   <div class="col-md-6 col-sm-6 offset-md-3">
-                <button type="submit" class="btn btn-success" >Registar</button>
+                <button type="submit" class="btn btn-success" >Registrar</button>
             </div>
         </div>
             </form>
@@ -107,16 +107,14 @@
     <form id="producto_editar">
     <div class="modal-body">
            @csrf
-
             <input type="hidden" id="txtId2" name="txtId2">
             <div class="form-group">
-                <label for="seleperfil">CodigoCategoria</label>
+                <label for="seleperfil">Categoria</label>
                 <select class="form-control" id="selecodcategoria2" name="selecodcategoria2">
-                  <option value="1">antibiotico</option>
-                  <option value="2">anastesicos</option>
-                  <option value="3">alimentos </option>
-                  <option value="4">ampicilina</option>
-
+                    
+                    @foreach ($categoria as $categoria)
+                    <option value="{{$categoria['catp_id']}}">{{$categoria['catp_nombre']}}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="form-group">
@@ -172,7 +170,13 @@
 </div>
 
 </div> <!-- fin conteiner-->
-
+<script>
+ jQuery(document).ready(function($){
+    $(document).ready(function() {
+        $('.mi-selector').select2();
+    });
+ });
+</script>
 <!----------------------Listar producto------------------------->
 <script>
     $(document).ready(function(){
@@ -316,5 +320,8 @@
             }
         })
     });
+   
+
 </script>
+
 @endsection

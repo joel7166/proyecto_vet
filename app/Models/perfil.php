@@ -10,9 +10,10 @@ use Illuminate\Notifications\Notifiable;
 
 
 
-class categoria extends Model
+class perfil extends Model
 {
     protected $table="perfil";
+    protected $primaryKey='per_id';
     protected $fillable=[
      'per_id','per_nombre','per_descripcion'
     ];

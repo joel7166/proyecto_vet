@@ -6,7 +6,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
-
+use App\models\categoria;
 use Illuminate\Support\Facades\DB;//para trabajar con bd direccion
 use Illuminate\Http\Request;//para recuperar datos de la vista
 use DataTables;
@@ -28,7 +28,8 @@ class productocontrol extends Controller
                 ->rawColumns(['action'])
                 ->make(true);
     }
-     return view('producto.producto');
+    $categoria = categoria::get();
+    return view('producto.producto',['categoria'=>$categoria,'categoria1'=>$categoria]);
  }
  public function registrar(Request $request){
 

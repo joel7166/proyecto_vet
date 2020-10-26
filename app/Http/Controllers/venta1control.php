@@ -8,12 +8,21 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use App\models\usuario;
+use App\models\propietario;
+use App\models\producto;
+
 
 use DataTables;
 class venta1control extends Controller
 {
     public function index(){
-        return view("venta.index");
+
+        $usuarios = usuario::get();
+        $propietarios = propietario::get();
+        $productos = producto::get();
+        return view('venta.index',['usuario' => $usuarios,'propietarios'=>$propietarios,'productos'=>$productos]);
+        
     }
     /*public function index( Request $request){
         if($request -> ajax()){
@@ -29,7 +38,7 @@ class venta1control extends Controller
                    ->make(true);
         }
             return view('usuario.index');
-      }
+    }
     public function editar(){
 
         return view('usuario.editar');
@@ -80,10 +89,25 @@ class venta1control extends Controller
         $request->detv_precio_venta,$request->detv_descuento]);
     
         return back();
-    
+
     }
     public function ultimaventa(){
         $venta = DB::select('call ultima_venta()');
         return response()->json($venta);
     }
+    public function listaproducto(Request $request,$id){
+        if($request -> ajax()){
+            $ventaproducto=DB::select('CALL sp_ventaproducto(?)',[$id]);
+            return DataTables()::of($ventaproducto)
+                   ->addColumn('action',function($ventaproducto){
+                       $acciones='<a href="#" class="btn btn-info btn-sm">Editar</a>';
+                       $acciones.='&nbsp;<button type="button" class=" delete btn btn-danger btn-sm">Eliminar</button>';
+                       return $acciones;
+                   })
+                   ->rawColumns(['action'])
+                   ->make(true);
+        }
+            return view('venta.index');
+    }
+
 }

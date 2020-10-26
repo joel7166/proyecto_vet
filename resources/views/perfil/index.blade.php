@@ -4,14 +4,14 @@
 <div class="container">
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Lista de Perfil</a>
+        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Lista de Perfil</a>
         </li>
         <li class="nav-item" role="presentation">
-          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Nuevo Perfil</a>
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Nuevo Perfil</a>
         </li>
+    </ul>
 
-      </ul>
-      <div class="tab-content" id="myTabContent">
+    <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <h3>LISTA DE PERFIL</h3>
             <table id="tabla-perfil" class="table table-hover">
@@ -22,109 +22,103 @@
                     <td>ACCIONES</td>
                 </thead>
             </table>
-
         </div>
         <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
             <div class="col-md-12 col-sm-12 ">
                 <div class="x_panel">
                     <div class="x_content">
+                        <h3>Nuevo Perfil</h3>
+                        <div class="ln_solid"></div>
+                        <form id="registro-perfil">
+                            @csrf
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtnombre">Nombre<span class="required">*</span></label>
+                                    <div class="col-md-6 col-sm-6 ">
 
-            <h3>Nuevo Perfil</h3>
-            <div class="ln_solid"></div>
-            <form id="registro-perfil">
-                @csrf
-                <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtnombre">Nombre<span class="required">*</span></label>
-                    <div class="col-md-6 col-sm-6 ">
+                                    <input type="text" class="form-control" id="txtnombre" name="txtnombre" placeholder=" Ingrese Nombre">
+                                </div>
+                            </div>
 
-                    <input type="text" class="form-control" id="txtnombre" name="txtnombre" placeholder=" Ingrese Nombre">
-                  </div>
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdescripcion">Descripcion<span class="required">*</span></label>
+                                <div class="col-md-6 col-sm-6 ">
+
+                                    <input type="text" class="form-control" id="txtdescripcion" name="txtdescripcion" placeholder="Ingrese Descripcion">
+                                </div>
+                            </div>
+
+                            <div class="ln_solid"></div>
+                            <div class="item form-group" >
+                                <div class="col-md-6 col-sm-6 offset-md-3">
+                                    <button type="submit" class="btn btn-success" >Registar</button>
+                                </div>
+                            </div>
+
+
+                        </form>
+                    </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
-                <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdescripcion">Descripcion<span class="required">*</span></label>
-                    <div class="col-md-6 col-sm-6 ">
+        <!------modal para editar-------->
+    <div class="modal fade" id="perfil_edit_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Editar Categoria</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form id="perfil_editar">
+                    <div class="modal-body">
+                        @csrf
 
-                    <input type="text" class="form-control" id="txtdescripcion" name="txtdescripcion" placeholder="Ingrese Descripcion">
+                            <input type="hidden" id="txtId2" name="txtId2">
+                            <div class="form-group">
+                                <label for="inputAddress2">Nombre</label>
+                                <input type="text" class="form-control" id="txtnombre2" name="txtnombre2" placeholder=" Ingrese Nombre">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="inputAddress2">Descripcion</label>
+                                <input type="text" class="form-control" id="txtdescripcion2" name="txtdescripcion2" placeholder="Ingrese Descripcion">
+                            </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Eliminar-->
+    <div class="modal fade" id="confimodal"  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Confirmacion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                ¿Desea eliminar el registro seleccionado?
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
+                <button type="button" id="btnEliminar" name="btnEliminar" class="btn btn-primary">Eliminar</button>
                 </div>
             </div>
-            <div class="ln_solid"></div>
-              <div class="item form-group" >
-                <div class="col-md-6 col-sm-6 offset-md-3">
-                <button type="submit" class="btn btn-success" >Registar</button>
-            </div>
-        </div>
-
-
-            </form>
-
         </div>
     </div>
-  </div>
- </div>
-
-
-        </div>
-
-      </div>
-      <!------modal para editar-------->
-
-<div class="modal fade" id="perfil_edit_modal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="staticBackdropLabel">Editar Categoria</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <form id="perfil_editar">
-    <div class="modal-body">
-           @csrf
-
-            <input type="hidden" id="txtId2" name="txtId2">
-            <div class="form-group">
-                <label for="inputAddress2">Nombre</label>
-                <input type="text" class="form-control" id="txtnombre2" name="txtnombre2" placeholder=" Ingrese Nombre">
-              </div>
-
-
-            <div class="form-group">
-                <label for="inputAddress2">Descripcion</label>
-                <input type="text" class="form-control" id="txtdescripcion2" name="txtdescripcion2" placeholder="Ingrese Descripcion">
-            </div>
-
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-      <button type="submit" class="btn btn-primary">Actualizar</button>
-    </div>
-</form>
-  </div>
-</div>
-</div>
-
-
-<!-- Modal Eliminar-->
-<div class="modal fade" id="confimodal"  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-<div class="modal-dialog">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="staticBackdropLabel">Confirmacion</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-      ¿Desea eliminar el registro seleccionado?
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">cerrar</button>
-      <button type="button" id="btnEliminar" name="btnEliminar" class="btn btn-primary">Eliminar</button>
-    </div>
-  </div>
-</div>
-</div>
 
 </div> <!-- fin conteiner-->
 
@@ -241,6 +235,8 @@
             url:"{{route('perfil.actualizar')}}",
             type:"post",
             data:{
+
+
                 per_id:id2,
                 per_nombre:nombre2,
                 per_descripcion:descripcion2,
@@ -259,7 +255,5 @@
 
 
     });
-
-
 </script>
 @endsection

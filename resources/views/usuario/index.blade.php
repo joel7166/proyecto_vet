@@ -4,123 +4,114 @@
 <!----todo codigo html------>
 <div class="container">
 
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Usuarios</a>
-            </li>
-            <li class="nav-item" role="presentation">
-              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Nuevo</a>
-            </li>
-          </ul>
-          <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <h3>Usuarios</h3>
-                <table id="tabla-usuario" class="table table-hover">
-                    <thead>
-                        <td>DNI</td>
-                        <td>NombreS</td>
-                        <td>Apellidos</td>
-                        <td>Celular</td>
-                        <td>Estado</td>
-                        <td>ACCIONES</td>
-                    </thead>
-                </table>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Usuarios</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Nuevo</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <h3>Usuarios</h3>
+      <table id="tabla-usuario" class="table table-hover">
+        <thead>
+            <td>DNI</td>
+            <td>NombreS</td>
+            <td>Apellidos</td>
+            <td>Celular</td>
+            <td>Perfil</td>
+            <td>Estado</td>
+            <td>ACCIONES</td>
+        </thead>
+      </table>
 
-                </div>
-            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                <div class="col-md-12 col-sm-12 ">
-                    <div class="x_panel">
-                        <div class="x_content">
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        <div class="col-md-12 col-sm-12 ">
+            <div class="x_panel">
+              <div class="x_content">
+                  <h3> Nuevo Usuario</h3>
+                  <div class="ln_solid"></div>
+                <form id="nuevo-usuario">
+                  @csrf
+                    <div class="item form-group">
+                      <label class="col-form-label col-md-3 col-sm-3 label-align" for="seleperfil">Perfil<span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6 ">
+                            <select class="form-control" id="seleperfil" name="seleperfil">
+                            <option value="0">--seleccione perfil--</option>
+                              @foreach ($perfil as $perfil)
+                                <option value="{{$perfil['per_id']}}">{{$perfil['per_nombre']}}</option>
+                              @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdni">DNI<span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6 ">
+                          <input type="text" class="form-control" id="txtdni" name="txtdni" placeholder="DNI" require>
+                        </div>
+                    </div>
+                    <div class="item form-group">
+                      <label class="col-form-label col-md-3 col-sm-3 label-align" for="inputAddress2">correo<span class="required">*</span></label>
+                      <div class="col-md-6 col-sm-6 ">
+                        <input type="email" class="form-control" id="txtemail" name="txtemail" placeholder="Ingrese su correo" require>
+                      </div>
+                    </div>
 
-                <h3> Nuevo Usuario</h3>
+                    <div class="item form-group">
+                      <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtcontraseña">Contraseña<span class="required">*</span></label>
+                      <div class="col-md-6 col-sm-6 ">
+                        <input type="password" class="form-control" id="txtcontraseña" name="txtcontraseña" placeholder="contraseña">
+                      </div>
+                    </div>
+                    <div class="item form-group">
+                      <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtnombres">Nombres<span class="required">*</span></label>
+                      <div class="col-md-6 col-sm-6 ">
+                        <input type="text" class="form-control" id="txtnombres" name="txtnombres" placeholder="Nombres">
+                      </div>
+                    </div>
 
-                <div class="ln_solid"></div>
-              <form id="nuevo-usuario">
-                @csrf
-                  <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdni">Perfil<span class="required">*</span></label>
-                    <div class="col-md-6 col-sm-6 ">
+                    <div class="item form-group">
+                      <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtapellidos">Apellidos<span class="required">*</span></label>
+                      <div class="col-md-6 col-sm-6 ">
+                        <input type="text" class="form-control" id="txtapellidos" name="txtapellidos" placeholder="Apellidos">
+                      </div>
+                    </div>
 
-                      <select class="form-control" id="seleperfil" name="seleperfil">
-                        <option value="1">cajero</option>
-                        <option value="2">asistente</option>
-                        <option value="5">Cajero</option>
-                      </select>
-                  </div>
-                </div>
-
-
-                  <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdni">DNI<span class="required">*</span></label>
-                    <div class="col-md-6 col-sm-6 ">
-                      <input type="text" class="form-control" id="txtdni" name="txtdni" placeholder="DNI" require>
-                  </div>
-                </div>
-
-                  <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="inputAddress2">correo<span class="required">*</span></label>
-                    <div class="col-md-6 col-sm-6 ">
-                      <input type="email" class="form-control" id="txtemail" name="txtemail" placeholder="Ingrese su correo" require>
-                  </div>
-                </div>
-
-                  <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtcontraseña">Contraseña<span class="required">*</span></label>
-                    <div class="col-md-6 col-sm-6 ">
-                      <input type="password" class="form-control" id="txtcontraseña" name="txtcontraseña" placeholder="contraseña">
-
-                   </div>
-                </div>
-
-
-                  <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtnombres">Nombres<span class="required">*</span></label>
-                    <div class="col-md-6 col-sm-6 ">
-                      <input type="text" class="form-control" id="txtnombres" name="txtnombres" placeholder="Nombres">
-                  </div>
-                </div>
-
-                  <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtapellidos">Apellidos<span class="required">*</span></label>
-                    <div class="col-md-6 col-sm-6 ">
-                      <input type="text" class="form-control" id="txtapellidos" name="txtapellidos" placeholder="Apellidos">
-                  </div>
-
-                </div>
-
-                  <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtapellidos">Celular<span class="required">*</span></label>
-                    <div class="col-md-6 col-sm-6 ">
+                    <div class="item form-group">
+                      <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtapellidos">Celular<span class="required">*</span></label>
+                      <div class="col-md-6 col-sm-6 ">
                         <input type="text" class="form-control" id="txtcelular" name="txtcelular" placeholder="Celular">
+                      </div>
                     </div>
-                </div>
 
-                  <div class="item form-group">
-                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtapellidos">Estado<span class="required">*</span></label>
-                    <div class="col-md-6 col-sm-6 ">
-
-                    <div class="custom-control custom-radio">
-                      <input type="radio" id="rbestadoa" name="rbestado" value="0">
-                      <label >Activo</label>
+                    <div class="item form-group">
+                      <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtapellidos">Estado<span class="required">*</span></label>
+                      <div class="col-md-6 col-sm-6 ">
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="rbestadoa" name="rbestado" value="0">
+                          <label >Activo</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                          <input type="radio" id="rbestadon" name="rbestado" value="1" >
+                          <label >No Activo</label>
+                        </div>
+                      </div>
                     </div>
-                    <div class="custom-control custom-radio">
-                      <input type="radio" id="rbestadon" name="rbestado" value="1" >
-                      <label >No Activo</label>
-                    </div>
-                </div>
-            </div>
-            <div class="ln_solid"></div>
-              <div class="item form-group" >
-                <div class="col-md-6 col-sm-6 offset-md-3">
+                    <div class="ln_solid"></div>
+                    <div class="item form-group" >
+                      <div class="col-md-6 col-sm-6 offset-md-3">
 
-                  <button type="submit" class="btn btn-success"  >Registrar</button>
-                </div>
+                        <button type="submit" class="btn btn-success"  >Registrar</button>
+                      </div>
+                    </div>
+                </form>
             </div>
-              </form>
-            </div>
-          </div>
         </div>
     </div>
+  </div>
 </div>
 
 </div>
@@ -165,9 +156,9 @@
               <div class="form-group">
                   <label for="seleperfil">Perfil</label>
                   <select class="form-control" id="seleperfil2" name="seleperfil2">
-                    <option value="1">cajero</option>
-                    <option value="2">asistente</option>
-                    <option value="5">Cajero</option>
+                    @foreach ($perfil1 as $perfil1)
+                      <option value="{{$perfil1['per_id']}}">{{$perfil1['per_nombre']}}</option>
+                    @endforeach
                   </select>
               </div>
               <div class="form-group">
@@ -181,7 +172,7 @@
 
               <div class="form-group">
                   <label for="txtcontraseña">Contraseña</label>
-                  <input type="text" class="form-control" id="txtcontraseña2" name="txtcontraseña2" placeholder="contraseña">
+                  <input type="password" class="form-control" id="txtcontraseña2" name="txtcontraseña2" placeholder="contraseña">
               </div>
               <div class="form-group">
                   <label for="txtnombres">Nombres</label>
@@ -228,6 +219,7 @@
               {data:'usu_nombres'},
               {data:'usu_apellidos'},
               {data:'usu_celular'},
+              {data:'per_nombre'},
               {data:'usu_estado'},
               {data:'action',orderable:false}
           ]
@@ -305,34 +297,7 @@
 
     });
 </script>
-<!-------------editar------------------
-<script>
-    function editaranimal(id){
-        $.get('../usuario.editar/'+id,function(usuario){
-            //asignar los datos recuperados
-            $('#txtId2').val(usuario[0].usu_id);
-            $('#seleperfil2').val(usuario[0].per_id);
-            $('#txtdni2').val(usuario[0].usu_dni);
-            $('#txtemail2').val(usuario[0].usu_email);
-            $('#txtcontraseña2').val(usuario[0].usu_contrasenia);
-            $('#txtnombres2').val(usuario[0].usu_nombres);
-            $('#txtapellidos2').val(usuario[0].usu_apellidos);
-            $('#txtcelular2').val(usuario[0].usu_celular);
-            if(usuario[0].usu_estado=="1"){
-                     $('input[name=rbgenero2][value="macho"]').prop('checked',true);
-                 }
-                 if(usuario[0].usu_estado=="0"){
-                     $('input[name=rbgenero2][value="hembra"]').prop('checked',true);
-                 }
-            $("input[name=_token]").val();
-
-            $('#usuario_edit_modal').modal('toggle');
-
-        });
-
-    }
-
-</script>-->
+<!-------------editar------------------>
 
 <script>
     function editarusuario(id){
@@ -373,56 +338,34 @@
         var nombres2=$('#txtnombres2').val();
         var apellidos2=$('#txtapellidos2').val();
         var celular2=$('#txtcelular2').val();
-        var estado=$("input[name='rbestado2']:checked").val();
+        var estado2=$("input[name='rbestado2']:checked").val();
         var _token2=$("input[name=_token]").val();
         $.ajax({
             url:"{{route('usuario.actualizar')}}",
             type:"POST",
             data:{
                 id:id2,
-                id_per=id_per2,
-                email:email2,
-                contraseña:contraseña2,
-                nombres:nombres2,
-                apellidos:apellidos2,
-                celular:celular2,
-                estado:estado2,
+                id_per:id_per2,
+                usu_email:email2,
+                usu_contrasenia:contraseña2,
+                usu_nombres:nombres2,
+                usu_apellidos:apellidos2,
+                usu_celular:celular2,
+                usu_estado:estado2,
                 _token:_token2
             },
             success:function(response){
                 if(response){
-                    $('#propietario_edit_modal').modal('hide');
-                    /*Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Registro Actualizado Correctamente',
-                    showConfirmButton: false,
-                    timer: 3000
-                    });*/
+                    $('#usuario_edit_modal').modal('hide');
                     toastr.info('El registro fue actualizado correctamente.','Actualizar Registro',{timeout:3000});
-                    $('#tabla-propietario').DataTable().ajax.reload();
+                    $('#tabla-usuario').DataTable().ajax.reload();
 
                 }
             }
-        })
+        });
 
 
     });
 </script>
-
-
- <!--llenar select
-  <script language="JavaScript" type="text/JavaScript">
-  $(document).ready(function(){
-          $("#seleperfil").load('genera-select-provincias.php');
-
-          if($cant != 0) {
-          echo '<option value="0">[SELECCIONE]</option>';
-          while ($fila = mysql_fetch_array($query)) {
-
-            echo '<option value="'.$fila['id'].'">'.$fila['provincia'].'</option>';
-        };
-  });
-  </script>-->
 
 @endsection

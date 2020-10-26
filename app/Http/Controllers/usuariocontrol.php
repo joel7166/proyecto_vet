@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+
 use Illuminate\Support\Facades\DB;//para trabajar con bd direccion
 use Illuminate\Http\Request;//para recuperar datos de la vista
 
+use App\models\perfil;
+
 use DataTables;
-
-
 
 class usuariocontrol extends Controller
 {
@@ -28,7 +30,10 @@ class usuariocontrol extends Controller
                    ->rawColumns(['action'])
                    ->make(true);
         }
-            return view('usuario.index');
+
+        $perfil = perfil::get();
+        return view('usuario.index',['perfil' => $perfil,'perfil1'=>$perfil]);
+
     }
     public function eliminar($usu_id){
         $usuarios=DB::select('CALL sp_eliminarusuario(?)',[$usu_id]);
@@ -44,8 +49,8 @@ class usuariocontrol extends Controller
     }
     public function actualizar(Request $request){
         $usuarios=DB::select('call actualizar_usuario(?,?,?,?,?,?,?,?)',
-        [$request->per_id,$request->id_per,
-        $request->usu_email,$request->usu_contraseña,$request->usu_nombres,
+        [$request->id,$request->id_per,
+        $request->usu_email,$request->usu_contrasenia,$request->usu_nombres,
         $request->usu_apellidos,$request->usu_celular,$request->usu_estado]);
         return back();
     }

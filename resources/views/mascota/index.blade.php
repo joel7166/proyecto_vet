@@ -200,15 +200,7 @@
                         <div class="form-group">
                             <label for="exampleInputNombre">Fecha Nacimiento</label>
                             <input type="date" name="txtfecha" id="txtfecha" class="date-picker form-control">
-                           <!-- <input id="birthday" class="date-picker form-control" id="txtfecha" name="txtfecha" placeholder="dd-mm-yyyy" type="text" required="required" type="text" onfocus="this.type='date'" onmouseover="this.type='date'"
-                            onclick="this.type='date'" onblur="this.type='text'" onmouseout="timeFunctionLong(this)">
-                            <script>
-                                function timeFunctionLong(input) {
-                                    setTimeout(function() {
-                                        input.type = 'text';
-                                    }, 60000);
-                                }
-                            </script>-->
+                           
                         </div>
 
                     </div>
