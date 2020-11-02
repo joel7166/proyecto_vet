@@ -54,13 +54,10 @@ class usuariocontrol extends Controller
         $request->usu_apellidos,$request->usu_celular,$request->usu_estado]);
         return back();
     }
-
-
-
-
-
-
-
+    public function editar($id){
+        $usuarios = DB::select('call editar_usuario(?)',[$id]);
+        return response()->json($usuarios);
+    }
 }
 
 

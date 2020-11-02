@@ -15,11 +15,13 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" />
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet"/>
 
-    <!-- Bootstrap
+    
+    <!-- Bootstrap 
     <link href="../../public/gente/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">-->
     <!--<link href="../../public/gente/cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">-->
-    <!-- Font Awesome
+    <!-- Font Awesome 
     <link href="../../public/gente/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">-->
     <!-- NProgress -->
     <link href="../../public/gente/vendors/nprogress/nprogress.css" rel="stylesheet">
@@ -29,11 +31,11 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.22/datatables.min.js"></script>
-
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
     <!-- bootstrap-progressbar -->
     <link href="../../public/gente/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
-    <!-- JQVMap
+    <!-- JQVMap 
     <link href="../../public/gente/vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>-->
     <!-- bootstrap-daterangepicker -->
     <link href="../../public/gente/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
@@ -73,7 +75,6 @@
               <div class="menu_section">
                 <h3>General</h3>
                 <ul class="nav side-menu">
-
                   <li class="nav-item">
                         <a href="{{route('inicio.inicio')}}" class="nav-link">
                           <i class="fa fa-home"></i>INICIO
@@ -93,11 +94,13 @@
                   </li>
                   <li><a><i class="fa fa-table"></i> ATENCION MEDICA<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
+                      <li><a href="{{route('atencion.index')}}">Atencion</a></li>
                       <li><a href="{{route('atencionmedica.index')}}">Enfermedad</a></li>
 
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-dolly"></i> PRODUCTO <span class="fa fa-chevron-down"></span></a>
+                  
+                  <li><a><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> PRODUCTO <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="{{url('producto/producto')}}">Producto</a></li>
                       <li><a href="{{url('producto/categoria')}}">Categoria</a></li>

@@ -18,6 +18,7 @@ use App\Http\Controllers\venta1control;
 use App\Http\Controllers\detalleventacontrol;
 use App\Http\Controllers\serviciocontrol;
 use App\Http\Controllers\medicocontrol;
+use App\Http\Controllers\atencioncontrol;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -130,14 +131,18 @@ Route::get('ventas/detalleventa',[detalleventacontrol::class,'detalleventa'])->n
 //ruta para actualizar
 Route::post('ventas/detalleventa',[detalleventacontrol::class,'registrar'])->name('ventas.registrar');
 
-//------------------nuevas ventas-------------
+//------------------nuevas ventas------------- 
 Route::get('venta/index',[venta1control::class,'index'])->name('venta.index');
 Route::post('venta/index',[venta1control::class,'registrar'])->name('venta.registrar');
 Route::post('venta',[venta1control::class,'registrarnuevo'])->name('venta.nuevoproducto');
-Route::get('venta/lista/{id}',[venta1control::class,'listaproducto'])->name('venta.lista');
+Route::get('venta/ventaprod',[venta1control::class,'listaproducto'])->name('venta.lista');
+Route::get('venta/mostrar/{id}',[venta1control::class,'totalP'])->name('venta.totalimp');
+Route::get('venta/eliminar/{id}',[venta1control::class,'eliminar'])->name('venta.eliminar');
 
-//----
+//----..
 Route::get('venta/buscar',[venta1control::class,'ultimaventa'])->name('venta.ultimo');
+Route::get('venta',[venta1control::class,'codigo'])->name('venta.codigo');
+Route::get('venta/precio/{id}',[venta1control::class,'prod_precio'])->name('venta.precio');
 
 //----------------------------rutas para servicio---------------------------------------
 Route::get('servicios/index',[serviciocontrol::class,'index'])->name('servicios.index');
@@ -167,3 +172,8 @@ Route::get('medico/eliminar/{id}',[medicocontrol::class,'eliminar'])->name('medi
 Route::get('medico/editar/{id}',[medicocontrol::class,'editar'])->name('medico.editar');
 Route::post('medico/actualizar',[medicocontrol::class,'actualizar'])->name('medico.actualizar');
 
+//-----atencion--------
+Route::get('atencion/index',[atencioncontrol::class,'index'])->name('atencion.index');
+Route::post('atencion/index',[atencioncontrol::class,'registrar'])->name('atencion.registrar');
+Route::get('atencion/buscar',[atencioncontrol::class,'atencion'])->name('atencion.ultimo');
+Route::post('atencion',[atencioncontrol::class,'registrardetalle'])->name('servicio.nuevodetalle');

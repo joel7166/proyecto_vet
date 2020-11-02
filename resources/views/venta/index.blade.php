@@ -3,7 +3,7 @@
 @section('content')
 <!----todo codigo html------>
 <div class="row">
-    <div class="col-md-12 col-sm-12  ">
+    <div class="col-md-12 col-sm-12">
         <div class="x_panel">
         <div class="x_title">
             <h2>Ventas</h2>
@@ -17,49 +17,60 @@
             <div class="clearfix"></div>
         </div>
         <div class="x_content">
-            <div class="row">
-                <div class='col-sm-4'>
-                    Responsable
-                    <div class="form-group">
-                        <input type='text' class="form-control" id="txtnombre_usu" disabled />
+            <form  id="nueva-venta">
+                @csrf
+                <div class="row">
+                    <div class='col-sm-4'>
+                        Responsable
+                        <div class="form-group">
+                        <select class="mi-selector form-control col-sm-12" id="selecodusuario" name="selecodusuario" style="width: 100%;">
+                            <option value="0">--seleccione Usuario--</option>
+                            @foreach ($usuario as $usuario)
+                                <option value="{{$usuario['usu_id']}}">{{$usuario['usu_nombres']}}</option>
+                            @endforeach
+                        </select>
+                        </div>
+                    </div>
+                    <div class='col-sm-4'>
+                        Cliente
+                        <div class="form-group">
+                        <select class="mi-selector form-control" id="selecodpropietario" name="selecodpropietario" style="width: 100%;" onchange="venta();">
+                            <option value="0">--seleccione Cliente--</option>
+                            @foreach ($propietarios as $propietario)
+                                <option value="{{$propietario['pro_id']}}">{{$propietario['pro_nombre']}}</option>
+                            @endforeach
+                        </select>
+                        </div>
+                    </div>           
+                    <div class='col-sm-4'>
+                        Numero de Comprobante
+                        <div class="form-group">
+                            <input type='text' class="form-control" id="txtNumeroComprobante" name="txtNumeroComprobante" disabled />
+                        </div>
+                    </div>
+                    <div class='col-sm-4'>
+                        Tipo de Comprobante
+                        <div class="form-group">
+                            <select class="mi-selector form-control" id="txtTipoComprobante" name="txtTipoComprobante" style="width: 100%;" >
+                                <option value="0">--seleccione--</option>
+                                <option value="Factura">Factura</option>
+                                <option value="Boleta">Boleta</option>
+                            </select>
+                        </div>
+                    </div> 
+                    <div class='col-sm-4'>
+                        Fecha
+                        <div class="form-group">
+                            <input type='datetime' class="form-control" id="txtFecha" name="txtFecha" disabled />
+                        </div>
+                    </div>
                     </div>
                 </div>
-                <div class='col-sm-4'>
-                    Cliente
-                    <div class="form-group">
-                        <input type='text' class="form-control" id="txtnombre_cli" disabled />
-                    </div>
-                </div>           
-                <div class='col-sm-4'>
-                    Numero de Comprobante
-                    <div class="form-group">
-                        <input type='text' class="form-control"id="txtcombrobante" disabled />
-                    </div>
-                </div>  
-                <div class='col-sm-4'>
-                    Tipo de Comprobante
-                    <div class="form-group">
-                        <input type='text' class="form-control"  id="txtipo_comprobante" disabled />
-                    </div>
-                </div> 
-                <div class='col-sm-4'>
-                    Fecha
-                    <div class="form-group">
-                        <input type='datetime' class="form-control" id = "txtfecha" disabled />
-                    </div>
-                </div> 
-                <div class='col-sm-4'>
-                    Impuesto
-                    <div class="form-group">
-                        <input type='text' class="form-control"  id = "txtimpuesto" disabled/>
-                    </div>
-                </div> 
-
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
+
 <div class="row">
     <div class="col-md-12 col-sm-12  ">
     <div class="x_panel">
@@ -69,9 +80,9 @@
             <li>
                 <button class="btn btn-success" data-toggle="modal" data-target="#modalnuevoproducto"><i class="fa fa-plus-circle"></i>&nbsp;Agregar Producto</button>
             </li>
+            
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
-            
         </ul>
         <div class="clearfix"></div>
         </div>
@@ -84,6 +95,7 @@
                     <td>Cantidad</td>
                     <td>Precio Unitario</td>
                     <td>Descuento</td>
+                    <td>subtotal</td>
                     <td>Acciones</td>
                 </thead>
             </table>
@@ -94,16 +106,18 @@
                 <div class='col-sm-2'>
 
                     <div class="form-group">
-                    <label for="">Total </label>
-                    <input type="text" id="Total" class="form-control" disabled>
-                   
+                        <label for="">Impuesto</label>
+                        <input type="text" id="txtimpuesto" class="form-control" disabled>
                     </div>
                 </div> 
                 <div class="col-sm-2">
-                
+                    <div class="form-group">
+                        <label for="">Total</label>
+                        <input type="text" id="txttotal" class="form-control" disabled>
+                    </div>
                 </div>
                 <div class='col-sm-4'>
-
+                
                 </div>
                 <div class='col-sm-4'>
                     <br>
@@ -117,80 +131,6 @@
         
     </div>
     </div>
-</div>
-<!--nueva venta--->
-<div class="modal fade" id="modalnuevo"  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <form  id="nueva-venta">
-            @csrf
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">nueva Venta</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtCodigoUsuario">Responsable<span class="required">*</span></label>
-                            <div class="col-md-7 col-sm-7 ">
-                                <select class="mi-selector form-control" id="selecodusuario" name="selecodusuario">
-                                    <option value="0">--seleccione Usuario--</option>
-                                    @foreach ($usuario as $usuario)
-                                        <option value="{{$usuario['usu_id']}}">{{$usuario['usu_nombres']}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtCodigoPropietario">Cliente<span class="required">*</span></label>
-                            <div class="col-md-7 col-sm-7 ">
-                            <select class="mi-selector form-control" id="selecodpropietario" name="selecodpropietario">
-                                <option value="0">--seleccione Cliente--</option>
-                                @foreach ($propietarios as $propietario)
-                                    <option value="{{$propietario['pro_id']}}">{{$propietario['pro_nombre']}}</option>
-                                @endforeach
-                            </select>
-                            </div>
-
-                        </div>
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtNumeroComprobante">NumeroComprobante<span class="required">*</span></label>
-                            <div class="col-md-7 col-sm-7 ">
-                                <input type="text" class="form-control" id="txtNumeroComprobante" name="txtNumeroComprobante"  required>
-                        </div>
-
-                        </div>
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtTipoComprobante">TipoComprobante</label>
-                            <div class="col-md-7 col-sm-7 ">
-                                <input type="text" class="form-control" id="txtTipoComprobante" name="txtTipoComprobante" >
-                            </div>
-
-                        </div>
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="inputFecha">Fecha<span class="required">*</span></label>
-                            <div class="col-md-7 col-sm-7 ">
-                                <input type="datetime-local" class="form-control" id="txtFecha" name="txtFecha" required>
-                        </div>
-                        </div>
-                        <div class="item form-group">
-                            <label class="col-form-label col-md-3 col-sm-3 label-align" for="inputAddress2">Impuesto</label>
-                            <div class="col-md-7 col-sm-7 ">
-                                <input type="decimal" class="form-control" id="txtImpuesto" name="txtImpuesto"  value="0.18" >
-                            </div>
-
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" id="btnnuevo" name="btnnuevo" class="btn btn-primary">Generar Venta</button>
-                </div>
-            </div>
-
-        </form>
-
-      </div>
 </div>
 <!--agregar producto-->
 <div class="modal fade" id="modalnuevoproducto"  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -206,11 +146,10 @@
                 </div>
                 <div class="modal-body">
                     <input type="hidden" id="txtid_vent" name="txtid_vent">
-                    
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtCodigoPropietario">Producto<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 ">
-                        <select class="mi-selector form-control" id="selecodproducto" name="selecodproducto">
+                        <select class="mi-selector form-control" id="selecodproducto" name="selecodproducto" style="width: 100%;" onchange="prod_precio();">
                         <option value="0">--seleccione Producto--</option>
                             @foreach ($productos as $producto)
                                 <option value="{{$producto['prod_id']}}">{{$producto['prod_nombre']}}</option>
@@ -221,23 +160,21 @@
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtNumeroComprobante">Cantidad<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="text" class="form-control" id="txtcantidad" name="txtcantidad"  required>
+                            <input type="number" min="1" max="99" class="form-control" id="txtcantidad" name="txtcantidad" value="1" required>
                     </div>
-
                     </div>
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtTipoComprobante">PrecioVenta</label>
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtTipoComprobante">Precio Venta</label>
                         <div class="col-md-6 col-sm-6 ">
                             <input type="text" class="form-control" id="txtprecioventa" name="txtprecioventa" >
                         </div>
 
                     </div>
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="inputFecha">Descuento<span class="required">*</span></label>
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdescuento">Descuento<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 ">
                             <input type="text" class="form-control" id="txtdescuento" name="txtdescuento" required>
-                    </div>
-
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -247,13 +184,13 @@
             </div>
         </form>
 
-      </div>
+    </div>
 </div>
 
 <!--registrar nueva venta--->
 <script>
-    $('#nueva-venta').submit(function(e){
-        e.preventDefault();
+    function venta(){
+        
         var codusuario=$('#selecodusuario').val();
         var codpropietario=$('#selecodpropietario').val();
         var numerocomprobante=$('#txtNumeroComprobante').val();
@@ -277,37 +214,43 @@
             },
             success:function(response){
                 if(response){
-                    $('#nueva-venta')[0].reset();
-                   $('#modalnuevo').modal('hide');
-                    
-                    
-                   toastr.success('La venta se genero correctamente.','nueva venta',{timeout:3000});
-                    //$('#tabla-venta').DataTable().ajax.reload();
+                    ventaid();
                 }
             }
         });
-    });
-</script>
-<script>
-    function listaproductos(){
-      ven_id=$('#txtid_vent').val();
-        var tablaventa=$('#tabla-propietario').DataTable({
-                processing:true,
-                serverSide:true,
-                ajax:{
-                    url:"../venta/lista/"+ven_id,
-                },
-                columns:[
-                    {data:'ven_id'},
-                    {data:'prod_nombre'},
-                    {data:'detv_cantidad'},
-                    {data:'detv_precio_venta'},
-                    {data:'detv_descuento'},
-                    {data:'action',orderable:false}
-                ]
+        setTimeout(function(){
+            codigofecha();
+            $("#tabla-venta").dataTable().fnDestroy();
+            var tablaventa=$('#tabla-venta').DataTable({
+            processing:true,
+            serverSide:true,
+           ajax:{            
+            url:"{{route('venta.lista')}}",
+          },
+          columns:[
+            {data:'prod_id'},
+            {data:'prod_nombre'},
+            {data:'detv_cantidad'},
+            {data:'prod_preciou'},
+            {data:'detv_descuento'},
+            {data:'detv_precio_venta'},
+            {data:'action',orderable:false}
+             ]
             });
+            
+        },2000);
+
+    }
+    function ventaid(){
+        $.get('../venta/buscar',function(venta){
+            //asignar los datos recuperados
+            $('#txtid_vent').val(venta[0].ven_id);
+
+            
+        });
     }
 </script>
+
 
 <!--agregar producto-->
 <script>
@@ -332,23 +275,32 @@
             },
             success:function(response){
                 if(response){
-                    $('#agregar-producto')[0].reset();
+                   // $('#agregar-producto')[0].reset();
                     $('#modalnuevoproducto').modal('hide');
-                    
-                  toastr.success('El registro se ingreso correctamente.','nuevo registro',{timeout:3000});
-                    //$('#tabla-detalle_venta').DataTable().ajax.reload();
-                    
-
+                  //toastr.success('El registro se ingreso correctamente.','nuevo registro',{timeout:3000});
+                  $('#tabla-venta').DataTable().ajax.reload();
                 }
             }
-            
         });
-        listaproductos();
+        setTimeout(function(){
+            totalImp();
+        },1000);
+    
     });
+
+    function totalImp(){
+        var idven= $('#txtid_vent').val();
+        $.get('../venta/mostrar/'+idven,function(venta){
+        //asignar los datos recuperados
+        $('#txtimpuesto').val(venta[0].impuesto);
+        $('#txttotal').val(venta[0].total);
+        });
+    }
 </script>
 <!--mostrar venta producto-->
 <script>
     function nuevaventa(){
+        
         $.get('../venta/buscar',function(venta){
         //asignar los datos recuperados
         $('#txtid_vent').val(venta[0].ven_id);
@@ -360,8 +312,11 @@
         $('#txtimpuesto').val(venta[0].ven_impuesto);
         $("input[name=_token]").val();      
         });
+         //id=$('#txtid_vent').val();
     }
-
+</script>
+<!--selector buscar--->
+<script>
     jQuery(document).ready(function($){
     $(document).ready(function() {
         $('.mi-selector').select2();
@@ -369,5 +324,51 @@
     });
 </script>
 
+<!--num comprobante y fecha-->
+<script>
+function codigofecha(){
+
+    $.ajax({
+        url: "{{route('venta.codigo')}}",
+        datatype:'json',
+        success:function(codigo){
+            $('#txtNumeroComprobante').val(codigo[0].num);
+            $('#txtFecha').val(codigo[0].fecha);
+            $('#txtimpuesto').val("0");
+            $('#txttotal').val("0");
+        }
+    })
+}
+    
+</script>
+<!--precioProd-->
+<script>
+ function prod_precio(){
+    var id_prod1 = $('#selecodproducto').val();
+        $.get('../venta/precio/'+id_prod1,function(precioprod){
+            //asignar los datos recuperados
+            $('#txtprecioventa').val(precioprod[0].prod_preciou);
+        });
+    }
+</script>
+<!--eliminar venta prod-->
+<script>
+    var detv_id;
+    $(document).on('click','.delete',function(){
+        detv_id=$(this).attr('id');
+
+        $.ajax({
+            url:"../venta/eliminar/"+detv_id,
+            success:function(data){
+                setTimeout(function(){
+                    $('#tabla-venta').DataTable().ajax.reload();
+
+                    totalImp();
+                },1000);
+                
+            }
+        });
+    });
+</script>
 
 @endsection

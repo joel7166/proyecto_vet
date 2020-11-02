@@ -350,7 +350,7 @@
 
 //buscar propietario
     function buscarpropietario(){
-         var dni;
+        var dni;
         dni=$('#txtdni').val();
 
         $.get('../mascota/buscar/'+dni,function(propietario){

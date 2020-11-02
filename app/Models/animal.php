@@ -12,7 +12,7 @@ class animal extends Model
 {
    protected $table="animal";
 
-   protected $fillable=['pro_id','ani_nombre',
+   protected $fillable=['ani_id','pro_id','ani_nombre',
    'ani_especie','ani_raza','ani_color',
    'ani_fecha_nacimiento','ani_genero'];
 

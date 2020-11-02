@@ -26,9 +26,6 @@
                          <td>Impuesto</td>
                          <td>total</td>
                          <td>acciones</td>
-
-
-
                      </thead>
                  </table>
              </div>

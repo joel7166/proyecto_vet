@@ -14,7 +14,7 @@ class servicio extends Model
 {
     protected $table="servicios";
     protected $fillable=[
-     'ser_nombre','ser_precio'
+     'ser_id','ser_nombre','ser_precio'
     ];
     public $timestamps=false;
 

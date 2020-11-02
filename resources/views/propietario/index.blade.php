@@ -5,18 +5,21 @@
 <!----todo codigo html------>
 <div class="container">
    <br>
-        <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-              <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Propietarios</a>
-            </li>
-            <li class="nav-item" role="presentation">
-              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Nuevo</a>
-            </li>
+   
+            <ul class="nav nav-tabs bar_tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Propietarios</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Nuevo</a>
+                </li>
           </ul>
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
                 <h3>Propietarios</h3>
+                <button type="button" class="btn btn-success" aria-label="Left Align">
+                <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+                </button>
                 <table id="tabla-propietario" class="table table-hover">
                     <thead>
                         <td>DNI</td>
@@ -252,7 +255,6 @@
                             $('#confimodal').modal('hide');
                             toastr.warning('El registro fue eliminado correctamente.','Eliminar Registro',{timeout:30});
                             $('#tabla-propietario').DataTable().ajax.reload();
-
                         },2000);
                         $('#btnEliminar').text('Eliminar');
                     }
@@ -264,6 +266,7 @@
 <!--editar-->
 <script>
     function editarpropietario(id){
+
         $.get('../propietario/editar/'+id,function(propietario){
             //asignar los datos recuperados
 
@@ -312,13 +315,7 @@
             success:function(response){
                 if(response){
                     $('#propietario_edit_modal').modal('hide');
-                   /* Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Registro Actualizado Correctamente',
-                    showConfirmButton: false,
-                    timer: 3000
-                    });*/
+                   
                     toastr.info('El registro fue actualizado correctamente.','Actualizar Registro',{timeout:3000});
                     $('#tabla-propietario').DataTable().ajax.reload();
 

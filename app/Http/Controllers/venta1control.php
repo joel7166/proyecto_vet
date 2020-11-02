@@ -43,10 +43,7 @@ class venta1control extends Controller
 
         return view('usuario.editar');
     }
-    public function eliminar($usu_id){
-        $usuarios=DB::select('CALL sp_eliminarusuario(?)',[$usu_id]);
-    }
-
+    
     public function registrar(Request $request){
 
         //llamar al procedimiento almacenado
@@ -80,7 +77,6 @@ class venta1control extends Controller
 
         return back();
     }
-    
     public function registrarnuevo(Request $request){
 
         //llamar al procedimiento almacenado
@@ -92,22 +88,45 @@ class venta1control extends Controller
 
     }
     public function ultimaventa(){
-        $venta = DB::select('call ultima_venta()');
-        return response()->json($venta);
+        //$venta = DB::select('call ultima_venta()');
+        $venta = DB::select("select max(ven_id) as ven_id from venta");
+        return $venta;
     }
-    public function listaproducto(Request $request,$id){
-        if($request -> ajax()){
-            $ventaproducto=DB::select('CALL sp_ventaproducto(?)',[$id]);
+    public function listaproducto(Request $request){
+        if($request->Ajax()){
+            $ventaproducto=DB::select('CALL sp_ventaproducto()');
             return DataTables()::of($ventaproducto)
                    ->addColumn('action',function($ventaproducto){
-                       $acciones='<a href="#" class="btn btn-info btn-sm">Editar</a>';
-                       $acciones.='&nbsp;<button type="button" class=" delete btn btn-danger btn-sm">Eliminar</button>';
+                       $acciones='<button type="button" name="delete" id="'.$ventaproducto->detv_id.'" class=" delete btn btn-danger btn-sm">
+                       eliminar
+                       </button>';
                        return $acciones;
                    })
                    ->rawColumns(['action'])
                    ->make(true);
+        
         }
-            return view('venta.index');
+        return view('venta.index');
+    }
+
+    public function codigo(){
+        $codigo= DB::select("select max(ven_numero_comprobante)+1 as num, now() as fecha
+        from venta" );
+        return $codigo;
+        
+    }
+    public function prod_precio($id){
+        $precioprod= DB::select("select prod_preciou from producto where prod_id='$id'");
+        return response()->json($precioprod);
+    }
+    
+    public function totalP($id){
+        $venta= DB::select("select ven_total_venta as total, ven_impuesto as impuesto
+                             from venta where ven_id='$id'");
+        return response()->json($venta);
+    }
+    public function eliminar($id){
+        $ventas=DB::select('CALL sp_eliminardetventa(?)',[$id]);
     }
 
 }

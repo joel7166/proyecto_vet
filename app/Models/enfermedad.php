@@ -8,13 +8,11 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\database\Eloquent\Model;
 
-class medico extends Model
+class enfermedad extends Model
 {
-   protected $table="medico";
+   protected $table="enfermedades";
 
-   protected $fillable=['med_id','med_dni','med_nombre',
-   'med_apellidos','med_telefono','med_email',
-   'med_genero','med_fecha_nacimiento'];
+   protected $fillable=['enf_id','enf_nomre','enf_descripcion'];
 
    public $timestamps=false;
 }
