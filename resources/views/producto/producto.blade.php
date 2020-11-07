@@ -59,8 +59,15 @@
                     <div class="col-md-6 col-sm-6 ">
 
                     <input type="text" class="form-control" id="txtnombre" name="txtnombre" placeholder="Ingrese Nombre">
+                    </div>
                 </div>
-            </div>
+                <div class="item form-group">
+                    <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtprecio">Precio<span class="required">*</span></label>
+                    <div class="col-md-6 col-sm-6 ">
+
+                    <input type="text" class="form-control" id="txtprecio1" name="txtprecio1" placeholder="Ingrese Precio">
+                    </div>
+                </div>
 
                 <div class="item form-group">
                     <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtcodigo">Stock<span class="required">*</span></label>
@@ -126,7 +133,10 @@
                 <label for="inputAddress2">Nombre</label>
                 <input type="text" class="form-control" id="txtnombre2" name="txtnombre2" placeholder="Ingrese Nombre">
             </div>
-
+            <div class="form-group">
+                <label for="precio">Precio</label>
+                <input type="numeric" class="form-control" id="txtprecio" name="txtprecio" placeholder="Ingrese precio del producto">
+            </div>
             <div class="form-group">
                 <label for="inputAddress2">Stock</label>
                 <input type="numeric" class="form-control" id="txtstock2" name="txtstock2" placeholder="Ingrese Stock">
@@ -209,6 +219,7 @@
         var codigo=$('#txtcodigo').val();
         var nombre=$('#txtnombre').val();
         var stock=$('#txtstock').val();
+        var precio=$('#txtprecio1').val();
         var descripcion=$('#txtdescripcion').val();
         var _token=$("input[name=_token]").val();
 
@@ -220,6 +231,7 @@
                 prod_codigo:codigo,
                 prod_nombre:nombre,
                 prod_stock:stock,
+                precio:precio,
                 prod_descripcion:descripcion,
 
               _token:_token
@@ -278,6 +290,7 @@
             $('#txtnombre2').val(producto[0].prod_nombre);
             $('#txtstock2').val(producto[0].prod_stock);
             $('#txtdescripcion2').val(producto[0].prod_descripcion);
+            $('#txtprecio').val(producto[0].prod_preciou);
             $("input[name=_token]").val();
 
             $('#producto_edit_modal').modal('toggle');
@@ -297,7 +310,7 @@
         var nombre2=$('#txtnombre2').val();
         var stock2=$('#txtstock2').val();
         var descripcion2=$('#txtdescripcion2').val();
-
+        var precio2=$('#precio').val();
         var _token2=$("input[name=_token]").val();
         $.ajax({
             url:"{{route('producto.actualizar')}}",
@@ -309,6 +322,7 @@
                 prod_nombre:nombre2,
                 prod_stock:stock2,
                 prod_descripcion:descripcion2,
+                precio:precio2,
                 _token: _token2
             },
             success:function(response){

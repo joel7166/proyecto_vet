@@ -19,6 +19,7 @@ use App\Http\Controllers\detalleventacontrol;
 use App\Http\Controllers\serviciocontrol;
 use App\Http\Controllers\medicocontrol;
 use App\Http\Controllers\atencioncontrol;
+use App\Http\Controllers\reportecontrol;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -143,7 +144,8 @@ Route::get('venta/eliminar/{id}',[venta1control::class,'eliminar'])->name('venta
 Route::get('venta/buscar',[venta1control::class,'ultimaventa'])->name('venta.ultimo');
 Route::get('venta',[venta1control::class,'codigo'])->name('venta.codigo');
 Route::get('venta/precio/{id}',[venta1control::class,'prod_precio'])->name('venta.precio');
-
+Route::get('venta/boleta/{id}',[venta1control::class,'boleta'])->name('venta.boleta');
+Route::get('venta/boleta1',[venta1control::class,'lista'])->name('venta.boleta');
 //----------------------------rutas para servicio---------------------------------------
 Route::get('servicios/index',[serviciocontrol::class,'index'])->name('servicios.index');
 //ruta para actualizar
@@ -154,6 +156,7 @@ Route::get('servicios/eliminar/{id}',[serviciocontrol::class,'eliminar'])->name(
 Route::get('servicios/editar/{id}',[serviciocontrol::class,'editar'])->name('servicios.editar');
 //ruta de actualizar  datos
 Route::post('servicios/actualizar',[serviciocontrol::class,'actualizar'])->name('servicios.actualizar');
+//--
 
 //----------------------------rutas para atencion medica---------------------------------------
 Route::get('atencionmedica/index',[atencionmedicacontrol::class,'index'])->name('atencionmedica.index');
@@ -167,13 +170,31 @@ Route::get('atencionmedica/editar/{id}',[atencionmedicacontrol::class,'editar'])
 Route::post('atencionmedica/actualizar',[atencionmedicacontrol::class,'actualizar'])->name('atencionmedica.actualizar');
 //----RUTAS PARA MEDICO---
 Route::get('medico/index',[medicocontrol::class,'index'])->name('medico.index');
-Route::post('medico/registrar',[medicocontrol::class,'registrar'])->name('medico.registrar');
+Route::post('medico',[medicocontrol::class,'registrar'])->name('medico.registrar');
 Route::get('medico/eliminar/{id}',[medicocontrol::class,'eliminar'])->name('medico.eliminar');
 Route::get('medico/editar/{id}',[medicocontrol::class,'editar'])->name('medico.editar');
 Route::post('medico/actualizar',[medicocontrol::class,'actualizar'])->name('medico.actualizar');
 
 //-----atencion--------
+
 Route::get('atencion/index',[atencioncontrol::class,'index'])->name('atencion.index');
 Route::post('atencion/index',[atencioncontrol::class,'registrar'])->name('atencion.registrar');
 Route::get('atencion/buscar',[atencioncontrol::class,'atencion'])->name('atencion.ultimo');
 Route::post('atencion',[atencioncontrol::class,'registrardetalle'])->name('servicio.nuevodetalle');
+
+Route::get('atencion/fecha',[atencioncontrol::class,'fecha'])->name('atencion.fecha');
+Route::get('atencion/detv',[atencioncontrol::class,'listaserv'])->name('atencion.lista');
+Route::get('atencion/eliminar/{id}',[atencioncontrol::class,'eliminar'])->name('atencion.eliminar');
+
+Route::get('atencion/servicio/{id}',[atencioncontrol::class,'serv_precio'])->name('atencion.servicio');
+Route::get('atencion/boleta/{id}',[atencioncontrol::class,'servBoleta'])->name('atencion.servicio');
+Route::get('atencion',[atencioncontrol::class,'lista'])->name('servicio.boleta');
+
+//Reportes---Ventas---Atecion---
+
+Route::get('reporte/index',[reportecontrol::class,'index'])->name('reporte.index');
+Route::get('reporte',[reportecontrol::class,'lista1'])->name('reporte.atencion');
+Route::get('reporte/venta/{id}',[reportecontrol::class,'detalle_venta'])->name('venta.detalle');
+Route::get('reporte/lista_ventas/{id}',[reportecontrol::class,'detalle_venta_lista'])->name('venta.detalleLista');
+Route::get('detalle/atencion/{id}',[reportecontrol::class,'detalle_atencion'])->name('reporte.detAtencion');
+Route::get('reporte/detAtencion/{id}',[reportecontrol::class,'detalle_atencion_lista'])->name('reporte.detAtencionLista');

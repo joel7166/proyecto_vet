@@ -17,9 +17,7 @@
           <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <h3>Propietarios</h3>
-                <button type="button" class="btn btn-success" aria-label="Left Align">
-                <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
-                </button>
+                <br>
                 <table id="tabla-propietario" class="table table-hover">
                     <thead>
                         <td>DNI</td>
@@ -244,6 +242,7 @@
 
 
             });
+            
             $('#btnEliminar').click(function(){
                 $.ajax({
                     url:"../propietario/eliminar/"+pro_id,

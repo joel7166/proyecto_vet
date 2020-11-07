@@ -126,7 +126,7 @@
                   </li>
                   <li><a><i class="fa fa-bar-chart-o"></i>REPORTE <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Reporte</a></li>
+                      <li><a href="{{route('reporte.index')}}">Reportes</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -186,11 +186,11 @@
                       <a class="dropdown-item">
                         <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                         <span>
-                          <span>John Smith</span>
-                          <span class="time">3 mins ago</span>
+                          <span>Usuario</span>
+                          <span class="time">nuevo</span>
                         </span>
                         <span class="message">
-                          Film festivals used to be do-or-die moments for movie makers. They were where...
+                          un nuevo mensaje 
                         </span>
                       </a>
                     </li>
@@ -271,7 +271,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            Sistema_vet - todos los derechos reservados-2020 <a href="#">informacion</a>
           </div>
           <div class="clearfix"></div>
         </footer>

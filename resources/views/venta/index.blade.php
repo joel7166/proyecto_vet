@@ -8,9 +8,6 @@
         <div class="x_title">
             <h2>Ventas</h2>
             <ul class="nav navbar-right panel_toolbox">
-                <li>
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#modalnuevo"><i class="fa fa-plus-circle"></i>&nbsp;Nueva Venta</button>
-                </li>
                 <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                 </li>
             </ul>
@@ -122,8 +119,10 @@
                 <div class='col-sm-4'>
                     <br>
                     <br>
-                    <button type="buttton" class="btn btn-info" >Generar Boleta</button>
-                    <button type="buttton" class="btn btn-success" >Generar Factura</button>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><button type="buttton" id= "btnboleta"class="btnboleta btn btn-info"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;Pagar</button></li>
+                    </ul>
+                    
                 </div>
             </div>
                     
@@ -158,22 +157,22 @@
                         </div>
                     </div>
                     <div class="item form-group">
-                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtNumeroComprobante">Cantidad<span class="required">*</span></label>
+                        <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtcantidad">Cantidad<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 ">
                             <input type="number" min="1" max="99" class="form-control" id="txtcantidad" name="txtcantidad" value="1" required>
-                    </div>
+                        </div>
                     </div>
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtTipoComprobante">Precio Venta</label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="text" class="form-control" id="txtprecioventa" name="txtprecioventa" >
+                            <input type="text" class="form-control" id="txtprecioventa" name="txtprecioventa"  disabled>
                         </div>
 
                     </div>
                     <div class="item form-group">
                         <label class="col-form-label col-md-3 col-sm-3 label-align" for="txtdescuento">Descuento<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 ">
-                            <input type="text" class="form-control" id="txtdescuento" name="txtdescuento" required>
+                            <input type="text" class="form-control" id="txtdescuento" name="txtdescuento" value="0">
                         </div>
                     </div>
                 </div>
@@ -186,40 +185,149 @@
 
     </div>
 </div>
+<!--Detalles de venta-->
+<div class="modal fade bs-example-modal-lg" id="boleta" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+        <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel"></h4>
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-2" style="width:50px; border-color:#ffffff" >  </div>
+                <div class="col-6" style="width:50px; border-color:#ffffff" >
+                    <div class="text-center">
+                        <h2>Clinica Veterinaria</h2>
+                        <h1>Paraiso Animal <span>S.A</span></h1>
+                        <p>Ubicanos En la av. Union por el Peru s/n </p>
+                        <p>Atencion de Lunes a Sabados</p>
+                        <p> 7 a 8 pm</p>
+                    </div>
+                    
+                </div>
+                <div class="col-4"  >
+                    <div class="text-center" style="border-radius: 5px; border: black 3px solid;">
+                        <h5><p>Ruc<span>-015555578975</span></p></h5>
+                        <input type="text" id="txtbtipo" style="color:black; whith:20px," disabled>
+                        <label >Numero Comprobante</label>
+                        <input type="text" value="012416644619" id= "txtbcomprobante" style="color:black; whith:20px" disabled>
+                        <br><br>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="row">
+                <br>
+                <br><br>
+                
+                <div class="col-8">
+                    <div class="text-inline">
+                        <label for="">Señor(es):</label>
+                        &nbsp; &nbsp; &nbsp;
+                        <input type="text" value="Joel Quispe Ñahui" class="form-control" id="txtbnombre" disabled>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="text-inline">
+                        <label for=""> hora y fecha</label>
+                        &nbsp;
+                        <input type="datetime" value="20/03/2016"  class="form-control" id="txtbfecha" disabled>
+                    </div>
+                </div>  
+                <div class="col-8">
+                    <div class="text-inline">
+                            <label for="">Direccion :</label>
+                            &nbsp; &nbsp;
+                            <input type="text" value="Jr. las rosas" id="txtbdireccion" class="form-control" disabled>
+                    </div>
+                    <br>
+                    <br>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class = "col-12">
+                    <table  id= "tabla-boleta" class="table table-bordered">
+                        <thead>
+                            <td>Nombre Producto</td>
+                            <td>Cantidad</td>
+                            <td>Precio Unitario</td>
+                            <td>Descuento</td>
+                            <td>subtotal</td>
+                        </thead>
+                        
+                    </table>
+                    <br>
+                    <br>
+                </div>
+                <div class="ln_solid"></div>
+                <div class="col-6">
+                    <div class="item form-group">
+                        <label for="" class="col-form-label col-md-3 col-sm-3 label-align">Impuesto</label>
+                        
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text"   class="form-control" id="txtbimpuesto" value="0" disabled>
+                        </div>
+                    </div>
+                    
+                    <div class="item form-group">
+                        <label for="" class="col-form-label col-md-3 col-sm-3 label-align">total</label>
+                        
+                        <div class="col-md-6 col-sm-6 ">
+                            <input type="text"   class="form-control" id="txtbtotal" value="0" disabled>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary">Imprimir</button>
+        </div>
+
+        </div>
+    </div>
+</div>
 
 <!--registrar nueva venta--->
 <script>
     function venta(){
-        
-        var codusuario=$('#selecodusuario').val();
-        var codpropietario=$('#selecodpropietario').val();
-        var numerocomprobante=$('#txtNumeroComprobante').val();
-        var tipocomprobante=$('#txtTipoComprobante').val();
-        var fecha=$('#txtFecha').val();
-        var impuesto=$('#txtImpuesto').val();
-        var total=$('#txtTotalVenta').val();
-        var _token=$("input[name=_token]").val();
-        $.ajax({
-            url:"{{route('venta.registrar')}}",
-            type:"POST",
-            data:{
-                usu_id:codusuario,
-                pro_id:codpropietario,
-                ven_numero_comprobante:numerocomprobante,
-                ven_tipo_comprobante:tipocomprobante,
-                ven_fecha_hora:fecha,
-                ven_impuesto:impuesto,
-                ven_total_venta:total,
-                _token:_token
-            },
-            success:function(response){
-                if(response){
-                    ventaid();
-                }
-            }
-        });
+
+        codigofecha();
         setTimeout(function(){
-            codigofecha();
+            var codusuario=$('#selecodusuario').val();
+            var codpropietario=$('#selecodpropietario').val();
+            var numerocomprobante=$('#txtNumeroComprobante').val();
+            var tipocomprobante=$('#txtTipoComprobante').val();
+            var fecha=$('#txtFecha').val();
+            var impuesto=$('#txtImpuesto').val();
+            var total=$('#txtTotalVenta').val();
+            var _token=$("input[name=_token]").val();
+            $.ajax({
+                url:"{{route('venta.registrar')}}",
+                type:"POST",
+                data:{
+                    usu_id:codusuario,
+                    pro_id:codpropietario,
+                    ven_numero_comprobante:numerocomprobante,
+                    ven_tipo_comprobante:tipocomprobante,
+                    ven_fecha_hora:fecha,
+                    ven_impuesto:impuesto,
+                    ven_total_venta:total,
+                    _token:_token
+                },
+                success:function(response){
+                    if(response){
+                        ventaid();
+                    }
+                }
+            });
+         },2000);
+        setTimeout(function(){
+            
             $("#tabla-venta").dataTable().fnDestroy();
             var tablaventa=$('#tabla-venta').DataTable({
             processing:true,
@@ -237,7 +345,7 @@
             {data:'action',orderable:false}
              ]
             });
-            
+
         },2000);
 
     }
@@ -245,14 +353,13 @@
         $.get('../venta/buscar',function(venta){
             //asignar los datos recuperados
             $('#txtid_vent').val(venta[0].ven_id);
-
-            
         });
     }
 </script>
 
 
 <!--agregar producto-->
+
 <script>
     $('#agregar-producto').submit(function(e){
         e.preventDefault();
@@ -275,9 +382,9 @@
             },
             success:function(response){
                 if(response){
-                   // $('#agregar-producto')[0].reset();
+                   
                     $('#modalnuevoproducto').modal('hide');
-                  //toastr.success('El registro se ingreso correctamente.','nuevo registro',{timeout:3000});
+                  
                   $('#tabla-venta').DataTable().ajax.reload();
                 }
             }
@@ -291,7 +398,7 @@
     function totalImp(){
         var idven= $('#txtid_vent').val();
         $.get('../venta/mostrar/'+idven,function(venta){
-        //asignar los datos recuperados
+        
         $('#txtimpuesto').val(venta[0].impuesto);
         $('#txttotal').val(venta[0].total);
         });
@@ -302,7 +409,7 @@
     function nuevaventa(){
         
         $.get('../venta/buscar',function(venta){
-        //asignar los datos recuperados
+        
         $('#txtid_vent').val(venta[0].ven_id);
         $('#txtnombre_usu').val(venta[0].usu_nombres);
         $('#txtnombre_cli').val(venta[0].pro_nombre);
@@ -312,7 +419,7 @@
         $('#txtimpuesto').val(venta[0].ven_impuesto);
         $("input[name=_token]").val();      
         });
-         //id=$('#txtid_vent').val();
+        
     }
 </script>
 <!--selector buscar--->
@@ -326,19 +433,18 @@
 
 <!--num comprobante y fecha-->
 <script>
-function codigofecha(){
-
-    $.ajax({
-        url: "{{route('venta.codigo')}}",
-        datatype:'json',
-        success:function(codigo){
-            $('#txtNumeroComprobante').val(codigo[0].num);
-            $('#txtFecha').val(codigo[0].fecha);
-            $('#txtimpuesto').val("0");
-            $('#txttotal').val("0");
-        }
-    })
-}
+    function codigofecha(){
+        $.ajax({
+            url: "{{route('venta.codigo')}}",
+            datatype:'json',
+            success:function(codigo){
+                $('#txtNumeroComprobante').val(codigo[0].num);
+                $('#txtFecha').val(codigo[0].fecha);
+                $('#txtimpuesto').val("0");
+                $('#txttotal').val("0");
+            }
+        })
+    }
     
 </script>
 <!--precioProd-->
@@ -346,29 +452,69 @@ function codigofecha(){
  function prod_precio(){
     var id_prod1 = $('#selecodproducto').val();
         $.get('../venta/precio/'+id_prod1,function(precioprod){
-            //asignar los datos recuperados
+            
             $('#txtprecioventa').val(precioprod[0].prod_preciou);
         });
     }
 </script>
+
 <!--eliminar venta prod-->
+
 <script>
     var detv_id;
     $(document).on('click','.delete',function(){
         detv_id=$(this).attr('id');
-
         $.ajax({
             url:"../venta/eliminar/"+detv_id,
             success:function(data){
                 setTimeout(function(){
                     $('#tabla-venta').DataTable().ajax.reload();
-
                     totalImp();
                 },1000);
                 
             }
         });
     });
-</script>
 
+</script>
+<script>
+    $('#btnboleta').click(function(){
+        
+        var id_vent=$('#txtid_vent').val();
+        $.get('../venta/boleta/'+id_vent,function(boleta){
+            //asignar los datos recuperados
+           
+            $('#txtbnombre').val(boleta[0].nombres);
+            $('#txtbfecha').val(boleta[0].ven_fecha_hora);
+            $('#txtbdireccion').val(boleta[0].direccion);
+            $('#txtbimpuesto').val(boleta[0].ven_impuesto);
+            $('#txtbcomprobante').val(boleta[0].ven_numero_comprobante);
+            $('#txtbtotal').val(boleta[0].ven_total_venta);
+            $('#txtbtipo').val(boleta[0].ven_tipo_comprobante);
+            $('#boleta').modal('toggle');
+        });
+
+         $("#tabla-boleta").dataTable().fnDestroy();
+        var tabla=$('#tabla-boleta').DataTable({
+            processing:true,
+            serverSide:true,
+            bPaginate:false,
+            bFilter:false,
+            bInfo:false,
+           ajax:{            
+            url:"{{route('venta.boleta')}}",
+          },
+          columns:[
+            
+            {data:'prod_nombre'},
+            {data:'detv_cantidad'},
+            {data:'prod_preciou'},
+            {data:'detv_descuento'},
+            {data:'detv_precio_venta'},
+            
+             ]
+        });
+    
+});
+</script>
 @endsection

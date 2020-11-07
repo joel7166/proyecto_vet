@@ -150,7 +150,7 @@
 
                         <div class="form-group">
                             <label for="txtpropietario">Dni Propietario</label>
-                            <input type="text" class="form-control" id="txtpropietario" placeholder="" name="txtpropietario">
+                            <input type="text" class="form-control" id="txtpropietario" placeholder="" name="txtpropietario" disabled>
                         </div>
 
                         <div class="form-group">
@@ -307,25 +307,7 @@
 </div>
 
 <script>
-    /* function lista(id){
-            var tablaanimal=$('#tabla-animal').DataTable({
-                processing:true,
-                serverSide:true,
-
-                ajax:{
-                    url:'../mascota/lista/'+id,
-                },
-                columns:[
-                    {data:'ani_nombre'},
-                    {data:'ani_especie'},
-                    {data:'ani_raza'},
-                    {data:'ani_color'},
-                    {data:'edad'},
-                    {data:'ani_genero'},
-                    {data:'action',orderable:false}
-                ]
-            });
-    }*/
+   
     /*lista de animales*/
     $(document).ready(function(){
         var tablaanimal=$('#tabla-animal').DataTable({
@@ -357,6 +339,7 @@
         //asignar los datos recuperados
         $('#txtId2').val(propietario[0].pro_id);
         $('#txtdni2').val(propietario[0].pro_dni);
+        $('#txtpropietario').val(propietario[0].pro_dni);
         $('#txtnombre2').val(propietario[0].pro_nombre);
         $('#txtapellidos2').val(propietario[0].pro_apellidos);
         $('#txtcelular2').val(propietario[0].pro_telefono);

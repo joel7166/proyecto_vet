@@ -34,8 +34,8 @@ class productocontrol extends Controller
  public function registrar(Request $request){
 
     //llamar al procedimiento almacenado
-    $producto=DB::select('call registar_producto(?,?,?,?,?)',
-    [$request->catp_id,$request->prod_codigo,$request->prod_nombre,$request->prod_stock,$request->prod_descripcion]);
+    $producto=DB::select('call registar_producto(?,?,?,?,?,?)',
+    [$request->catp_id,$request->prod_codigo,$request->prod_nombre,$request->prod_stock,$request->prod_descripcion,$request->precio]);
 
     return back();
 
@@ -50,9 +50,9 @@ public function editar($id){
     return response()->json($producto);
   }
   public function actualizar(Request $request){
-    $producto=DB::select('call actualizar_producto(?,?,?,?,?,?)',
+    $producto=DB::select('call actualizar_producto(?,?,?,?,?,?,?)',
     [$request->prod_id, $request->catp_id,$request->prod_codigo,$request->prod_nombre,
-    $request->prod_stock,$request->prod_descripcion]);
+    $request->prod_stock,$request->prod_descripcion,$request->precio]);
     return back();
 
 }
